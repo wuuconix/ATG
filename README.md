@@ -1,6 +1,6 @@
 # ATG
 
-attack graph in browser
+attack graph in browser using [mermaid](https://github.com/mermaid-js/mermaid)
 
 ```
 graph TD
