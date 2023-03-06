@@ -1,32 +1,54 @@
-import mermaid from './mermaid.min.mjs'
+import go from "./node_modules/gojs/release/go-debug.mjs"
+// import go from "gojs"
 
-document.querySelector("pre").innerHTML = `
-  graph TD
-  A(("IIS_bof(0, 0)"))
-  G(("squid_port_scan\n(0, 3)"))
-  H(("LICQ_remote_to_\nuser(0, 3)"))
-  F(("local_setuid_bo\nf(3, 3)"))
-  c1["User(0)"]
-  c2["IIS(0)"]
-  c3["Root(0)"]
-  c4["squid proxy(0, 3)"]
-  c5["LICQ_port(0, 3)"]
-  c6["LICQ(0, 3)"]
-  c7["User(3)"]
-  c8["Root(3)"]
-  c1 --> A
-  c2 --> A
-  A --> c3
-  c3 --> G
-  c4 --> G
-  G --> c5
-  c5 --> H
-  c6 --> H
-  H --> c7
-  c7 --> F
-  F --> c8
-`
+const $ = go.GraphObject.make
 
-document.addEventListener("load", () => {
-  mermaid.initialize({ startOnLoad: true })
-})
+const atg = new go.Diagram("atg")
+
+atg.nodeTemplate = $(go.Node, "Auto",
+  $(go.TextBlock, 
+    { margin: 5 },
+    new go.Binding("text", "text")
+  )
+)
+
+atg.nodeTemplateMap.add("exploit",
+  $(go.Node, "Auto",
+    $(go.Shape, "Circle", { fill: "#e3f0f5" }),
+    $(go.TextBlock, 
+      { margin: 5, width: 96, textAlign: "center" },
+      new go.Binding("text", "text")
+    )
+  )
+)
+
+const nodeDataArray = [
+  { key: 0, text: "User(0)" },
+  { key: 1, text: "IIS(0)" },
+  { key: 2, text: "IIS_bof(0, 0)", category: "exploit" },
+  { key: 3, text: "Root(0)" },
+  { key: 4, text: "squid proxy(0, 3)" },
+  { key: 5, text: "squid_port_scan(0, 3)", category: "exploit" },
+  { key: 6, text: "LICQ_port(0, 3)" },
+  { key: 7, text: "LICQ(0, 3)" },
+  { key: 8, text: "LICQ_remote_to_user(0, 3)", category: "exploit" },
+  { key: 9, text: "User(3)" },
+  { key: 10, text: "local_setuid_bof(3, 3)", category: "exploit" },
+  { key: 11, text: "Root(3)" }
+]
+
+const linkDataArray = [
+  { from: 0, to: 2 },
+  { from: 1, to: 2 },
+  { from: 2, to: 3 },
+  { from: 3, to: 5 },
+  { from: 4, to: 5 },
+  { from: 5, to: 6 },
+  { from: 6, to: 8 },
+  { from: 7, to: 8 },
+  { from: 8, to: 9 },
+  { from: 9, to: 10 },
+  { from: 10, to: 11 },
+]
+
+atg.model = new go.GraphLinksModel(nodeDataArray, linkDataArray)
