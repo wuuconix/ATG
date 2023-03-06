@@ -1,4 +1,4 @@
-import go from "./node_modules/gojs/release/go-debug.mjs"
+import go from "./go-debug.mjs"
 // import go from "gojs"
 
 const $ = go.GraphObject.make
