@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dagre": "^0.8.5",
     "gojs": "^2.3.3"
   }
 }
