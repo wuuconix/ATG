@@ -6,10 +6,12 @@ const $ = go.GraphObject.make
 
 const atg = new go.Diagram("atg")
 
+atg.undoManager.isEnabled = true    // can undo and redo
+
 atg.nodeTemplateMap.add("privilege",
   $(go.Node, "Auto",
     new go.Binding("location", "loc", go.Point.parse),
-    $(go.Shape, "Ellipse", { fill: "white" }),
+    // $(go.Shape, "Ellipse", { fill: "white" }),
     $(go.TextBlock, 
       { margin: 5, textAlign: "center" },
       new go.Binding("text", "key")
@@ -20,7 +22,7 @@ atg.nodeTemplateMap.add("privilege",
 atg.nodeTemplateMap.add("condition",
   $(go.Node, "Auto",
     new go.Binding("location", "loc", go.Point.parse),
-    $(go.Shape, "Ellipse", { fill: "white" }),
+    // $(go.Shape, "Ellipse", { fill: "white" }),
     $(go.TextBlock, 
       { margin: 5, textAlign: "center" },
       new go.Binding("text", "key")
@@ -39,11 +41,17 @@ atg.nodeTemplateMap.add("vulnerability",
   )
 )
 
-// atg.linkTemplate = $(go.Link,
-//   { curve: go.Link.Bezier, curviness: 100 },                  // rounded corners
-//   $(go.Shape),
-//   $(go.Shape, { toArrow: "Standard" })
-// )
+atg.linkTemplate = $(go.Link,
+  {
+    curve: go.Link.Bezier,
+    adjusting: go.Link.Scale,
+    reshapable: true, relinkableFrom: true, relinkableTo: true,
+    // toShortLength: 3
+  },
+  new go.Binding("points", "points"),
+  $(go.Shape),
+  $(go.Shape, { toArrow: "Standard" })
+)
 
 const nodeDataArray = []
 const linkDataArray = []
@@ -51,7 +59,7 @@ for (let node of attackGraph.nodes) {
   nodeDataArray.push({ key: node.name, category: node.type, loc: node.loc })
 }
 for (let edge of attackGraph.edges) {
-  linkDataArray.push({ from: edge.source, to: edge.target })
+  linkDataArray.push({ from: edge.source, to: edge.target, points: edge.points })
 }
 
 console.log(nodeDataArray)
