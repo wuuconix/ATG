@@ -10,8 +10,9 @@ atg.undoManager.isEnabled = true    // can undo and redo
 
 atg.nodeTemplateMap.add("privilege",
   $(go.Node, "Auto",
+    { locationSpot: go.Spot.Center },
     new go.Binding("location", "loc", go.Point.parse),
-    // $(go.Shape, "Ellipse", { fill: "white" }),
+    $(go.Shape, "Rectangle", { fill: "white" }),
     $(go.TextBlock, 
       { margin: 5, textAlign: "center" },
       new go.Binding("text", "key")
@@ -21,8 +22,9 @@ atg.nodeTemplateMap.add("privilege",
 
 atg.nodeTemplateMap.add("condition",
   $(go.Node, "Auto",
+    { locationSpot: go.Spot.Center },
     new go.Binding("location", "loc", go.Point.parse),
-    // $(go.Shape, "Ellipse", { fill: "white" }),
+    $(go.Shape, "Rectangle", { fill: "white" }),
     $(go.TextBlock, 
       { margin: 5, textAlign: "center" },
       new go.Binding("text", "key")
@@ -32,6 +34,7 @@ atg.nodeTemplateMap.add("condition",
 
 atg.nodeTemplateMap.add("vulnerability",
   $(go.Node, "Auto",
+    { locationSpot: go.Spot.Center },
     new go.Binding("location", "loc", go.Point.parse),
     $(go.Shape, "Rectangle", { fill: "#e3f0f5" }),
     $(go.TextBlock, 
