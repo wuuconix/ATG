@@ -1,0 +1,133 @@
+{
+  "attacker": "Attacker",
+  "hosts": [
+    {
+      "host_name": "Attacker",
+      "privilege": "3",
+      "service": [],
+      "vuls": []
+    }, {
+      "host_name": "Host0",
+      "privilege": "1",
+      "service": ["IIS_web_service"],
+      "vuls": ["IIS_bufferflow"]
+    }, {
+      "host_name": "Host1",
+      "privilege": "1",
+      "service": ["ftp", "ssh", "ssh_bof", "rsh"],
+      "vuls": ["FTP_rhost", "SSH_bufferflow", "RSH_login"]
+    }, {
+      "host_name": "Host2",
+      "privilege": "1",
+      "service": ["netbios_ssn", "rsh"],
+      "vuls": ["NETBIOS_nullsession", "RSH_login"]
+    }, {
+      "host_name": "Host3",
+      "privilege": "1",
+      "service": ["squid_proxy", "LICQ_chat_service", "Mysql_db"],
+      "vuls": ["SQUID_port_scan", "LICQ_REMOTE_to_USER", "LOCAL_setuid_bufferflow"]
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "vul_name": "IIS_bufferflow",
+      "service": "IIS_web_service",
+      "prepriv": "2",
+      "postpriv": "2",
+      "postcond": []
+    }, {
+      "vul_name": "SSH_bufferflow",
+      "service": "ssh",
+      "prepriv": "2",
+      "postpriv": "3",
+      "postcond": []
+    }, {
+      "vul_name": "NETBIOS_nullsession",
+      "prepriv": "2",
+      "postpriv": "2",
+      "service": "netbios_ssn",
+      "postcond": []
+    }, {
+      "vul_name": "SQUID_port_scan",
+      "prepriv": "2",
+      "postpriv": "0",
+      "service": "squid_proxy",
+      "postcond": ["port_scan"],
+      "combine": "LICQ_chat_service"
+    }, {
+      "vul_name": "FTP_rhost",
+      "prepriv": "2",
+      "postpriv": "0",
+      "service": "ftp",
+      "postcond": ["trust"],
+      "combine": "rsh"
+    }, {
+      "vul_name": "LICQ_REMOTE_to_USER",
+      "prepriv": "2",
+      "postpriv": "2",
+      "service": "LICQ_chat_service",
+      "precond": ["port_scan"],
+      "postcond": []
+    }, {
+      "vul_name": "RSH_login",
+      "prepriv": "1",
+      "postpriv": "2",
+      "service": "rsh",
+      "precond": ["trust"],
+      "postcond": []
+    }, {
+      "vul_name": "LOCAL_setuid_bufferflow",
+      "prepriv": "2",
+      "postpriv": "3",
+      "service": "Mysql_db",
+      "postcond": [],
+      "combine": "Mysql_db"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Attacker",
+      "target": "Host0",
+      "condition":["IIS_web_service"]
+    }, {
+      "source": "Host0",
+      "target": "Host1",
+      "condition":["ssh", "rsh", "ftp"]
+    }, {
+      "source": "Host2",
+      "target": "Host1",
+      "condition":["ssh", "rsh", "ftp"]
+    },
+
+    {
+      "source": "Host0",
+      "target": "Host3",
+      "condition": ["squid_proxy", "LICQ_chat_service"]
+    }, {
+      "source": "Host0",
+      "target": "Host2",
+      "condition": ["netbios_ssn", "rsh"]
+    }, {
+      "source": "Host1",
+      "target": "Host2",
+      "condition": ["netbios_ssn", "rsh"]
+    }, {
+      "source": "Host1",
+      "target": "Host3",
+      "condition": ["squid_proxy", "LICQ_chat_service"]
+    }, {
+      "source": "Host2",
+      "target": "Host3",
+      "condition": ["squid_proxy", "LICQ_chat_service"]
+    }, {
+      "source": "Host3",
+      "target": "Host3",
+      "condition": ["Mysql_db"]
+    }
+  ],
+  "goal": [{
+    "host": "Host3",
+    "privilege": "3",
+    "condition": []
+  }]
+}

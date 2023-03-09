@@ -1,0 +1,544 @@
+{
+	"attacker": "Attacker",
+	"hosts": [
+		{
+			"host_name": "Attacker",
+			"privilege": "3",
+			"service": [],
+			"vuls": [],
+			"loc": "723.5 12.5",
+			"points": []
+		},
+		{
+			"host_name": "Host0",
+			"privilege": "1",
+			"service": [
+				"IIS_web_service"
+			],
+			"vuls": [
+				"IIS_bufferflow"
+			],
+			"loc": "691.5 87.5",
+			"points": [
+				[
+					{
+						"x": 597.5,
+						"y": 25
+					},
+					{
+						"x": 597.5,
+						"y": 50
+					},
+					{
+						"x": 671.5,
+						"y": 79.52127659574468
+					}
+				]
+			]
+		},
+		{
+			"host_name": "Host1",
+			"privilege": "1",
+			"service": [
+				"ftp",
+				"ssh",
+				"ssh_bof",
+				"rsh"
+			],
+			"vuls": [
+				"FTP_rhost",
+				"SSH_bufferflow",
+				"RSH_login"
+			],
+			"loc": "507 162.5",
+			"points": [
+				[
+					{
+						"x": 475.5,
+						"y": 100
+					},
+					{
+						"x": 475.5,
+						"y": 125
+					},
+					{
+						"x": 496.5,
+						"y": 150
+					}
+				],
+				[
+					{
+						"x": 346.5,
+						"y": 100
+					},
+					{
+						"x": 346.5,
+						"y": 125
+					},
+					{
+						"x": 487,
+						"y": 157.8271028037383
+					}
+				],
+				[
+					{
+						"x": 571.1666666666666,
+						"y": 100
+					},
+					{
+						"x": 534.5,
+						"y": 125
+					},
+					{
+						"x": 516.1666666666666,
+						"y": 150
+					}
+				]
+			]
+		},
+		{
+			"host_name": "Host2",
+			"privilege": "1",
+			"service": [
+				"netbios_ssn",
+				"rsh"
+			],
+			"vuls": [
+				"NETBIOS_nullsession",
+				"RSH_login"
+			],
+			"loc": "562 237.5",
+			"points": [
+				[
+					{
+						"x": 375,
+						"y": 175
+					},
+					{
+						"x": 375,
+						"y": 200
+					},
+					{
+						"x": 542,
+						"y": 233.48930481283423
+					}
+				],
+				[
+					{
+						"x": 592.8333333333334,
+						"y": 100
+					},
+					{
+						"x": 599.5,
+						"y": 125
+					},
+					{
+						"x": 599.5,
+						"y": 162.5
+					},
+					{
+						"x": 599.5,
+						"y": 200
+					},
+					{
+						"x": 574.5,
+						"y": 225
+					}
+				]
+			]
+		},
+		{
+			"host_name": "Host3",
+			"privilege": "1",
+			"service": [
+				"squid_proxy",
+				"LICQ_chat_service",
+				"Mysql_db"
+			],
+			"vuls": [
+				"SQUID_port_scan",
+				"LICQ_REMOTE_to_USER",
+				"LOCAL_setuid_bufferflow"
+			],
+			"loc": "452.5 312.5",
+			"points": [
+				[
+					{
+						"x": 50,
+						"y": 250
+					},
+					{
+						"x": 50,
+						"y": 275
+					},
+					{
+						"x": 432.5,
+						"y": 310.6366459627329
+					}
+				],
+				[
+					{
+						"x": 212,
+						"y": 250
+					},
+					{
+						"x": 212,
+						"y": 275
+					},
+					{
+						"x": 432.5,
+						"y": 309.3814968814969
+					}
+				],
+				[
+					{
+						"x": 398,
+						"y": 250
+					},
+					{
+						"x": 398,
+						"y": 275
+					},
+					{
+						"x": 434.3333333333333,
+						"y": 300
+					}
+				]
+			]
+		}
+	],
+	"vulnerabilities": [
+		{
+			"vul_name": "IIS_bufferflow",
+			"service": "IIS_web_service",
+			"prepriv": "2",
+			"postpriv": "2",
+			"postcond": [],
+			"loc": "597.5 12.5"
+		},
+		{
+			"vul_name": "SSH_bufferflow",
+			"service": "ssh",
+			"prepriv": "2",
+			"postpriv": "3",
+			"postcond": [],
+			"loc": "346.5 87.5"
+		},
+		{
+			"vul_name": "NETBIOS_nullsession",
+			"prepriv": "2",
+			"postpriv": "2",
+			"service": "netbios_ssn",
+			"postcond": [],
+			"loc": "375 162.5"
+		},
+		{
+			"vul_name": "SQUID_port_scan",
+			"prepriv": "2",
+			"postpriv": "0",
+			"service": "squid_proxy",
+			"postcond": [
+				"port_scan"
+			],
+			"combine": "LICQ_chat_service",
+			"loc": "50 237.5"
+		},
+		{
+			"vul_name": "FTP_rhost",
+			"prepriv": "2",
+			"postpriv": "0",
+			"service": "ftp",
+			"postcond": [
+				"trust"
+			],
+			"combine": "rsh",
+			"loc": "475.5 87.5"
+		},
+		{
+			"vul_name": "LICQ_REMOTE_to_USER",
+			"prepriv": "2",
+			"postpriv": "2",
+			"service": "LICQ_chat_service",
+			"precond": [
+				"port_scan"
+			],
+			"postcond": [],
+			"loc": "212 237.5"
+		},
+		{
+			"vul_name": "RSH_login",
+			"prepriv": "1",
+			"postpriv": "2",
+			"service": "rsh",
+			"precond": [
+				"trust"
+			],
+			"postcond": [],
+			"loc": "589.5 87.5"
+		},
+		{
+			"vul_name": "LOCAL_setuid_bufferflow",
+			"prepriv": "2",
+			"postpriv": "3",
+			"service": "Mysql_db",
+			"postcond": [],
+			"combine": "Mysql_db",
+			"loc": "398 237.5"
+		}
+	],
+	"edges": [
+		{
+			"source": "Attacker",
+			"target": "Host0",
+			"condition": [
+				"IIS_web_service"
+			],
+			"points": [
+				{
+					"x": 723.5,
+					"y": 25
+				},
+				{
+					"x": 723.5,
+					"y": 50
+				},
+				{
+					"x": 702.1666666666666,
+					"y": 75
+				}
+			]
+		},
+		{
+			"source": "Host0",
+			"target": "Host1",
+			"condition": [
+				"ssh",
+				"rsh",
+				"ftp"
+			],
+			"points": [
+				{
+					"x": 671.5,
+					"y": 97.91666666666667
+				},
+				{
+					"x": 619.5,
+					"y": 125
+				},
+				{
+					"x": 527,
+					"y": 155.83333333333334
+				}
+			]
+		},
+		{
+			"source": "Host2",
+			"target": "Host1",
+			"condition": [
+				"ssh",
+				"rsh",
+				"ftp"
+			],
+			"points": [
+				{
+					"x": 562,
+					"y": 225
+				},
+				{
+					"x": 562,
+					"y": 200
+				},
+				{
+					"x": 525.3333333333334,
+					"y": 175
+				}
+			]
+		},
+		{
+			"source": "Host0",
+			"target": "Host3",
+			"condition": [
+				"squid_proxy",
+				"LICQ_chat_service"
+			],
+			"points": [
+				{
+					"x": 681.1666666666666,
+					"y": 100
+				},
+				{
+					"x": 660.5,
+					"y": 125
+				},
+				{
+					"x": 660.5,
+					"y": 162.5
+				},
+				{
+					"x": 660.5,
+					"y": 200
+				},
+				{
+					"x": 660.5,
+					"y": 237.5
+				},
+				{
+					"x": 660.5,
+					"y": 275
+				},
+				{
+					"x": 472.5,
+					"y": 308.8942307692308
+				}
+			]
+		},
+		{
+			"source": "Host0",
+			"target": "Host2",
+			"condition": [
+				"netbios_ssn",
+				"rsh"
+			],
+			"points": [
+				{
+					"x": 694.8333333333334,
+					"y": 100
+				},
+				{
+					"x": 701.5,
+					"y": 125
+				},
+				{
+					"x": 701.5,
+					"y": 162.5
+				},
+				{
+					"x": 701.5,
+					"y": 200
+				},
+				{
+					"x": 582,
+					"y": 232.1236559139785
+				}
+			]
+		},
+		{
+			"source": "Host1",
+			"target": "Host2",
+			"condition": [
+				"netbios_ssn",
+				"rsh"
+			],
+			"points": [
+				{
+					"x": 487,
+					"y": 171.37573964497042
+				},
+				{
+					"x": 422.5,
+					"y": 200
+				},
+				{
+					"x": 542,
+					"y": 232.1236559139785
+				}
+			]
+		},
+		{
+			"source": "Host1",
+			"target": "Host3",
+			"condition": [
+				"squid_proxy",
+				"LICQ_chat_service"
+			],
+			"points": [
+				{
+					"x": 507,
+					"y": 175
+				},
+				{
+					"x": 507,
+					"y": 200
+				},
+				{
+					"x": 507,
+					"y": 237.5
+				},
+				{
+					"x": 507,
+					"y": 275
+				},
+				{
+					"x": 470.6666666666667,
+					"y": 300
+				}
+			]
+		},
+		{
+			"source": "Host2",
+			"target": "Host3",
+			"condition": [
+				"squid_proxy",
+				"LICQ_chat_service"
+			],
+			"points": [
+				{
+					"x": 562,
+					"y": 250
+				},
+				{
+					"x": 562,
+					"y": 275
+				},
+				{
+					"x": 472.5,
+					"y": 305.6506849315069
+				}
+			]
+		},
+		{
+			"source": "Host3",
+			"target": "Host3",
+			"condition": [
+				"Mysql_db"
+			],
+			"points": [
+				{
+					"x": 472.5,
+					"y": 306.7307692307692
+				},
+				{
+					"x": 495.83333333333337,
+					"y": 300
+				},
+				{
+					"x": 501.66666666666663,
+					"y": 300
+				},
+				{
+					"x": 507.5,
+					"y": 312.5
+				},
+				{
+					"x": 501.66666666666663,
+					"y": 325
+				},
+				{
+					"x": 495.83333333333337,
+					"y": 325
+				},
+				{
+					"x": 472.5,
+					"y": 318.2692307692308
+				}
+			]
+		}
+	],
+	"goal": [
+		{
+			"host": "Host3",
+			"privilege": "3",
+			"condition": []
+		}
+	]
+}

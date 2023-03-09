@@ -1,6 +1,6 @@
 import dagre from "dagre"
 import { writeFile } from "fs/promises"
-import attckGraph from "./data/attackGraph.json" assert { type: "json" }
+import attckGraph from "../data/attackGraph.json" assert { type: "json" }
 
 function addLoc(nodes, links) {
   const g = new dagre.graphlib.Graph()
@@ -27,3 +27,4 @@ function addLoc(nodes, links) {
 
 addLoc(attckGraph.nodes, attckGraph.edges)
 await writeFile("./data/attackGraphWithLoc.json", JSON.stringify(attckGraph, null, "\t"))
+console.log("gen attackGraphWithLoc.json successful")

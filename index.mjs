@@ -1,4 +1,5 @@
 import renderAttackGraph from "./graph/attackGraph.mjs"
+import renderTopology from "./graph/topology.mjs"
 
 const select = document.querySelector("#menu > fieldset > select")
 renderAttackGraph()
@@ -17,5 +18,6 @@ select.addEventListener("change", (e) => {
   } else {
     document.querySelector("#attackGraph").remove()
     genNewDiv("topology")
+    renderTopology()
   }
 })
