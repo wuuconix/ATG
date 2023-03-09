@@ -9,29 +9,26 @@
   <title>Attack Graph</title>
 </head>
 <body>
-  <h1>Using gojs to genereate a Attack Graph</h1>
-  <div id="atg"></div>
+  <div id="menu">
+    <fieldset>
+      <legend>Choose a graph</legend>
+      <select name="graph">
+        <option value="attackGraph">attackGraph</option>
+        <option value="topology">topology</option>
+      </select>
+    </fieldset>
+  </div>
+  <div id="attackGraph"></div>
 </body>
 </html>
 
 <style>
-h1 {
-  display: none;
-  text-align: center;
-  margin: 0;
-  height: 40px;
+#menu {
+  width: max(10%, 200px);
+  margin: auto;
 }
-#atg {
+#attackGraph, #topology {
   width: 100%;
-  height: 100%;
-}
-
-@media screen and (min-width: 1000px) {
-  h1 {
-    display: block;
-  }
-  #atg {
-    height: calc(100% - 40px);
-  }
+  height: calc(100% - 56px);
 }
 </style>

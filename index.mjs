@@ -1,71 +1,21 @@
-import go from "./go-debug.mjs"
-// import go from "gojs"
-import attackGraph from "./data/attackGraphWithLoc.json" assert { type: "json" }
+import renderAttackGraph from "./graph/attackGraph.mjs"
 
-const $ = go.GraphObject.make
+const select = document.querySelector("#menu > fieldset > select")
+renderAttackGraph()
 
-const atg = new go.Diagram("atg")
-
-atg.undoManager.isEnabled = true    // can undo and redo
-
-atg.nodeTemplateMap.add("privilege",
-  $(go.Node, "Auto",
-    { locationSpot: go.Spot.Center },
-    new go.Binding("location", "loc", go.Point.parse),
-    $(go.Shape, "Rectangle", { fill: "white" }),
-    $(go.TextBlock, 
-      { margin: 5, textAlign: "center" },
-      new go.Binding("text", "key")
-    )
-  )
-)
-
-atg.nodeTemplateMap.add("condition",
-  $(go.Node, "Auto",
-    { locationSpot: go.Spot.Center },
-    new go.Binding("location", "loc", go.Point.parse),
-    $(go.Shape, "Rectangle", { fill: "white" }),
-    $(go.TextBlock, 
-      { margin: 5, textAlign: "center" },
-      new go.Binding("text", "key")
-    )
-  )
-)
-
-atg.nodeTemplateMap.add("vulnerability",
-  $(go.Node, "Auto",
-    { locationSpot: go.Spot.Center },
-    new go.Binding("location", "loc", go.Point.parse),
-    $(go.Shape, "Rectangle", { fill: "#e3f0f5" }),
-    $(go.TextBlock, 
-      { margin: 5, textAlign: "center" },
-      new go.Binding("text", "key")
-    )
-  )
-)
-
-atg.linkTemplate = $(go.Link,
-  {
-    curve: go.Link.Bezier,
-    adjusting: go.Link.Scale,
-    reshapable: true, relinkableFrom: true, relinkableTo: true,
-    // toShortLength: 3
-  },
-  new go.Binding("points", "points"),
-  $(go.Shape),
-  $(go.Shape, { toArrow: "Standard" })
-)
-
-const nodeDataArray = []
-const linkDataArray = []
-for (let node of attackGraph.nodes) {
-  nodeDataArray.push({ key: node.name, category: node.type, loc: node.loc })
-}
-for (let edge of attackGraph.edges) {
-  linkDataArray.push({ from: edge.source, to: edge.target, points: edge.points })
+function genNewDiv(id) {
+  const div = document.createElement("div")
+  div.id = id
+  document.body.append(div)
 }
 
-console.log(nodeDataArray)
-console.log(linkDataArray)
-
-atg.model = new go.GraphLinksModel(nodeDataArray, linkDataArray)
+select.addEventListener("change", (e) => {
+  if (e.target.value == "attackGraph") {
+    document.querySelector("#topology").remove()
+    genNewDiv("attackGraph")
+    renderAttackGraph()
+  } else {
+    document.querySelector("#attackGraph").remove()
+    genNewDiv("topology")
+  }
+})
