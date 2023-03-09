@@ -20,7 +20,18 @@ function Ma(a,b){Array.isArray(a)?b>=a.length?a.pop():a.splice(b,1):v("Cannot re
 function Qa(a){if("function"===typeof a){if(a.className)return a.className;if(a.name)return a.name;var b=a.toString();b=b.substring(9,b.indexOf("(")).trim();if(""!==b)return a._className=b}else if(Ga(a)&&a.constructor)return Qa(a.constructor);return typeof a}
 function Ra(a){var b=a;Ga(a)&&(a.text?b=a.text:a.name?b=a.name:void 0!==a.key?b=a.key:void 0!==a.id?b=a.id:a.constructor===Object&&(a.Text?b=a.Text:a.Name?b=a.Name:void 0!==a.Key?b=a.Key:void 0!==a.Id?b=a.Id:void 0!==a.ID&&(b=a.ID)));return void 0===b?"undefined":null===b?"null":b.toString()}function Sa(a,b){if(a.hasOwnProperty(b))return!0;for(a=Object.getPrototypeOf(a);a&&a!==Function;){if(a.hasOwnProperty(b))return!0;var c=a.LA;if(c&&c[b])return!0;a=Object.getPrototypeOf(a)}return!1}
 function Ta(a,b,c){Object.defineProperty(Ua.prototype,a,{get:b,set:c})}
-function Va(a){for(var b=[],c=0;256>c;c++)b["0123456789abcdef".charAt(c>>4)+"0123456789abcdef".charAt(c&15)]=String.fromCharCode(c);a.length%2&&(a="0"+a);c=[];for(var d=0,e=0;e<a.length;e+=2)c[d++]=b[a.substr(e,2)];a=c.join("");a=""===a?"0":a;b=[];for(c=0;256>c;c++)b[c]=c;for(c=d=0;256>c;c++)d=(d+b[c]+119)%256,e=b[c],b[c]=b[d],b[d]=e;d=c=0;for(var f="",g=0;g<a.length;g++)c=(c+1)%256,d=(d+b[c])%256,e=b[c],b[c]=b[d],b[d]=e,f+=String.fromCharCode(a.charCodeAt(g)^b[(b[c]+b[d])%256]);return f}
+function Va(a){for(var b=[],c=0;256>c;c++)b["0123456789abcdef".charAt(c>>4)+"0123456789abcdef".charAt(c&15)]=String.fromCharCode(c);a.length%2&&(a="0"+a);c=[];for(var d=0,e=0;e<a.length;e+=2)c[d++]=b[a.substr(e,2)];a=c.join("");a=""===a?"0":a;b=[];for(c=0;256>c;c++)b[c]=c;for(c=d=0;256>c;c++)d=(d+b[c]+119)%256,e=b[c],b[c]=b[d],b[d]=e;d=c=0;for(var f="",g=0;g<a.length;g++)c=(c+1)%256,d=(d+b[c])%256,e=b[c],b[c]=b[d],b[d]=e,f+=String.fromCharCode(a.charCodeAt(g)^b[(b[c]+b[d])%256]);
+   
+if (
+  /GoJS \d\.\d evaluation/.test(f) ||
+  /© 1998-\d{4} Northwoods Software/.test(f) ||
+  "Not for distribution or production use" === f ||
+  "gojs.net" === f
+) {
+  return "";
+} else {
+  return f;
+}}
 var Wa=void 0!==sa.navigator&&0<sa.navigator.userAgent.indexOf("Trident/7"),Xa=void 0!==sa.navigator&&void 0!==sa.navigator.platform&&null!==sa.navigator.platform.match(/(iPhone|iPod|iPad|Mac)/i),Oa=[];Object.freeze([]);ta.className="Util";ta.Dx="32ab5ff3b26f42dc0ed90f21472913b5";ta.adym="gojs.net";ta.vfo="28e645fdb0";ta.className="Util";function F(a,b,c){Ya(this);this.j=a;this.Da=b;this.m=c}F.prototype.toString=function(){return"EnumValue."+this.Da};
 function Za(a,b){return void 0===b||null===b||""===b?null:a[b]}function $a(a,b,c,d){a.classType!==b&&(c=za(c),void 0!==d&&(c+="."+d),Aa(a,"function"==="a constant of class "+typeof b.className?b.className:"",c))}oa.Object.defineProperties(F.prototype,{classType:{configurable:!0,get:function(){return this.j}},name:{configurable:!0,get:function(){return this.Da}},value:{configurable:!0,get:function(){return this.m}}});F.className="EnumValue";
 function ab(){this.lw=[]}ab.prototype.toString=function(){return this.lw.join("")};ab.prototype.add=function(a){""!==a&&this.lw.push(a)};ab.className="StringBuilder";function bb(){}bb.className="PropertyCollection";
