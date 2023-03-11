@@ -1,0 +1,1757 @@
+{
+	"nodes": [
+		{
+			"name": "iis_bufferflow(attacker,host0)",
+			"type": "vulnerability",
+			"vul_name": "iis_bufferflow",
+			"source": "attacker",
+			"target": "host0",
+			"loc": "473.5 87.5"
+		},
+		{
+			"name": "root(attacker)",
+			"type": "privilege",
+			"content": 3,
+			"host": "attacker",
+			"loc": "404 12.5"
+		},
+		{
+			"name": "iis_web_service(attacker,host0)",
+			"type": "condition",
+			"content": "iis_web_service",
+			"source": "attacker",
+			"target": "host0",
+			"loc": "599 12.5"
+		},
+		{
+			"name": "user(host0)",
+			"type": "privilege",
+			"content": 2,
+			"host": "host0",
+			"loc": "473.5 162.5",
+			"dotted": 1
+		},
+		{
+			"name": "squid_port_scan(host0,host3)",
+			"type": "vulnerability",
+			"vul_name": "squid_port_scan",
+			"source": "host0",
+			"target": "host3",
+			"loc": "402 237.5"
+		},
+		{
+			"name": "squid_proxy(host0,host3)",
+			"type": "condition",
+			"content": "squid_proxy",
+			"source": "host0",
+			"target": "host3",
+			"loc": "209 162.5"
+		},
+		{
+			"name": "port_scan(host0,host3)",
+			"type": "condition",
+			"content": "port_scan",
+			"source": "host0",
+			"target": "host3",
+			"loc": "402 312.5"
+		},
+		{
+			"name": "licq_remote_to_user(host0,host3)",
+			"type": "vulnerability",
+			"vul_name": "licq_remote_to_user",
+			"source": "host0",
+			"target": "host3",
+			"loc": "101 387.5"
+		},
+		{
+			"name": "licq_chat_service(host0,host3)",
+			"type": "condition",
+			"content": "licq_chat_service",
+			"source": "host0",
+			"target": "host3",
+			"loc": "186 312.5"
+		},
+		{
+			"name": "user(host3)",
+			"type": "privilege",
+			"content": 2,
+			"host": "host3",
+			"loc": "783 1062.5"
+		},
+		{
+			"name": "local_setuid_bufferflow(host3,host3)",
+			"type": "vulnerability",
+			"vul_name": "local_setuid_bufferflow",
+			"source": "host3",
+			"target": "host3",
+			"loc": "861 1137.5"
+		},
+		{
+			"name": "mysql_db(host3,host3)",
+			"type": "condition",
+			"content": "mysql_db",
+			"source": "host3",
+			"target": "host3",
+			"loc": "939 1062.5"
+		},
+		{
+			"name": "root(host3)",
+			"type": "privilege",
+			"content": 3,
+			"host": "host3",
+			"loc": "861 1212.5"
+		},
+		{
+			"name": "ftp_rhost(host0,host1)",
+			"type": "vulnerability",
+			"vul_name": "ftp_rhost",
+			"source": "host0",
+			"target": "host1",
+			"loc": "806.5 237.5",
+			"dotted": 1
+		},
+		{
+			"name": "ftp(host0,host1)",
+			"type": "condition",
+			"content": "ftp",
+			"source": "host0",
+			"target": "host1",
+			"loc": "985 162.5",
+			"dotted": 1
+		},
+		{
+			"name": "trust(host0,host1)",
+			"type": "condition",
+			"content": "trust",
+			"source": "host0",
+			"target": "host1",
+			"loc": "806.5 312.5",
+			"dotted": 1
+		},
+		{
+			"name": "rsh_login(host0,host1)",
+			"type": "vulnerability",
+			"vul_name": "rsh_login",
+			"source": "host0",
+			"target": "host1",
+			"loc": "600.5 387.5",
+			"dotted": 1
+		},
+		{
+			"name": "rsh(host0,host1)",
+			"type": "condition",
+			"content": "rsh",
+			"source": "host0",
+			"target": "host1",
+			"loc": "644.5 312.5",
+			"dotted": 1
+		},
+		{
+			"name": "user(host1)",
+			"type": "privilege",
+			"content": 2,
+			"host": "host1",
+			"loc": "600.5 462.5"
+		},
+		{
+			"name": "squid_port_scan(host1,host3)",
+			"type": "vulnerability",
+			"vul_name": "squid_port_scan",
+			"source": "host1",
+			"target": "host3",
+			"loc": "696 837.5"
+		},
+		{
+			"name": "squid_proxy(host1,host3)",
+			"type": "condition",
+			"content": "squid_proxy",
+			"source": "host1",
+			"target": "host3",
+			"loc": "752 762.5"
+		},
+		{
+			"name": "port_scan(host1,host3)",
+			"type": "condition",
+			"content": "port_scan",
+			"source": "host1",
+			"target": "host3",
+			"loc": "696 912.5"
+		},
+		{
+			"name": "licq_remote_to_user(host1,host3)",
+			"type": "vulnerability",
+			"vul_name": "licq_remote_to_user",
+			"source": "host1",
+			"target": "host3",
+			"loc": "783 987.5"
+		},
+		{
+			"name": "licq_chat_service(host1,host3)",
+			"type": "condition",
+			"content": "licq_chat_service",
+			"source": "host1",
+			"target": "host3",
+			"loc": "393 912.5"
+		},
+		{
+			"name": "ssh_bufferflow(host0,host1)",
+			"type": "vulnerability",
+			"vul_name": "ssh_bufferflow",
+			"source": "host0",
+			"target": "host1",
+			"loc": "923.5 687.5"
+		},
+		{
+			"name": "ssh(host0,host1)",
+			"type": "condition",
+			"content": "ssh",
+			"source": "host0",
+			"target": "host1",
+			"loc": "1242.5 612.5"
+		},
+		{
+			"name": "root(host1)",
+			"type": "privilege",
+			"content": 3,
+			"host": "host1",
+			"loc": "1256.5 762.5"
+		},
+		{
+			"name": "netbios_nullsession(host0,host2)",
+			"type": "vulnerability",
+			"vul_name": "netbios_nullsession",
+			"source": "host0",
+			"target": "host2",
+			"loc": "1091.5 537.5"
+		},
+		{
+			"name": "netbios_ssn(host0,host2)",
+			"type": "condition",
+			"content": "netbios_ssn",
+			"source": "host0",
+			"target": "host2",
+			"loc": "1147.5 462.5"
+		},
+		{
+			"name": "user(host2)",
+			"type": "privilege",
+			"content": 2,
+			"host": "host2",
+			"loc": "1101.5 612.5"
+		},
+		{
+			"name": "squid_port_scan(host2,host3)",
+			"type": "vulnerability",
+			"vul_name": "squid_port_scan",
+			"source": "host2",
+			"target": "host3",
+			"loc": "1869 687.5"
+		},
+		{
+			"name": "squid_proxy(host2,host3)",
+			"type": "condition",
+			"content": "squid_proxy",
+			"source": "host2",
+			"target": "host3",
+			"loc": "1879 612.5"
+		},
+		{
+			"name": "port_scan(host2,host3)",
+			"type": "condition",
+			"content": "port_scan",
+			"source": "host2",
+			"target": "host3",
+			"loc": "1869 762.5"
+		},
+		{
+			"name": "licq_remote_to_user(host2,host3)",
+			"type": "vulnerability",
+			"vul_name": "licq_remote_to_user",
+			"source": "host2",
+			"target": "host3",
+			"loc": "1618 837.5"
+		},
+		{
+			"name": "licq_chat_service(host2,host3)",
+			"type": "condition",
+			"content": "licq_chat_service",
+			"source": "host2",
+			"target": "host3",
+			"loc": "1653 762.5"
+		},
+		{
+			"name": "netbios_nullsession(host1,host2)",
+			"type": "vulnerability",
+			"vul_name": "netbios_nullsession",
+			"source": "host1",
+			"target": "host2",
+			"loc": "1458.5 537.5"
+		},
+		{
+			"name": "netbios_ssn(host1,host2)",
+			"type": "condition",
+			"content": "netbios_ssn",
+			"source": "host1",
+			"target": "host2",
+			"loc": "1468.5 462.5"
+		},
+		{
+			"name": "ftp_rhost(host2,host1)",
+			"type": "vulnerability",
+			"vul_name": "ftp_rhost",
+			"source": "host2",
+			"target": "host1",
+			"loc": "477.5 687.5",
+			"dotted": 1
+		},
+		{
+			"name": "ftp(host2,host1)",
+			"type": "condition",
+			"content": "ftp",
+			"source": "host2",
+			"target": "host1",
+			"loc": "487.5 612.5",
+			"dotted": 1
+		},
+		{
+			"name": "trust(host2,host1)",
+			"type": "condition",
+			"content": "trust",
+			"source": "host2",
+			"target": "host1",
+			"loc": "477.5 762.5",
+			"dotted": 1
+		},
+		{
+			"name": "rsh_login(host2,host1)",
+			"type": "vulnerability",
+			"vul_name": "rsh_login",
+			"source": "host2",
+			"target": "host1",
+			"loc": "444 837.5",
+			"dotted": 1
+		},
+		{
+			"name": "rsh(host2,host1)",
+			"type": "condition",
+			"content": "rsh",
+			"source": "host2",
+			"target": "host1",
+			"loc": "315.5 762.5",
+			"dotted": 1
+		},
+		{
+			"name": "ssh_bufferflow(host2,host1)",
+			"type": "vulnerability",
+			"vul_name": "ssh_bufferflow",
+			"source": "host2",
+			"target": "host1",
+			"loc": "1250 687.5"
+		},
+		{
+			"name": "ssh(host2,host1)",
+			"type": "condition",
+			"content": "ssh",
+			"source": "host2",
+			"target": "host1",
+			"loc": "1398.5 612.5"
+		}
+	],
+	"edges": [
+		{
+			"source": "root(attacker)",
+			"target": "iis_bufferflow(attacker,host0)",
+			"points": [
+				{
+					"x": 404,
+					"y": 25
+				},
+				{
+					"x": 404,
+					"y": 50
+				},
+				{
+					"x": 450.3333333333333,
+					"y": 75
+				}
+			]
+		},
+		{
+			"source": "iis_web_service(attacker,host0)",
+			"target": "iis_bufferflow(attacker,host0)",
+			"points": [
+				{
+					"x": 599,
+					"y": 25
+				},
+				{
+					"x": 599,
+					"y": 50
+				},
+				{
+					"x": 515.3333333333334,
+					"y": 75
+				}
+			]
+		},
+		{
+			"source": "iis_bufferflow(attacker,host0)",
+			"target": "user(host0)",
+			"points": [
+				{
+					"x": 473.5,
+					"y": 100
+				},
+				{
+					"x": 473.5,
+					"y": 125
+				},
+				{
+					"x": 473.5,
+					"y": 150
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "user(host0)",
+			"target": "squid_port_scan(host0,host3)",
+			"points": [
+				{
+					"x": 435.5,
+					"y": 168.57675906183368
+				},
+				{
+					"x": 239,
+					"y": 200
+				},
+				{
+					"x": 347.6666666666667,
+					"y": 225
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "squid_proxy(host0,host3)",
+			"target": "squid_port_scan(host0,host3)",
+			"points": [
+				{
+					"x": 276.6666666666667,
+					"y": 175
+				},
+				{
+					"x": 412,
+					"y": 200
+				},
+				{
+					"x": 405.3333333333333,
+					"y": 225
+				}
+			]
+		},
+		{
+			"source": "squid_port_scan(host0,host3)",
+			"target": "port_scan(host0,host3)",
+			"points": [
+				{
+					"x": 402,
+					"y": 250
+				},
+				{
+					"x": 402,
+					"y": 275
+				},
+				{
+					"x": 402,
+					"y": 300
+				}
+			]
+		},
+		{
+			"source": "user(host0)",
+			"target": "licq_remote_to_user(host0,host3)",
+			"points": [
+				{
+					"x": 435.5,
+					"y": 165.65265486725664
+				},
+				{
+					"x": 21.5,
+					"y": 200
+				},
+				{
+					"x": 21.5,
+					"y": 237.5
+				},
+				{
+					"x": 21.5,
+					"y": 275
+				},
+				{
+					"x": 21.5,
+					"y": 312.5
+				},
+				{
+					"x": 21.5,
+					"y": 350
+				},
+				{
+					"x": 74.5,
+					"y": 375
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "licq_chat_service(host0,host3)",
+			"target": "licq_remote_to_user(host0,host3)",
+			"points": [
+				{
+					"x": 186,
+					"y": 325
+				},
+				{
+					"x": 186,
+					"y": 350
+				},
+				{
+					"x": 129.33333333333334,
+					"y": 375
+				}
+			]
+		},
+		{
+			"source": "port_scan(host0,host3)",
+			"target": "licq_remote_to_user(host0,host3)",
+			"points": [
+				{
+					"x": 402,
+					"y": 325
+				},
+				{
+					"x": 402,
+					"y": 350
+				},
+				{
+					"x": 201.33333333333331,
+					"y": 375
+				}
+			]
+		},
+		{
+			"source": "licq_remote_to_user(host0,host3)",
+			"target": "user(host3)",
+			"points": [
+				{
+					"x": 101,
+					"y": 400
+				},
+				{
+					"x": 101,
+					"y": 425
+				},
+				{
+					"x": 101,
+					"y": 462.5
+				},
+				{
+					"x": 101,
+					"y": 500
+				},
+				{
+					"x": 101,
+					"y": 537.5
+				},
+				{
+					"x": 101,
+					"y": 575
+				},
+				{
+					"x": 101,
+					"y": 612.5
+				},
+				{
+					"x": 101,
+					"y": 650
+				},
+				{
+					"x": 101,
+					"y": 687.5
+				},
+				{
+					"x": 101,
+					"y": 725
+				},
+				{
+					"x": 101,
+					"y": 762.5
+				},
+				{
+					"x": 101,
+					"y": 800
+				},
+				{
+					"x": 101,
+					"y": 837.5
+				},
+				{
+					"x": 101,
+					"y": 875
+				},
+				{
+					"x": 101,
+					"y": 912.5
+				},
+				{
+					"x": 101,
+					"y": 950
+				},
+				{
+					"x": 101,
+					"y": 987.5
+				},
+				{
+					"x": 101,
+					"y": 1025
+				},
+				{
+					"x": 745,
+					"y": 1060.4105571847508
+				}
+			]
+		},
+		{
+			"source": "user(host3)",
+			"target": "local_setuid_bufferflow(host3,host3)",
+			"points": [
+				{
+					"x": 783,
+					"y": 1075
+				},
+				{
+					"x": 783,
+					"y": 1100
+				},
+				{
+					"x": 835,
+					"y": 1125
+				}
+			]
+		},
+		{
+			"source": "mysql_db(host3,host3)",
+			"target": "local_setuid_bufferflow(host3,host3)",
+			"points": [
+				{
+					"x": 939,
+					"y": 1075
+				},
+				{
+					"x": 939,
+					"y": 1100
+				},
+				{
+					"x": 887,
+					"y": 1125
+				}
+			]
+		},
+		{
+			"source": "local_setuid_bufferflow(host3,host3)",
+			"target": "root(host3)",
+			"points": [
+				{
+					"x": 861,
+					"y": 1150
+				},
+				{
+					"x": 861,
+					"y": 1175
+				},
+				{
+					"x": 861,
+					"y": 1200
+				}
+			]
+		},
+		{
+			"source": "user(host0)",
+			"target": "ftp_rhost(host0,host1)",
+			"points": [
+				{
+					"x": 511.5,
+					"y": 169.03669724770643
+				},
+				{
+					"x": 691.5,
+					"y": 200
+				},
+				{
+					"x": 768.1666666666666,
+					"y": 225
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "ftp(host0,host1)",
+			"target": "ftp_rhost(host0,host1)",
+			"points": [
+				{
+					"x": 939.8333333333334,
+					"y": 175
+				},
+				{
+					"x": 849.5,
+					"y": 200
+				},
+				{
+					"x": 820.8333333333334,
+					"y": 225
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "ftp_rhost(host0,host1)",
+			"target": "trust(host0,host1)",
+			"points": [
+				{
+					"x": 806.5,
+					"y": 250
+				},
+				{
+					"x": 806.5,
+					"y": 275
+				},
+				{
+					"x": 806.5,
+					"y": 300
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "user(host0)",
+			"target": "rsh_login(host0,host1)",
+			"points": [
+				{
+					"x": 501.1666666666667,
+					"y": 175
+				},
+				{
+					"x": 556.5,
+					"y": 200
+				},
+				{
+					"x": 556.5,
+					"y": 237.5
+				},
+				{
+					"x": 556.5,
+					"y": 275
+				},
+				{
+					"x": 556.5,
+					"y": 312.5
+				},
+				{
+					"x": 556.5,
+					"y": 350
+				},
+				{
+					"x": 585.8333333333334,
+					"y": 375
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "rsh(host0,host1)",
+			"target": "rsh_login(host0,host1)",
+			"points": [
+				{
+					"x": 644.5,
+					"y": 325
+				},
+				{
+					"x": 644.5,
+					"y": 350
+				},
+				{
+					"x": 615.1666666666666,
+					"y": 375
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "trust(host0,host1)",
+			"target": "rsh_login(host0,host1)",
+			"points": [
+				{
+					"x": 806.5,
+					"y": 325
+				},
+				{
+					"x": 806.5,
+					"y": 350
+				},
+				{
+					"x": 669.1666666666666,
+					"y": 375
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "rsh_login(host0,host1)",
+			"target": "user(host1)",
+			"points": [
+				{
+					"x": 600.5,
+					"y": 400
+				},
+				{
+					"x": 600.5,
+					"y": 425
+				},
+				{
+					"x": 600.5,
+					"y": 450
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "user(host1)",
+			"target": "squid_port_scan(host1,host3)",
+			"points": [
+				{
+					"x": 613.6666666666666,
+					"y": 475
+				},
+				{
+					"x": 640,
+					"y": 500
+				},
+				{
+					"x": 640,
+					"y": 537.5
+				},
+				{
+					"x": 640,
+					"y": 575
+				},
+				{
+					"x": 640,
+					"y": 612.5
+				},
+				{
+					"x": 640,
+					"y": 650
+				},
+				{
+					"x": 640,
+					"y": 687.5
+				},
+				{
+					"x": 640,
+					"y": 725
+				},
+				{
+					"x": 640,
+					"y": 762.5
+				},
+				{
+					"x": 640,
+					"y": 800
+				},
+				{
+					"x": 677.3333333333334,
+					"y": 825
+				}
+			]
+		},
+		{
+			"source": "squid_proxy(host1,host3)",
+			"target": "squid_port_scan(host1,host3)",
+			"points": [
+				{
+					"x": 752,
+					"y": 775
+				},
+				{
+					"x": 752,
+					"y": 800
+				},
+				{
+					"x": 714.6666666666666,
+					"y": 825
+				}
+			]
+		},
+		{
+			"source": "squid_port_scan(host1,host3)",
+			"target": "port_scan(host1,host3)",
+			"points": [
+				{
+					"x": 696,
+					"y": 850
+				},
+				{
+					"x": 696,
+					"y": 875
+				},
+				{
+					"x": 696,
+					"y": 900
+				}
+			]
+		},
+		{
+			"source": "user(host1)",
+			"target": "licq_remote_to_user(host1,host3)",
+			"points": [
+				{
+					"x": 562.5,
+					"y": 465.7683486238532
+				},
+				{
+					"x": 164.5,
+					"y": 500
+				},
+				{
+					"x": 164.5,
+					"y": 537.5
+				},
+				{
+					"x": 164.5,
+					"y": 575
+				},
+				{
+					"x": 164.5,
+					"y": 612.5
+				},
+				{
+					"x": 164.5,
+					"y": 650
+				},
+				{
+					"x": 164.5,
+					"y": 687.5
+				},
+				{
+					"x": 164.5,
+					"y": 725
+				},
+				{
+					"x": 164.5,
+					"y": 762.5
+				},
+				{
+					"x": 164.5,
+					"y": 800
+				},
+				{
+					"x": 164.5,
+					"y": 837.5
+				},
+				{
+					"x": 164.5,
+					"y": 875
+				},
+				{
+					"x": 164.5,
+					"y": 912.5
+				},
+				{
+					"x": 164.5,
+					"y": 950
+				},
+				{
+					"x": 682,
+					"y": 981.3763136620856
+				}
+			]
+		},
+		{
+			"source": "licq_chat_service(host1,host3)",
+			"target": "licq_remote_to_user(host1,host3)",
+			"points": [
+				{
+					"x": 393,
+					"y": 925
+				},
+				{
+					"x": 393,
+					"y": 950
+				},
+				{
+					"x": 682,
+					"y": 977.7884615384615
+				}
+			]
+		},
+		{
+			"source": "port_scan(host1,host3)",
+			"target": "licq_remote_to_user(host1,host3)",
+			"points": [
+				{
+					"x": 696,
+					"y": 925
+				},
+				{
+					"x": 696,
+					"y": 950
+				},
+				{
+					"x": 754,
+					"y": 975
+				}
+			]
+		},
+		{
+			"source": "licq_remote_to_user(host1,host3)",
+			"target": "user(host3)",
+			"points": [
+				{
+					"x": 783,
+					"y": 1000
+				},
+				{
+					"x": 783,
+					"y": 1025
+				},
+				{
+					"x": 783,
+					"y": 1050
+				}
+			]
+		},
+		{
+			"source": "user(host0)",
+			"target": "ssh_bufferflow(host0,host1)",
+			"points": [
+				{
+					"x": 511.5,
+					"y": 165.74601366742596
+				},
+				{
+					"x": 912.5,
+					"y": 200
+				},
+				{
+					"x": 912.5,
+					"y": 237.5
+				},
+				{
+					"x": 912.5,
+					"y": 275
+				},
+				{
+					"x": 912.5,
+					"y": 312.5
+				},
+				{
+					"x": 912.5,
+					"y": 350
+				},
+				{
+					"x": 912.5,
+					"y": 387.5
+				},
+				{
+					"x": 912.5,
+					"y": 425
+				},
+				{
+					"x": 912.5,
+					"y": 462.5
+				},
+				{
+					"x": 912.5,
+					"y": 500
+				},
+				{
+					"x": 912.5,
+					"y": 537.5
+				},
+				{
+					"x": 912.5,
+					"y": 575
+				},
+				{
+					"x": 912.5,
+					"y": 612.5
+				},
+				{
+					"x": 912.5,
+					"y": 650
+				},
+				{
+					"x": 919.8333333333334,
+					"y": 675
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "ssh(host0,host1)",
+			"target": "ssh_bufferflow(host0,host1)",
+			"points": [
+				{
+					"x": 1189.5,
+					"y": 621.6169724770642
+				},
+				{
+					"x": 1024.5,
+					"y": 650
+				},
+				{
+					"x": 957.1666666666666,
+					"y": 675
+				}
+			]
+		},
+		{
+			"source": "ssh_bufferflow(host0,host1)",
+			"target": "root(host1)",
+			"points": [
+				{
+					"x": 923.5,
+					"y": 700
+				},
+				{
+					"x": 923.5,
+					"y": 725
+				},
+				{
+					"x": 1218.5,
+					"y": 758.2207207207207
+				}
+			]
+		},
+		{
+			"source": "root(host1)",
+			"target": "squid_port_scan(host1,host3)",
+			"points": [
+				{
+					"x": 1218.5,
+					"y": 765.9587378640776
+				},
+				{
+					"x": 844.5,
+					"y": 800
+				},
+				{
+					"x": 745.5,
+					"y": 825
+				}
+			]
+		},
+		{
+			"source": "root(host1)",
+			"target": "licq_remote_to_user(host1,host3)",
+			"points": [
+				{
+					"x": 1294.5,
+					"y": 773.6328125
+				},
+				{
+					"x": 1384.5,
+					"y": 800
+				},
+				{
+					"x": 1384.5,
+					"y": 837.5
+				},
+				{
+					"x": 1384.5,
+					"y": 875
+				},
+				{
+					"x": 1384.5,
+					"y": 912.5
+				},
+				{
+					"x": 1384.5,
+					"y": 950
+				},
+				{
+					"x": 884,
+					"y": 981.2032418952618
+				}
+			]
+		},
+		{
+			"source": "user(host0)",
+			"target": "netbios_nullsession(host0,host2)",
+			"points": [
+				{
+					"x": 511.5,
+					"y": 165.0355871886121
+				},
+				{
+					"x": 1035.5,
+					"y": 200
+				},
+				{
+					"x": 1035.5,
+					"y": 237.5
+				},
+				{
+					"x": 1035.5,
+					"y": 275
+				},
+				{
+					"x": 1035.5,
+					"y": 312.5
+				},
+				{
+					"x": 1035.5,
+					"y": 350
+				},
+				{
+					"x": 1035.5,
+					"y": 387.5
+				},
+				{
+					"x": 1035.5,
+					"y": 425
+				},
+				{
+					"x": 1035.5,
+					"y": 462.5
+				},
+				{
+					"x": 1035.5,
+					"y": 500
+				},
+				{
+					"x": 1072.8333333333333,
+					"y": 525
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "netbios_ssn(host0,host2)",
+			"target": "netbios_nullsession(host0,host2)",
+			"points": [
+				{
+					"x": 1147.5,
+					"y": 475
+				},
+				{
+					"x": 1147.5,
+					"y": 500
+				},
+				{
+					"x": 1110.1666666666667,
+					"y": 525
+				}
+			]
+		},
+		{
+			"source": "netbios_nullsession(host0,host2)",
+			"target": "user(host2)",
+			"points": [
+				{
+					"x": 1091.5,
+					"y": 550
+				},
+				{
+					"x": 1091.5,
+					"y": 575
+				},
+				{
+					"x": 1098.1666666666667,
+					"y": 600
+				}
+			]
+		},
+		{
+			"source": "user(host2)",
+			"target": "squid_port_scan(host2,host3)",
+			"points": [
+				{
+					"x": 1139.5,
+					"y": 614.8573200992556
+				},
+				{
+					"x": 1706,
+					"y": 650
+				},
+				{
+					"x": 1814.6666666666667,
+					"y": 675
+				}
+			]
+		},
+		{
+			"source": "squid_proxy(host2,host3)",
+			"target": "squid_port_scan(host2,host3)",
+			"points": [
+				{
+					"x": 1879,
+					"y": 625
+				},
+				{
+					"x": 1879,
+					"y": 650
+				},
+				{
+					"x": 1872.3333333333333,
+					"y": 675
+				}
+			]
+		},
+		{
+			"source": "squid_port_scan(host2,host3)",
+			"target": "port_scan(host2,host3)",
+			"points": [
+				{
+					"x": 1869,
+					"y": 700
+				},
+				{
+					"x": 1869,
+					"y": 725
+				},
+				{
+					"x": 1869,
+					"y": 750
+				}
+			]
+		},
+		{
+			"source": "user(host2)",
+			"target": "licq_remote_to_user(host2,host3)",
+			"points": [
+				{
+					"x": 1139.5,
+					"y": 615.8807829181495
+				},
+				{
+					"x": 1523,
+					"y": 650
+				},
+				{
+					"x": 1523,
+					"y": 687.5
+				},
+				{
+					"x": 1523,
+					"y": 725
+				},
+				{
+					"x": 1523,
+					"y": 762.5
+				},
+				{
+					"x": 1523,
+					"y": 800
+				},
+				{
+					"x": 1586.3333333333333,
+					"y": 825
+				}
+			]
+		},
+		{
+			"source": "licq_chat_service(host2,host3)",
+			"target": "licq_remote_to_user(host2,host3)",
+			"points": [
+				{
+					"x": 1653,
+					"y": 775
+				},
+				{
+					"x": 1653,
+					"y": 800
+				},
+				{
+					"x": 1629.6666666666667,
+					"y": 825
+				}
+			]
+		},
+		{
+			"source": "port_scan(host2,host3)",
+			"target": "licq_remote_to_user(host2,host3)",
+			"points": [
+				{
+					"x": 1869,
+					"y": 775
+				},
+				{
+					"x": 1869,
+					"y": 800
+				},
+				{
+					"x": 1701.6666666666667,
+					"y": 825
+				}
+			]
+		},
+		{
+			"source": "licq_remote_to_user(host2,host3)",
+			"target": "user(host3)",
+			"points": [
+				{
+					"x": 1618,
+					"y": 850
+				},
+				{
+					"x": 1618,
+					"y": 875
+				},
+				{
+					"x": 1618,
+					"y": 912.5
+				},
+				{
+					"x": 1618,
+					"y": 950
+				},
+				{
+					"x": 1618,
+					"y": 987.5
+				},
+				{
+					"x": 1618,
+					"y": 1025
+				},
+				{
+					"x": 821,
+					"y": 1060.7934131736527
+				}
+			]
+		},
+		{
+			"source": "user(host1)",
+			"target": "netbios_nullsession(host1,host2)",
+			"points": [
+				{
+					"x": 638.5,
+					"y": 464.6956856702619
+				},
+				{
+					"x": 1249.5,
+					"y": 500
+				},
+				{
+					"x": 1388.8333333333333,
+					"y": 525
+				}
+			]
+		},
+		{
+			"source": "netbios_ssn(host1,host2)",
+			"target": "netbios_nullsession(host1,host2)",
+			"points": [
+				{
+					"x": 1468.5,
+					"y": 475
+				},
+				{
+					"x": 1468.5,
+					"y": 500
+				},
+				{
+					"x": 1461.8333333333333,
+					"y": 525
+				}
+			]
+		},
+		{
+			"source": "netbios_nullsession(host1,host2)",
+			"target": "user(host2)",
+			"points": [
+				{
+					"x": 1388.8333333333333,
+					"y": 550
+				},
+				{
+					"x": 1249.5,
+					"y": 575
+				},
+				{
+					"x": 1139.5,
+					"y": 602.8716216216217
+				}
+			]
+		},
+		{
+			"source": "root(host1)",
+			"target": "netbios_nullsession(host1,host2)",
+			"points": [
+				{
+					"x": 1294.5,
+					"y": 756.7190669371197
+				},
+				{
+					"x": 1503,
+					"y": 725
+				},
+				{
+					"x": 1503,
+					"y": 687.5
+				},
+				{
+					"x": 1503,
+					"y": 650
+				},
+				{
+					"x": 1503,
+					"y": 612.5
+				},
+				{
+					"x": 1503,
+					"y": 575
+				},
+				{
+					"x": 1473.3333333333333,
+					"y": 550
+				}
+			]
+		},
+		{
+			"source": "user(host2)",
+			"target": "ftp_rhost(host2,host1)",
+			"points": [
+				{
+					"x": 1063.5,
+					"y": 614.4282814614344
+				},
+				{
+					"x": 362.5,
+					"y": 650
+				},
+				{
+					"x": 439.1666666666667,
+					"y": 675
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "ftp(host2,host1)",
+			"target": "ftp_rhost(host2,host1)",
+			"points": [
+				{
+					"x": 487.5,
+					"y": 625
+				},
+				{
+					"x": 487.5,
+					"y": 650
+				},
+				{
+					"x": 480.8333333333333,
+					"y": 675
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "ftp_rhost(host2,host1)",
+			"target": "trust(host2,host1)",
+			"points": [
+				{
+					"x": 477.5,
+					"y": 700
+				},
+				{
+					"x": 477.5,
+					"y": 725
+				},
+				{
+					"x": 477.5,
+					"y": 750
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "user(host2)",
+			"target": "rsh_login(host2,host1)",
+			"points": [
+				{
+					"x": 1063.5,
+					"y": 614.1304347826087
+				},
+				{
+					"x": 227.5,
+					"y": 650
+				},
+				{
+					"x": 227.5,
+					"y": 687.5
+				},
+				{
+					"x": 227.5,
+					"y": 725
+				},
+				{
+					"x": 227.5,
+					"y": 762.5
+				},
+				{
+					"x": 227.5,
+					"y": 800
+				},
+				{
+					"x": 373,
+					"y": 825.2020785219399
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "rsh(host2,host1)",
+			"target": "rsh_login(host2,host1)",
+			"points": [
+				{
+					"x": 315.5,
+					"y": 775
+				},
+				{
+					"x": 315.5,
+					"y": 800
+				},
+				{
+					"x": 401.1666666666667,
+					"y": 825
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "trust(host2,host1)",
+			"target": "rsh_login(host2,host1)",
+			"points": [
+				{
+					"x": 477.5,
+					"y": 775
+				},
+				{
+					"x": 477.5,
+					"y": 800
+				},
+				{
+					"x": 455.1666666666667,
+					"y": 825
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "rsh_login(host2,host1)",
+			"target": "user(host1)",
+			"points": [
+				{
+					"x": 490.8333333333333,
+					"y": 825
+				},
+				{
+					"x": 584.5,
+					"y": 800
+				},
+				{
+					"x": 584.5,
+					"y": 762.5
+				},
+				{
+					"x": 584.5,
+					"y": 725
+				},
+				{
+					"x": 584.5,
+					"y": 687.5
+				},
+				{
+					"x": 584.5,
+					"y": 650
+				},
+				{
+					"x": 584.5,
+					"y": 612.5
+				},
+				{
+					"x": 584.5,
+					"y": 575
+				},
+				{
+					"x": 584.5,
+					"y": 537.5
+				},
+				{
+					"x": 584.5,
+					"y": 500
+				},
+				{
+					"x": 595.1666666666666,
+					"y": 475
+				}
+			],
+			"dotted": 1
+		},
+		{
+			"source": "user(host2)",
+			"target": "ssh_bufferflow(host2,host1)",
+			"points": [
+				{
+					"x": 1101.5,
+					"y": 625
+				},
+				{
+					"x": 1101.5,
+					"y": 650
+				},
+				{
+					"x": 1200.5,
+					"y": 675
+				}
+			]
+		},
+		{
+			"source": "ssh(host2,host1)",
+			"target": "ssh_bufferflow(host2,host1)",
+			"points": [
+				{
+					"x": 1398.5,
+					"y": 625
+				},
+				{
+					"x": 1398.5,
+					"y": 650
+				},
+				{
+					"x": 1299.5,
+					"y": 675
+				}
+			]
+		},
+		{
+			"source": "ssh_bufferflow(host2,host1)",
+			"target": "root(host1)",
+			"points": [
+				{
+					"x": 1250,
+					"y": 700
+				},
+				{
+					"x": 1250,
+					"y": 725
+				},
+				{
+					"x": 1254.3333333333333,
+					"y": 750
+				}
+			]
+		}
+	]
+}

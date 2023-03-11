@@ -1,0 +1,405 @@
+{
+  "nodes": [
+    {
+      "name": "iis_bufferflow(attacker,host0)",
+      "type": "vulnerability",
+      "vul_name": "iis_bufferflow",
+      "source": "attacker",
+      "target": "host0"
+    },
+    {
+      "name": "root(attacker)",
+      "type": "privilege",
+      "content": 3.0,
+      "host": "attacker"
+    },
+    {
+      "name": "iis_web_service(attacker,host0)",
+      "type": "condition",
+      "content": "iis_web_service",
+      "source": "attacker",
+      "target": "host0"
+    },
+    {
+      "name": "root(host0)",
+      "type": "privilege",
+      "content": 3.0,
+      "host": "host0"
+    },
+    {
+      "name": "squid_port_scan(host0,host3)",
+      "type": "vulnerability",
+      "vul_name": "squid_port_scan",
+      "source": "host0",
+      "target": "host3"
+    },
+    {
+      "name": "squid_proxy(host0,host3)",
+      "type": "condition",
+      "content": "squid_proxy",
+      "source": "host0",
+      "target": "host3"
+    },
+    {
+      "name": "port_scan(host0,host3)",
+      "type": "condition",
+      "content": "port_scan",
+      "source": "host0",
+      "target": "host3"
+    },
+    {
+      "name": "licq_remote_to_user(host0,host3)",
+      "type": "vulnerability",
+      "vul_name": "licq_remote_to_user",
+      "source": "host0",
+      "target": "host3"
+    },
+    {
+      "name": "licq_chat_service(host0,host3)",
+      "type": "condition",
+      "content": "licq_chat_service",
+      "source": "host0",
+      "target": "host3"
+    },
+    {
+      "name": "user(host3)",
+      "type": "privilege",
+      "content": 2.0,
+      "host": "host3"
+    },
+    {
+      "name": "local_setuid_bufferflow(host3,host3)",
+      "type": "vulnerability",
+      "vul_name": "local_setuid_bufferflow",
+      "source": "host3",
+      "target": "host3"
+    },
+    {
+      "name": "mysql_db(host3,host3)",
+      "type": "condition",
+      "content": "mysql_db",
+      "source": "host3",
+      "target": "host3"
+    },
+    {
+      "name": "root(host3)",
+      "type": "privilege",
+      "content": 3.0,
+      "host": "host3"
+    },
+    {
+      "name": "ssh_bufferflow(host0,host1)",
+      "type": "vulnerability",
+      "vul_name": "ssh_bufferflow",
+      "source": "host0",
+      "target": "host1"
+    },
+    {
+      "name": "ssh(host0,host1)",
+      "type": "condition",
+      "content": "ssh",
+      "source": "host0",
+      "target": "host1"
+    },
+    {
+      "name": "root(host1)",
+      "type": "privilege",
+      "content": 3.0,
+      "host": "host1"
+    },
+    {
+      "name": "squid_port_scan(host1,host3)",
+      "type": "vulnerability",
+      "vul_name": "squid_port_scan",
+      "source": "host1",
+      "target": "host3"
+    },
+    {
+      "name": "squid_proxy(host1,host3)",
+      "type": "condition",
+      "content": "squid_proxy",
+      "source": "host1",
+      "target": "host3"
+    },
+    {
+      "name": "port_scan(host1,host3)",
+      "type": "condition",
+      "content": "port_scan",
+      "source": "host1",
+      "target": "host3"
+    },
+    {
+      "name": "licq_remote_to_user(host1,host3)",
+      "type": "vulnerability",
+      "vul_name": "licq_remote_to_user",
+      "source": "host1",
+      "target": "host3"
+    },
+    {
+      "name": "licq_chat_service(host1,host3)",
+      "type": "condition",
+      "content": "licq_chat_service",
+      "source": "host1",
+      "target": "host3"
+    },
+    {
+      "name": "user(host1)",
+      "type": "privilege",
+      "content": 2.0,
+      "host": "host1"
+    },
+    {
+      "name": "netbios_nullsession(host0,host2)",
+      "type": "vulnerability",
+      "vul_name": "netbios_nullsession",
+      "source": "host0",
+      "target": "host2"
+    },
+    {
+      "name": "netbios_ssn(host0,host2)",
+      "type": "condition",
+      "content": "netbios_ssn",
+      "source": "host0",
+      "target": "host2"
+    },
+    {
+      "name": "user(host2)",
+      "type": "privilege",
+      "content": 2.0,
+      "host": "host2"
+    },
+    {
+      "name": "squid_port_scan(host2,host3)",
+      "type": "vulnerability",
+      "vul_name": "squid_port_scan",
+      "source": "host2",
+      "target": "host3"
+    },
+    {
+      "name": "squid_proxy(host2,host3)",
+      "type": "condition",
+      "content": "squid_proxy",
+      "source": "host2",
+      "target": "host3"
+    },
+    {
+      "name": "port_scan(host2,host3)",
+      "type": "condition",
+      "content": "port_scan",
+      "source": "host2",
+      "target": "host3"
+    },
+    {
+      "name": "licq_remote_to_user(host2,host3)",
+      "type": "vulnerability",
+      "vul_name": "licq_remote_to_user",
+      "source": "host2",
+      "target": "host3"
+    },
+    {
+      "name": "licq_chat_service(host2,host3)",
+      "type": "condition",
+      "content": "licq_chat_service",
+      "source": "host2",
+      "target": "host3"
+    },
+    {
+      "name": "ssh_bufferflow(host2,host1)",
+      "type": "vulnerability",
+      "vul_name": "ssh_bufferflow",
+      "source": "host2",
+      "target": "host1"
+    },
+    {
+      "name": "ssh(host2,host1)",
+      "type": "condition",
+      "content": "ssh",
+      "source": "host2",
+      "target": "host1"
+    },
+    {
+      "name": "netbios_nullsession(host1,host2)",
+      "type": "vulnerability",
+      "vul_name": "netbios_nullsession",
+      "source": "host1",
+      "target": "host2"
+    },
+    {
+      "name": "netbios_ssn(host1,host2)",
+      "type": "condition",
+      "content": "netbios_ssn",
+      "source": "host1",
+      "target": "host2"
+    }
+  ],
+  "edges": [
+    {
+      "source": "root(attacker)",
+      "target": "iis_bufferflow(attacker,host0)"
+    },
+    {
+      "source": "iis_web_service(attacker,host0)",
+      "target": "iis_bufferflow(attacker,host0)"
+    },
+    {
+      "source": "iis_bufferflow(attacker,host0)",
+      "target": "root(host0)"
+    },
+    {
+      "source": "root(host0)",
+      "target": "squid_port_scan(host0,host3)"
+    },
+    {
+      "source": "squid_proxy(host0,host3)",
+      "target": "squid_port_scan(host0,host3)"
+    },
+    {
+      "source": "squid_port_scan(host0,host3)",
+      "target": "port_scan(host0,host3)"
+    },
+    {
+      "source": "root(host0)",
+      "target": "licq_remote_to_user(host0,host3)"
+    },
+    {
+      "source": "licq_chat_service(host0,host3)",
+      "target": "licq_remote_to_user(host0,host3)"
+    },
+    {
+      "source": "port_scan(host0,host3)",
+      "target": "licq_remote_to_user(host0,host3)"
+    },
+    {
+      "source": "licq_remote_to_user(host0,host3)",
+      "target": "user(host3)"
+    },
+    {
+      "source": "user(host3)",
+      "target": "local_setuid_bufferflow(host3,host3)"
+    },
+    {
+      "source": "mysql_db(host3,host3)",
+      "target": "local_setuid_bufferflow(host3,host3)"
+    },
+    {
+      "source": "local_setuid_bufferflow(host3,host3)",
+      "target": "root(host3)"
+    },
+    {
+      "source": "root(host0)",
+      "target": "ssh_bufferflow(host0,host1)"
+    },
+    {
+      "source": "ssh(host0,host1)",
+      "target": "ssh_bufferflow(host0,host1)"
+    },
+    {
+      "source": "ssh_bufferflow(host0,host1)",
+      "target": "root(host1)"
+    },
+    {
+      "source": "root(host1)",
+      "target": "squid_port_scan(host1,host3)"
+    },
+    {
+      "source": "squid_proxy(host1,host3)",
+      "target": "squid_port_scan(host1,host3)"
+    },
+    {
+      "source": "squid_port_scan(host1,host3)",
+      "target": "port_scan(host1,host3)"
+    },
+    {
+      "source": "root(host1)",
+      "target": "licq_remote_to_user(host1,host3)"
+    },
+    {
+      "source": "licq_chat_service(host1,host3)",
+      "target": "licq_remote_to_user(host1,host3)"
+    },
+    {
+      "source": "port_scan(host1,host3)",
+      "target": "licq_remote_to_user(host1,host3)"
+    },
+    {
+      "source": "licq_remote_to_user(host1,host3)",
+      "target": "user(host3)"
+    },
+    {
+      "source": "user(host1)",
+      "target": "squid_port_scan(host1,host3)"
+    },
+    {
+      "source": "user(host1)",
+      "target": "licq_remote_to_user(host1,host3)"
+    },
+    {
+      "source": "root(host0)",
+      "target": "netbios_nullsession(host0,host2)"
+    },
+    {
+      "source": "netbios_ssn(host0,host2)",
+      "target": "netbios_nullsession(host0,host2)"
+    },
+    {
+      "source": "netbios_nullsession(host0,host2)",
+      "target": "user(host2)"
+    },
+    {
+      "source": "user(host2)",
+      "target": "squid_port_scan(host2,host3)"
+    },
+    {
+      "source": "squid_proxy(host2,host3)",
+      "target": "squid_port_scan(host2,host3)"
+    },
+    {
+      "source": "squid_port_scan(host2,host3)",
+      "target": "port_scan(host2,host3)"
+    },
+    {
+      "source": "user(host2)",
+      "target": "licq_remote_to_user(host2,host3)"
+    },
+    {
+      "source": "licq_chat_service(host2,host3)",
+      "target": "licq_remote_to_user(host2,host3)"
+    },
+    {
+      "source": "port_scan(host2,host3)",
+      "target": "licq_remote_to_user(host2,host3)"
+    },
+    {
+      "source": "licq_remote_to_user(host2,host3)",
+      "target": "user(host3)"
+    },
+    {
+      "source": "user(host2)",
+      "target": "ssh_bufferflow(host2,host1)"
+    },
+    {
+      "source": "ssh(host2,host1)",
+      "target": "ssh_bufferflow(host2,host1)"
+    },
+    {
+      "source": "ssh_bufferflow(host2,host1)",
+      "target": "root(host1)"
+    },
+    {
+      "source": "root(host1)",
+      "target": "netbios_nullsession(host1,host2)"
+    },
+    {
+      "source": "netbios_ssn(host1,host2)",
+      "target": "netbios_nullsession(host1,host2)"
+    },
+    {
+      "source": "netbios_nullsession(host1,host2)",
+      "target": "user(host2)"
+    },
+    {
+      "source": "user(host1)",
+      "target": "netbios_nullsession(host1,host2)"
+    }
+  ]
+}

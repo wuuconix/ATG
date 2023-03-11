@@ -1,8 +1,8 @@
 {
-	"attacker": "Attacker",
+	"attacker": "attacker",
 	"hosts": [
 		{
-			"host_name": "Attacker",
+			"host_name": "attacker",
 			"privilege": "3",
 			"service": [],
 			"vuls": [],
@@ -10,13 +10,13 @@
 			"points": []
 		},
 		{
-			"host_name": "Host0",
+			"host_name": "host0",
 			"privilege": "1",
 			"service": [
-				"IIS_web_service"
+				"iis_web_service"
 			],
 			"vuls": [
-				"IIS_bufferflow"
+				"iis_bufferflow"
 			],
 			"loc": "691.5 87.5",
 			"points": [
@@ -37,7 +37,7 @@
 			]
 		},
 		{
-			"host_name": "Host1",
+			"host_name": "host1",
 			"privilege": "1",
 			"service": [
 				"ftp",
@@ -46,9 +46,9 @@
 				"rsh"
 			],
 			"vuls": [
-				"FTP_rhost",
-				"SSH_bufferflow",
-				"RSH_login"
+				"ftp_rhost",
+				"ssh_bufferflow",
+				"rsh_login"
 			],
 			"loc": "507 162.5",
 			"points": [
@@ -97,15 +97,15 @@
 			]
 		},
 		{
-			"host_name": "Host2",
+			"host_name": "host2",
 			"privilege": "1",
 			"service": [
 				"netbios_ssn",
 				"rsh"
 			],
 			"vuls": [
-				"NETBIOS_nullsession",
-				"RSH_login"
+				"netbios_nullsession",
+				"rsh_login"
 			],
 			"loc": "562 237.5",
 			"points": [
@@ -148,17 +148,17 @@
 			]
 		},
 		{
-			"host_name": "Host3",
+			"host_name": "host3",
 			"privilege": "1",
 			"service": [
 				"squid_proxy",
-				"LICQ_chat_service",
-				"Mysql_db"
+				"licq_chat_service",
+				"mysql_db"
 			],
 			"vuls": [
-				"SQUID_port_scan",
-				"LICQ_REMOTE_to_USER",
-				"LOCAL_setuid_bufferflow"
+				"squid_port_scan",
+				"licq_remote_to_user",
+				"local_setuid_bufferflow"
 			],
 			"loc": "452.5 312.5",
 			"points": [
@@ -209,15 +209,15 @@
 	],
 	"vulnerabilities": [
 		{
-			"vul_name": "IIS_bufferflow",
-			"service": "IIS_web_service",
+			"vul_name": "iis_bufferflow",
+			"service": "iis_web_service",
 			"prepriv": "2",
 			"postpriv": "2",
 			"postcond": [],
 			"loc": "597.5 12.5"
 		},
 		{
-			"vul_name": "SSH_bufferflow",
+			"vul_name": "ssh_bufferflow",
 			"service": "ssh",
 			"prepriv": "2",
 			"postpriv": "3",
@@ -225,7 +225,7 @@
 			"loc": "346.5 87.5"
 		},
 		{
-			"vul_name": "NETBIOS_nullsession",
+			"vul_name": "netbios_nullsession",
 			"prepriv": "2",
 			"postpriv": "2",
 			"service": "netbios_ssn",
@@ -233,18 +233,18 @@
 			"loc": "375 162.5"
 		},
 		{
-			"vul_name": "SQUID_port_scan",
+			"vul_name": "squid_port_scan",
 			"prepriv": "2",
 			"postpriv": "0",
 			"service": "squid_proxy",
 			"postcond": [
 				"port_scan"
 			],
-			"combine": "LICQ_chat_service",
+			"combine": "licq_chat_service",
 			"loc": "50 237.5"
 		},
 		{
-			"vul_name": "FTP_rhost",
+			"vul_name": "ftp_rhost",
 			"prepriv": "2",
 			"postpriv": "0",
 			"service": "ftp",
@@ -255,10 +255,10 @@
 			"loc": "475.5 87.5"
 		},
 		{
-			"vul_name": "LICQ_REMOTE_to_USER",
+			"vul_name": "licq_remote_to_user",
 			"prepriv": "2",
 			"postpriv": "2",
-			"service": "LICQ_chat_service",
+			"service": "licq_chat_service",
 			"precond": [
 				"port_scan"
 			],
@@ -266,7 +266,7 @@
 			"loc": "212 237.5"
 		},
 		{
-			"vul_name": "RSH_login",
+			"vul_name": "rsh_login",
 			"prepriv": "1",
 			"postpriv": "2",
 			"service": "rsh",
@@ -277,21 +277,21 @@
 			"loc": "589.5 87.5"
 		},
 		{
-			"vul_name": "LOCAL_setuid_bufferflow",
+			"vul_name": "local_setuid_bufferflow",
 			"prepriv": "2",
 			"postpriv": "3",
-			"service": "Mysql_db",
+			"service": "mysql_db",
 			"postcond": [],
-			"combine": "Mysql_db",
+			"combine": "mysql_db",
 			"loc": "398 237.5"
 		}
 	],
 	"edges": [
 		{
-			"source": "Attacker",
-			"target": "Host0",
+			"source": "attacker",
+			"target": "host0",
 			"condition": [
-				"IIS_web_service"
+				"iis_web_service"
 			],
 			"points": [
 				{
@@ -309,8 +309,8 @@
 			]
 		},
 		{
-			"source": "Host0",
-			"target": "Host1",
+			"source": "host0",
+			"target": "host1",
 			"condition": [
 				"ssh",
 				"rsh",
@@ -332,8 +332,8 @@
 			]
 		},
 		{
-			"source": "Host2",
-			"target": "Host1",
+			"source": "host2",
+			"target": "host1",
 			"condition": [
 				"ssh",
 				"rsh",
@@ -355,11 +355,11 @@
 			]
 		},
 		{
-			"source": "Host0",
-			"target": "Host3",
+			"source": "host0",
+			"target": "host3",
 			"condition": [
 				"squid_proxy",
-				"LICQ_chat_service"
+				"licq_chat_service"
 			],
 			"points": [
 				{
@@ -393,8 +393,8 @@
 			]
 		},
 		{
-			"source": "Host0",
-			"target": "Host2",
+			"source": "host0",
+			"target": "host2",
 			"condition": [
 				"netbios_ssn",
 				"rsh"
@@ -423,8 +423,8 @@
 			]
 		},
 		{
-			"source": "Host1",
-			"target": "Host2",
+			"source": "host1",
+			"target": "host2",
 			"condition": [
 				"netbios_ssn",
 				"rsh"
@@ -445,11 +445,11 @@
 			]
 		},
 		{
-			"source": "Host1",
-			"target": "Host3",
+			"source": "host1",
+			"target": "host3",
 			"condition": [
 				"squid_proxy",
-				"LICQ_chat_service"
+				"licq_chat_service"
 			],
 			"points": [
 				{
@@ -475,11 +475,11 @@
 			]
 		},
 		{
-			"source": "Host2",
-			"target": "Host3",
+			"source": "host2",
+			"target": "host3",
 			"condition": [
 				"squid_proxy",
-				"LICQ_chat_service"
+				"licq_chat_service"
 			],
 			"points": [
 				{
@@ -497,10 +497,10 @@
 			]
 		},
 		{
-			"source": "Host3",
-			"target": "Host3",
+			"source": "host3",
+			"target": "host3",
 			"condition": [
-				"Mysql_db"
+				"mysql_db"
 			],
 			"points": [
 				{
@@ -536,7 +536,7 @@
 	],
 	"goal": [
 		{
-			"host": "Host3",
+			"host": "host3",
 			"privilege": "3",
 			"condition": []
 		}
