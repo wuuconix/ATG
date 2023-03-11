@@ -21,7 +21,7 @@
       "target": "host0"
     },
     {
-      "name": "root(host0)",
+      "name": "user(host0)",
       "type": "privilege",
       "content": 3.0,
       "host": "host0"

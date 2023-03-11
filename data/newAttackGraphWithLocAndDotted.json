@@ -28,8 +28,7 @@
 			"type": "privilege",
 			"content": 2,
 			"host": "host0",
-			"loc": "473.5 162.5",
-			"dotted": 1
+			"loc": "473.5 162.5"
 		},
 		{
 			"name": "squid_port_scan(host0,host3)",
@@ -410,8 +409,7 @@
 					"x": 473.5,
 					"y": 150
 				}
-			],
-			"dotted": 1
+			]
 		},
 		{
 			"source": "user(host0)",
@@ -429,8 +427,7 @@
 					"x": 347.6666666666667,
 					"y": 225
 				}
-			],
-			"dotted": 1
+			]
 		},
 		{
 			"source": "squid_proxy(host0,host3)",
@@ -500,8 +497,7 @@
 					"x": 74.5,
 					"y": 375
 				}
-			],
-			"dotted": 1
+			]
 		},
 		{
 			"source": "licq_chat_service(host0,host3)",
@@ -1094,8 +1090,7 @@
 					"x": 919.8333333333334,
 					"y": 675
 				}
-			],
-			"dotted": 1
+			]
 		},
 		{
 			"source": "ssh(host0,host1)",
@@ -1233,8 +1228,7 @@
 					"x": 1072.8333333333333,
 					"y": 525
 				}
-			],
-			"dotted": 1
+			]
 		},
 		{
 			"source": "netbios_ssn(host0,host2)",

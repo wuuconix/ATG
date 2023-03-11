@@ -1,27 +1,23 @@
 import go from "../go-debug.mjs"
 // import go from "gojs"
-import attackGraph from "../data/attackGraphWithLoc.json" assert { type: "json" }
 
-function genTemplate(color) {
+function renderAttackGraph(attackGraph, divId = "attackGraph") {
   const $ = go.GraphObject.make
-  return $(go.Node, "Auto",
+  const atg = new go.Diagram(divId)
+  atg.undoManager.isEnabled = true
+  atg.nodeTemplate = $(go.Node, "Auto",
     { locationSpot: go.Spot.Center },
     new go.Binding("location", "loc", go.Point.parse),
-    $(go.Shape, "Rectangle", { fill: color }),
+    $(go.Shape, "Rectangle",
+      new go.Binding("strokeDashArray", "dotted", d => d ? [5, 5] : null),
+      new go.Binding("stroke", "dotted", d => d ? "red" : null),
+      new go.Binding("fill", "type", t => t == "vulnerability" ? "#e3f0f5" : "white")
+    ),
     $(go.TextBlock, 
       { margin: 5, textAlign: "center" },
       new go.Binding("text", "key")
     )
   )
-}
-
-function renderAttackGraph() {
-  const $ = go.GraphObject.make
-  const atg = new go.Diagram("attackGraph")
-  atg.undoManager.isEnabled = true
-  atg.nodeTemplateMap.add("privilege", genTemplate("white"))
-  atg.nodeTemplateMap.add("condition", genTemplate("white"))
-  atg.nodeTemplateMap.add("vulnerability", genTemplate("#e3f0f5"))
   atg.linkTemplate = $(go.Link,
     {
       curve: go.Link.Bezier,
@@ -29,16 +25,22 @@ function renderAttackGraph() {
       reshapable: true, relinkableFrom: true, relinkableTo: true,
     },
     new go.Binding("points", "points"),
-    $(go.Shape),
-    $(go.Shape, { toArrow: "Standard" })
+    $(go.Shape,
+      new go.Binding("strokeDashArray", "dotted", d => d ? [5, 5] : null),
+      new go.Binding("stroke", "dotted", d => d ? "red" : null)
+    ),
+    $(go.Shape, { toArrow: "Standard" },
+      new go.Binding("fill", "dotted", d => d ? "red" : null),
+      new go.Binding("stroke", "dotted", d => d ? "red" : null)
+    )
   )
   const nodeDataArray = []
   const linkDataArray = []
   for (let node of attackGraph.nodes) {
-    nodeDataArray.push({ key: node.name, category: node.type, loc: node.loc })
+    nodeDataArray.push({ key: node.name, type: node.type, loc: node.loc, dotted: node.dotted })
   }
   for (let edge of attackGraph.edges) {
-    linkDataArray.push({ from: edge.source, to: edge.target, points: edge.points })
+    linkDataArray.push({ from: edge.source, to: edge.target, points: edge.points, dotted: edge.dotted })
   }
   atg.model = new go.GraphLinksModel(nodeDataArray, linkDataArray)
 }
