@@ -5,7 +5,7 @@ import topology from "../data/originalTopologyWithLoc.json" assert { type: "json
 function stringify(node) {
   let res = ""
   for (const key in node) {
-    if (["key", "loc", "__gohashid", "category", "points"].includes(key)) {
+    if (["key", "loc", "__gohashid", "category", "points", "from", "to"].includes(key)) {
       continue
     }
     res += `${key}: ${JSON.stringify(node[key]).replace(/"/g, "")}\n`
@@ -19,11 +19,7 @@ function genTemplate(color) {
   return $(go.Node, "Auto",
     { locationSpot: go.Spot.Center },
     new go.Binding("location", "loc", go.Point.parse),
-    $(go.Shape, "Rectangle", { fill: color }),
-    $(go.TextBlock, 
-      { margin: 5, textAlign: "center" },
-      new go.Binding("text", "key")
-    ),
+		$(go.Picture, new go.Binding("source", "img")),
     {
       toolTip: $("ToolTip", 
         $(go.TextBlock, { margin: 5 },
@@ -50,21 +46,22 @@ function renderTopology() {
     },
     new go.Binding("points", "points"),
     $(go.Shape),
-    $(go.Shape, { toArrow: "Standard" })
+    $(go.Shape, { toArrow: "Standard" }),
+		{
+      toolTip: $("ToolTip", 
+        $(go.TextBlock, { margin: 5 },
+          new go.Binding("text", "", n => stringify(n))
+        )
+      )
+    }
   )
   const nodeDataArray = []
   const linkDataArray = []
-  for (let vul of topology.vulnerabilities) {
-    nodeDataArray.push({ key: vul.vul_name, category: "vul", ...vul })
-  }
   for (let host of topology.hosts) {
     nodeDataArray.push({ key: host.host_name, category: "host", ...host })
-    for (let i = 0; i < host.vuls.length; i++) {
-      linkDataArray.push({ from: host.vuls[i], to: host.host_name, points: host.points[i] })
-    }
   }
   for (let edge of topology.edges) {
-    linkDataArray.push({ from: edge.source, to: edge.target, points: edge.points })
+    linkDataArray.push({ from: edge.source, to: edge.target, ...edge })
   }
   topo.model = new go.GraphLinksModel(nodeDataArray, linkDataArray)
 }

@@ -5,27 +5,32 @@
       "host_name": "attacker",
       "privilege": "3",
       "service": [],
-      "vuls": []
+      "vuls": [],
+			"img": "https://upyun.wuuconix.link/image-attacker.png"
     }, {
       "host_name": "host0",
       "privilege": "1",
       "service": ["iis_web_service"],
-      "vuls": ["iis_bufferflow"]
+      "vuls": ["iis_bufferflow"],
+			"img": "https://upyun.wuuconix.link/image-h0.png"
     }, {
       "host_name": "host1",
       "privilege": "1",
       "service": ["ftp", "ssh", "ssh_bof", "rsh"],
-      "vuls": ["ftp_rhost", "ssh_bufferflow", "rsh_login"]
+      "vuls": ["ftp_rhost", "ssh_bufferflow", "rsh_login"],
+			"img": "https://upyun.wuuconix.link/image-h1.png"
     }, {
       "host_name": "host2",
       "privilege": "1",
       "service": ["netbios_ssn", "rsh"],
-      "vuls": ["netbios_nullsession", "rsh_login"]
+      "vuls": ["netbios_nullsession", "rsh_login"],
+			"img": "https://upyun.wuuconix.link/image-h1.png"
     }, {
       "host_name": "host3",
       "privilege": "1",
       "service": ["squid_proxy", "licq_chat_service", "mysql_db"],
-      "vuls": ["squid_port_scan", "licq_remote_to_user", "local_setuid_bufferflow"]
+      "vuls": ["squid_port_scan", "licq_remote_to_user", "local_setuid_bufferflow"],
+			"img": "https://upyun.wuuconix.link/image-h3.png"
     }
   ],
   "vulnerabilities": [
