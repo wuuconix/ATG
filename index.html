@@ -11,9 +11,10 @@
 <body>
   <div id="menu">
     <fieldset>
-      <legend>Choose a graph</legend>
+      <legend>Choose a diagram</legend>
       <select name="graph">
         <option value="attackGraph">attackGraph</option>
+				<option value="attackPath">attackPath</option>
         <option value="topology">topology</option>
         <option value="newAttackGraph">newAttackGraph</option>
       </select>
@@ -28,7 +29,7 @@
   width: max(10%, 200px);
   margin: auto;
 }
-#attackGraph, #topology, #newAttackGraph {
+#attackGraph, #topology, #newAttackGraph, #attackPath {
   width: 100%;
   height: calc(100% - 56px);
 }

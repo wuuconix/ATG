@@ -1,0 +1,508 @@
+{
+	"nodes": [
+		"IIS_bufferflow(Attacker,Host0)",
+		"SSH_bufferflow(Host0,Host1)",
+		"NETBIOS_nullsession(Host1,Host2)",
+		"SQUID_port_scan(Host2,Host3)",
+		"LICQ_REMOTE_to_USER(Host2,Host3)",
+		"LOCAL_setuid_bufferflow(Host3,Host3)",
+		"SQUID_port_scan(Host1,Host3)",
+		"LICQ_REMOTE_to_USER(Host1,Host3)",
+		"FTP_rhost(Host0,Host1)",
+		"RSH_login(Host0,Host1)",
+		"SQUID_port_scan(Host0,Host3)",
+		"LICQ_REMOTE_to_USER(Host0,Host3)",
+		"NETBIOS_nullsession(Host0,Host2)",
+		"SSH_bufferflow(Host2,Host1)",
+		"FTP_rhost(Host2,Host1)",
+		"RSH_login(Host2,Host1)"
+	],
+	"edges": [
+		{
+			"source": "IIS_bufferflow(Attacker,Host0)",
+			"target": "SSH_bufferflow(Host0,Host1)",
+			"points": [
+				{
+					"x": 289,
+					"y": 25
+				},
+				{
+					"x": 101,
+					"y": 50
+				},
+				{
+					"x": 101,
+					"y": 87.5
+				},
+				{
+					"x": 101,
+					"y": 125
+				},
+				{
+					"x": 101,
+					"y": 150
+				}
+			]
+		},
+		{
+			"source": "SSH_bufferflow(Host0,Host1)",
+			"target": "NETBIOS_nullsession(Host1,Host2)",
+			"points": [
+				{
+					"x": 101,
+					"y": 175
+				},
+				{
+					"x": 101,
+					"y": 200
+				},
+				{
+					"x": 101,
+					"y": 225
+				}
+			]
+		},
+		{
+			"source": "NETBIOS_nullsession(Host1,Host2)",
+			"target": "SQUID_port_scan(Host2,Host3)",
+			"points": [
+				{
+					"x": 101,
+					"y": 250
+				},
+				{
+					"x": 101,
+					"y": 275
+				},
+				{
+					"x": 101,
+					"y": 300
+				}
+			]
+		},
+		{
+			"source": "SQUID_port_scan(Host2,Host3)",
+			"target": "LICQ_REMOTE_to_USER(Host2,Host3)",
+			"points": [
+				{
+					"x": 101,
+					"y": 325
+				},
+				{
+					"x": 101,
+					"y": 350
+				},
+				{
+					"x": 101,
+					"y": 375
+				}
+			]
+		},
+		{
+			"source": "LICQ_REMOTE_to_USER(Host2,Host3)",
+			"target": "LOCAL_setuid_bufferflow(Host3,Host3)",
+			"points": [
+				{
+					"x": 101,
+					"y": 400
+				},
+				{
+					"x": 101,
+					"y": 425
+				},
+				{
+					"x": 409,
+					"y": 452.43467933491684
+				}
+			]
+		},
+		{
+			"source": "SSH_bufferflow(Host0,Host1)",
+			"target": "SQUID_port_scan(Host1,Host3)",
+			"points": [
+				{
+					"x": 172.33333333333331,
+					"y": 175
+				},
+				{
+					"x": 315,
+					"y": 200
+				},
+				{
+					"x": 315,
+					"y": 237.5
+				},
+				{
+					"x": 315,
+					"y": 275
+				},
+				{
+					"x": 453,
+					"y": 300
+				}
+			]
+		},
+		{
+			"source": "SQUID_port_scan(Host1,Host3)",
+			"target": "LICQ_REMOTE_to_USER(Host1,Host3)",
+			"points": [
+				{
+					"x": 522,
+					"y": 325
+				},
+				{
+					"x": 522,
+					"y": 350
+				},
+				{
+					"x": 522,
+					"y": 375
+				}
+			]
+		},
+		{
+			"source": "LICQ_REMOTE_to_USER(Host1,Host3)",
+			"target": "LOCAL_setuid_bufferflow(Host3,Host3)",
+			"points": [
+				{
+					"x": 522,
+					"y": 400
+				},
+				{
+					"x": 522,
+					"y": 425
+				},
+				{
+					"x": 522,
+					"y": 450
+				}
+			]
+		},
+		{
+			"source": "IIS_bufferflow(Attacker,Host0)",
+			"target": "FTP_rhost(Host0,Host1)",
+			"points": [
+				{
+					"x": 350.3333333333333,
+					"y": 25
+				},
+				{
+					"x": 285,
+					"y": 50
+				},
+				{
+					"x": 285,
+					"y": 75
+				}
+			]
+		},
+		{
+			"source": "FTP_rhost(Host0,Host1)",
+			"target": "RSH_login(Host0,Host1)",
+			"points": [
+				{
+					"x": 312.6666666666667,
+					"y": 100
+				},
+				{
+					"x": 368,
+					"y": 125
+				},
+				{
+					"x": 368,
+					"y": 150
+				}
+			]
+		},
+		{
+			"source": "RSH_login(Host0,Host1)",
+			"target": "NETBIOS_nullsession(Host1,Host2)",
+			"points": [
+				{
+					"x": 306.6666666666667,
+					"y": 175
+				},
+				{
+					"x": 184,
+					"y": 200
+				},
+				{
+					"x": 128.66666666666666,
+					"y": 225
+				}
+			]
+		},
+		{
+			"source": "RSH_login(Host0,Host1)",
+			"target": "SQUID_port_scan(Host1,Host3)",
+			"points": [
+				{
+					"x": 368,
+					"y": 175
+				},
+				{
+					"x": 368,
+					"y": 200
+				},
+				{
+					"x": 368,
+					"y": 237.5
+				},
+				{
+					"x": 368,
+					"y": 275
+				},
+				{
+					"x": 470.6666666666667,
+					"y": 300
+				}
+			]
+		},
+		{
+			"source": "IIS_bufferflow(Attacker,Host0)",
+			"target": "SQUID_port_scan(Host0,Host3)",
+			"points": [
+				{
+					"x": 478,
+					"y": 19.66800804828974
+				},
+				{
+					"x": 880,
+					"y": 50
+				},
+				{
+					"x": 880,
+					"y": 87.5
+				},
+				{
+					"x": 880,
+					"y": 125
+				},
+				{
+					"x": 880,
+					"y": 162.5
+				},
+				{
+					"x": 880,
+					"y": 200
+				},
+				{
+					"x": 880,
+					"y": 237.5
+				},
+				{
+					"x": 880,
+					"y": 275
+				},
+				{
+					"x": 880,
+					"y": 300
+				}
+			]
+		},
+		{
+			"source": "SQUID_port_scan(Host0,Host3)",
+			"target": "LICQ_REMOTE_to_USER(Host0,Host3)",
+			"points": [
+				{
+					"x": 880,
+					"y": 325
+				},
+				{
+					"x": 880,
+					"y": 350
+				},
+				{
+					"x": 880,
+					"y": 375
+				}
+			]
+		},
+		{
+			"source": "LICQ_REMOTE_to_USER(Host0,Host3)",
+			"target": "LOCAL_setuid_bufferflow(Host3,Host3)",
+			"points": [
+				{
+					"x": 880,
+					"y": 400
+				},
+				{
+					"x": 880,
+					"y": 425
+				},
+				{
+					"x": 635,
+					"y": 450.66340782122904
+				}
+			]
+		},
+		{
+			"source": "IIS_bufferflow(Attacker,Host0)",
+			"target": "NETBIOS_nullsession(Host0,Host2)",
+			"points": [
+				{
+					"x": 426,
+					"y": 25
+				},
+				{
+					"x": 512,
+					"y": 50
+				},
+				{
+					"x": 512,
+					"y": 75
+				}
+			]
+		},
+		{
+			"source": "NETBIOS_nullsession(Host0,Host2)",
+			"target": "SSH_bufferflow(Host2,Host1)",
+			"points": [
+				{
+					"x": 525.3333333333334,
+					"y": 100
+				},
+				{
+					"x": 552,
+					"y": 125
+				},
+				{
+					"x": 552,
+					"y": 162.5
+				},
+				{
+					"x": 552,
+					"y": 200
+				},
+				{
+					"x": 552,
+					"y": 225
+				}
+			]
+		},
+		{
+			"source": "SSH_bufferflow(Host2,Host1)",
+			"target": "SQUID_port_scan(Host1,Host3)",
+			"points": [
+				{
+					"x": 552,
+					"y": 250
+				},
+				{
+					"x": 552,
+					"y": 275
+				},
+				{
+					"x": 532,
+					"y": 300
+				}
+			]
+		},
+		{
+			"source": "NETBIOS_nullsession(Host0,Host2)",
+			"target": "FTP_rhost(Host2,Host1)",
+			"points": [
+				{
+					"x": 594.3333333333334,
+					"y": 100
+				},
+				{
+					"x": 759,
+					"y": 125
+				},
+				{
+					"x": 759,
+					"y": 150
+				}
+			]
+		},
+		{
+			"source": "FTP_rhost(Host2,Host1)",
+			"target": "RSH_login(Host2,Host1)",
+			"points": [
+				{
+					"x": 759,
+					"y": 175
+				},
+				{
+					"x": 759,
+					"y": 200
+				},
+				{
+					"x": 759,
+					"y": 225
+				}
+			]
+		},
+		{
+			"source": "RSH_login(Host2,Host1)",
+			"target": "SQUID_port_scan(Host1,Host3)",
+			"points": [
+				{
+					"x": 759,
+					"y": 250
+				},
+				{
+					"x": 759,
+					"y": 275
+				},
+				{
+					"x": 601,
+					"y": 300
+				}
+			]
+		},
+		{
+			"source": "NETBIOS_nullsession(Host0,Host2)",
+			"target": "SQUID_port_scan(Host2,Host3)",
+			"points": [
+				{
+					"x": 428.6666666666667,
+					"y": 100
+				},
+				{
+					"x": 262,
+					"y": 125
+				},
+				{
+					"x": 262,
+					"y": 162.5
+				},
+				{
+					"x": 262,
+					"y": 200
+				},
+				{
+					"x": 262,
+					"y": 237.5
+				},
+				{
+					"x": 262,
+					"y": 275
+				},
+				{
+					"x": 154.66666666666666,
+					"y": 300
+				}
+			]
+		}
+	],
+	"locs": [
+		"383 12.5",
+		"101 162.5",
+		"101 237.5",
+		"101 312.5",
+		"101 387.5",
+		"522 462.5",
+		"522 312.5",
+		"522 387.5",
+		"285 87.5",
+		"368 162.5",
+		"880 312.5",
+		"880 387.5",
+		"512 87.5",
+		"552 237.5",
+		"759 162.5",
+		"759 237.5"
+	]
+}

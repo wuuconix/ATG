@@ -1,0 +1,110 @@
+{
+  "nodes": [
+    "IIS_bufferflow(Attacker,Host0)",
+    "SSH_bufferflow(Host0,Host1)",
+    "NETBIOS_nullsession(Host1,Host2)",
+    "SQUID_port_scan(Host2,Host3)",
+    "LICQ_REMOTE_to_USER(Host2,Host3)",
+    "LOCAL_setuid_bufferflow(Host3,Host3)",
+    "SQUID_port_scan(Host1,Host3)",
+    "LICQ_REMOTE_to_USER(Host1,Host3)",
+    "FTP_rhost(Host0,Host1)",
+    "RSH_login(Host0,Host1)",
+    "SQUID_port_scan(Host0,Host3)",
+    "LICQ_REMOTE_to_USER(Host0,Host3)",
+    "NETBIOS_nullsession(Host0,Host2)",
+    "SSH_bufferflow(Host2,Host1)",
+    "FTP_rhost(Host2,Host1)",
+    "RSH_login(Host2,Host1)"
+  ],
+  "edges": [
+    {
+      "source": "IIS_bufferflow(Attacker,Host0)",
+      "target": "SSH_bufferflow(Host0,Host1)"
+    },
+    {
+      "source": "SSH_bufferflow(Host0,Host1)",
+      "target": "NETBIOS_nullsession(Host1,Host2)"
+    },
+    {
+      "source": "NETBIOS_nullsession(Host1,Host2)",
+      "target": "SQUID_port_scan(Host2,Host3)"
+    },
+    {
+      "source": "SQUID_port_scan(Host2,Host3)",
+      "target": "LICQ_REMOTE_to_USER(Host2,Host3)"
+    },
+    {
+      "source": "LICQ_REMOTE_to_USER(Host2,Host3)",
+      "target": "LOCAL_setuid_bufferflow(Host3,Host3)"
+    },
+    {
+      "source": "SSH_bufferflow(Host0,Host1)",
+      "target": "SQUID_port_scan(Host1,Host3)"
+    },
+    {
+      "source": "SQUID_port_scan(Host1,Host3)",
+      "target": "LICQ_REMOTE_to_USER(Host1,Host3)"
+    },
+    {
+      "source": "LICQ_REMOTE_to_USER(Host1,Host3)",
+      "target": "LOCAL_setuid_bufferflow(Host3,Host3)"
+    },
+    {
+      "source": "IIS_bufferflow(Attacker,Host0)",
+      "target": "FTP_rhost(Host0,Host1)"
+    },
+    { 
+			"source": "FTP_rhost(Host0,Host1)",
+			"target": "RSH_login(Host0,Host1)" 
+		},
+    {
+      "source": "RSH_login(Host0,Host1)",
+      "target": "NETBIOS_nullsession(Host1,Host2)"
+    },
+    {
+      "source": "RSH_login(Host0,Host1)",
+      "target": "SQUID_port_scan(Host1,Host3)"
+    },
+    {
+      "source": "IIS_bufferflow(Attacker,Host0)",
+      "target": "SQUID_port_scan(Host0,Host3)"
+    },
+    {
+      "source": "SQUID_port_scan(Host0,Host3)",
+      "target": "LICQ_REMOTE_to_USER(Host0,Host3)"
+    },
+    {
+      "source": "LICQ_REMOTE_to_USER(Host0,Host3)",
+      "target": "LOCAL_setuid_bufferflow(Host3,Host3)"
+    },
+    {
+      "source": "IIS_bufferflow(Attacker,Host0)",
+      "target": "NETBIOS_nullsession(Host0,Host2)"
+    },
+    {
+      "source": "NETBIOS_nullsession(Host0,Host2)",
+      "target": "SSH_bufferflow(Host2,Host1)"
+    },
+    {
+      "source": "SSH_bufferflow(Host2,Host1)",
+      "target": "SQUID_port_scan(Host1,Host3)"
+    },
+    {
+      "source": "NETBIOS_nullsession(Host0,Host2)",
+      "target": "FTP_rhost(Host2,Host1)"
+    },
+    { 
+			"source": "FTP_rhost(Host2,Host1)",
+		 	"target": "RSH_login(Host2,Host1)" 
+		},
+    {
+      "source": "RSH_login(Host2,Host1)",
+      "target": "SQUID_port_scan(Host1,Host3)"
+    },
+    {
+      "source": "NETBIOS_nullsession(Host0,Host2)",
+      "target": "SQUID_port_scan(Host2,Host3)"
+    }
+  ]
+}

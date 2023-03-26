@@ -1,32 +1,36 @@
 import renderAttackGraph from "./graph/attackGraph.mjs"
 import renderTopology from "./graph/topology.mjs"
+import renderAttackPath from "./graph/attackPath.mjs"
 import attackGraph from "./data/attackGraphWithLoc.json" assert { type: "json" }
+import topology from "./data/originalTopologyWithLoc.json" assert { type: "json" }
 import newAttackGraph from "./data/newAttackGraphWithLocAndDotted.json" assert { type: "json" }
+import attackPath from "./data/attackPathWithLoc.json" assert { type: "json" }
 
-const select = document.querySelector("#menu > fieldset > select")
-renderAttackGraph(attackGraph)
+const diagrams = [ "attackGraph", "topology", "newAttackGraph", "attackPath" ]
+const renderMap = new Map([
+	[ "attackGraph", [ renderAttackGraph, attackGraph ] ],
+	[ "topology", [ renderTopology, topology] ],
+	[ "newAttackGraph", [ renderAttackGraph, newAttackGraph ] ],
+	[ "attackPath", [ renderAttackPath, attackPath ] ]
+])
 
-function genNewDiv(id) {
-  const div = document.createElement("div")
-  div.id = id
+function render(diagram) {
+	for (let d of diagrams) {
+		document.querySelector(`#${d}`)?.remove()			// remove all diagram
+	}
+	const div = document.createElement("div")				// gen a new one
+  div.id = diagram
   document.body.append(div)
+	const renderFun = renderMap.get(diagram)[0]
+	const data = renderMap.get(diagram)[1]
+	renderFun(data, diagram)												// call render function with data and divID
 }
 
+const select = document.querySelector("#menu > fieldset > select")
+render(select.value)
+
 select.addEventListener("change", (e) => {
-  if (e.target.value == "attackGraph") {
-    document.querySelector("#topology")?.remove()
-    document.querySelector("#newAttackGraph")?.remove()
-    genNewDiv("attackGraph")
-    renderAttackGraph(attackGraph)
-  } else if (e.target.value == "topology") {
-    document.querySelector("#attackGraph")?.remove()
-    document.querySelector("#newAttackGraph")?.remove()
-    genNewDiv("topology")
-    renderTopology()
-  } else if (e.target.value == "newAttackGraph") {
-    document.querySelector("#attackGraph")?.remove()
-    document.querySelector("#topology")?.remove()
-    genNewDiv("newAttackGraph")
-    renderAttackGraph(newAttackGraph, "newAttackGraph")
-  }
+	if (diagrams.includes(e.target.value)) {
+		render(e.target.value)
+	}
 })

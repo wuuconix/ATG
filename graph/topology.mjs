@@ -1,11 +1,10 @@
 import go from "../go-debug.mjs"
 // import go from "gojs"
-import topology from "../data/originalTopologyWithLoc.json" assert { type: "json" }
 
 function stringify(node) {
   let res = ""
   for (const key in node) {
-    if (["key", "loc", "__gohashid", "category", "points", "from", "to"].includes(key)) {
+    if ([ "key", "loc", "__gohashid", "category", "points", "from", "to", "img" ].includes(key)) {
       continue
     }
     res += `${key}: ${JSON.stringify(node[key]).replace(/"/g, "")}\n`
@@ -30,7 +29,7 @@ function genTemplate(color) {
   )
 }
 
-function renderTopology() {
+function renderTopology(topology) {
   const $ = go.GraphObject.make
   const topo = new go.Diagram("topology")
   topo.undoManager.isEnabled = true

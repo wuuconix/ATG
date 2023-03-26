@@ -4,7 +4,7 @@ import go from "../go-debug.mjs"
 function stringify(node) {
   let res = ""
   for (const key in node) {
-    if (["key", "loc", "__gohashid"].includes(key)) {
+    if ([ "key", "loc", "__gohashid" ].includes(key)) {
       continue
     }
     res += `${key}: ${node[key]}\n`
