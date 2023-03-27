@@ -17,6 +17,7 @@
 				<option value="attackPath">attackPath</option>
         <option value="topology">topology</option>
         <option value="newAttackGraph">newAttackGraph</option>
+				<option value="chart">chart</option>
       </select>
     </fieldset>
   </div>
@@ -32,5 +33,10 @@
 #attackGraph, #topology, #newAttackGraph, #attackPath {
   width: 100%;
   height: calc(100% - 56px);
+}
+#chart {
+	width: max(500px, 100%);
+	height: max(400px, calc(100% - 56px));
+	margin: auto;
 }
 </style>

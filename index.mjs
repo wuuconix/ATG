@@ -1,17 +1,19 @@
 import renderAttackGraph from "./graph/attackGraph.mjs"
 import renderTopology from "./graph/topology.mjs"
 import renderAttackPath from "./graph/attackPath.mjs"
+import renderChart from "./graph/chart.mjs"
 import attackGraph from "./data/attackGraphWithLoc.json" assert { type: "json" }
 import topology from "./data/originalTopologyWithLoc.json" assert { type: "json" }
 import newAttackGraph from "./data/newAttackGraphWithLocAndDotted.json" assert { type: "json" }
 import attackPath from "./data/attackPathWithLoc.json" assert { type: "json" }
 
-const diagrams = [ "attackGraph", "topology", "newAttackGraph", "attackPath" ]
+const diagrams = [ "attackGraph", "topology", "newAttackGraph", "attackPath", "chart" ]
 const renderMap = new Map([
 	[ "attackGraph", [ renderAttackGraph, attackGraph ] ],
 	[ "topology", [ renderTopology, topology] ],
 	[ "newAttackGraph", [ renderAttackGraph, newAttackGraph ] ],
-	[ "attackPath", [ renderAttackPath, attackPath ] ]
+	[ "attackPath", [ renderAttackPath, attackPath ] ],
+	[ "chart", [ renderChart, null ]]
 ])
 
 function render(diagram) {
