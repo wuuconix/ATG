@@ -1,29 +1,56 @@
 // import * as echarts from "echarts"
 import * as echarts from "../echarts.mjs"
+import chartData from "../data/chart.json" assert { type: "json" }
 
 function renderChart() {
 	const chart = echarts.init(document.querySelector("#chart"))
-	const option = {
-		xAxis: {
-			data: ['A', 'B', 'C', 'D', 'E']
+	chart.setOption({
+		tooltip: {
+			trigger: 'axis',
+			axisPointer: { type: 'cross' }
 		},
-		yAxis: {},
+		legend: {
+			orient: "vertical",
+			top: "center",
+			right: 30
+		},
+		xAxis: {
+			// type: "value",
+			name: "主机数",
+			nameLocation: "center",
+			nameTextStyle: {
+				fontSize: "24",
+				padding: [20, 0, 0, 0]
+			},
+			data: chartData.hostsNums
+		},
+		yAxis: {
+      type: 'value',
+      name: '时间',
+			nameLocation: "middle",
+			nameTextStyle: {
+				fontSize: "24",
+				padding: [0, 0, 20, 0]
+			},
+      min: 0,
+      max: 2500,
+      axisLabel: {
+        formatter: '{value}s'
+      },
+    },
 		series: [
 			{
-				data: [10, 22, 28, 43, 49],
-				type: 'line',
-				stack: 'x',
-				areaStyle: {}
+				name: "pyhop",
+				data: chartData.pyhopTime,
+				type: "line"
 			},
 			{
-				data: [5, 4, 3, 5, 10],
-				type: 'line',
-				stack: 'x',
-				areaStyle: {}
+				name: "sgplan",
+				data: chartData.sgplanTime,
+				type: "line"
 			}
 		]
-	}
-	chart.setOption(option)
+	})
 }
 
 export default renderChart
