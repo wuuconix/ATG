@@ -6,6 +6,7 @@ import attackGraph from "./data/attackGraphWithLoc.json" assert { type: "json" }
 import topology from "./data/originalTopologyWithLoc.json" assert { type: "json" }
 import newAttackGraph from "./data/newAttackGraphWithLocAndDotted.json" assert { type: "json" }
 import attackPath from "./data/attackPathWithLoc.json" assert { type: "json" }
+import chartData from "../data/chart.json" assert { type: "json" }
 
 const diagrams = [ "attackGraph", "topology", "newAttackGraph", "attackPath", "chart" ]
 const renderMap = new Map([
@@ -13,10 +14,10 @@ const renderMap = new Map([
 	[ "topology", [ renderTopology, topology] ],
 	[ "newAttackGraph", [ renderAttackGraph, newAttackGraph ] ],
 	[ "attackPath", [ renderAttackPath, attackPath ] ],
-	[ "chart", [ renderChart, null ]]
+	[ "chart", [ renderChart, chartData ]]
 ])
 
-function render(diagram) {
+function render(diagram, chart = "time") {
 	for (let d of diagrams) {
 		document.querySelector(`#${d}`)?.remove()			// remove all diagram
 	}
@@ -25,14 +26,25 @@ function render(diagram) {
   document.body.append(div)
 	const renderFun = renderMap.get(diagram)[0]
 	const data = renderMap.get(diagram)[1]
-	renderFun(data, diagram)												// call render function with data and divID
+	renderFun(data, diagram, chart)									// call render function with data and divID
+	if (diagram == "chart") {
+		document.querySelector("fieldset[name=chart]").style.visibility = "visible"
+	} else {
+		document.querySelector("fieldset[name=chart]").style.visibility = ""
+	}
 }
 
-const select = document.querySelector("#menu > fieldset > select")
-render(select.value)
+const diagramSelect = document.querySelector("#menu > fieldset[name=graph] > select")
+const chartSelect = document.querySelector("#menu > fieldset[name=chart] > select")
+render(diagramSelect.value)
 
-select.addEventListener("change", (e) => {
+diagramSelect.addEventListener("change", (e) => {
 	if (diagrams.includes(e.target.value)) {
 		render(e.target.value)
 	}
+})
+
+chartSelect.addEventListener("change", (e) => {
+	document.querySelector(`#chart`)?.remove()
+	render("chart", e.target.value)
 })

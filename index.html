@@ -10,7 +10,7 @@
 </head>
 <body>
   <div id="menu">
-    <fieldset>
+    <fieldset name="graph">
       <legend>Choose a diagram</legend>
       <select name="graph">
         <option value="attackGraph">attackGraph</option>
@@ -20,6 +20,13 @@
 				<option value="chart">chart</option>
       </select>
     </fieldset>
+		<fieldset name="chart">
+      <legend>Choose a chart</legend>
+      <select name="chart">
+        <option value="time">time</option>
+				<option value="memory">memory</option>
+      </select>
+    </fieldset>
   </div>
   <div id="attackGraph"></div>
 </body>
@@ -27,8 +34,15 @@
 
 <style>
 #menu {
-  width: max(10%, 200px);
-  margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+fieldset {
+	text-align: center;
+}
+fieldset[name=chart] {
+	visibility: hidden;
 }
 #attackGraph, #topology, #newAttackGraph, #attackPath {
   width: 100%;
