@@ -1,4 +1,3 @@
-import { color } from "echarts"
 import { readFile, writeFile } from "fs/promises"
 
 async function readCsv(path) {

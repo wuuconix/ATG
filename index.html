@@ -16,6 +16,7 @@
         <option value="attackGraph">attackGraph</option>
 				<option value="attackPath">attackPath</option>
         <option value="topology">topology</option>
+				<option value="newTopology">newTopology</option>
         <option value="newAttackGraph">newAttackGraph</option>
 				<option value="chart">chart</option>
       </select>
@@ -28,7 +29,6 @@
       </select>
     </fieldset>
   </div>
-  <div id="attackGraph"></div>
 </body>
 </html>
 
@@ -44,7 +44,7 @@ fieldset {
 fieldset[name=chart] {
 	visibility: hidden;
 }
-#attackGraph, #topology, #newAttackGraph, #attackPath {
+#attackGraph, #topology, #newAttackGraph, #attackPath, #newTopology {
   width: 100%;
   height: calc(100% - 56px);
 }
