@@ -60,6 +60,25 @@
 			"name": "HMI",
 			"category": "rightHost",
 			"loc": "530 75"
+		},
+		{
+			"key": "controller",
+			"name": "控制器",
+			"category": "controller",
+			"isGroup": true,
+			"loc": "550.5637033123892 354.6911099371674"
+		},
+		{
+			"key": "c1",
+			"category": "rightHost",
+			"group": "controller",
+			"loc": "530 250"
+		},
+		{
+			"key": "c2",
+			"category": "rightHost",
+			"group": "controller",
+			"loc": "530 400"
 		}
 	],
 	"linkDataArray": [
@@ -109,6 +128,22 @@
 			"from": "hmi",
 			"to": "bar2",
 			"toPort": "right25"
+		},
+		{
+			"from": "c1",
+			"to": "bar2",
+			"toPort": "right60"
+		},
+		{
+			"from": "c2",
+			"to": "bar2",
+			"toPort": "right90"
+		},
+		{
+			"from": "controller",
+			"to": "hmi",
+			"fromPort": "top",
+			"toPort": "bottom"
 		}
 	]
 }

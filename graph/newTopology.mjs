@@ -72,7 +72,13 @@ function renderNewTopology() {
 					height: 100,
 					imageStretch: go.GraphObject.Uniform 
 				}),
-				$(go.TextBlock, new go.Binding("text", "name"))
+				$(go.TextBlock, new go.Binding("text", "name")),
+				$(go.Shape, {
+					width: 0,
+					height: 0,
+					portId: "bottom",
+					toSpot: go.Spot.Bottom
+				})
 			)
 		)
 	)
@@ -140,6 +146,22 @@ function renderNewTopology() {
 				width: 0,
 				height: 0
 			})
+		)
+	),
+	topo.groupTemplateMap.add("controller",
+		$(go.Group, "Vertical",
+			{	locationSpot: go.Spot.Center },
+			new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+			$(go.Shape,{
+				figure: "RoundedRectangle",
+				fill: "rgba(128,128,128,0.33)",
+				width: 120,
+				height: 350
+			}),
+			$(go.TextBlock,
+				{ alignment: go.Spot.Bottom, margin: 5 },
+				new go.Binding("text", "name")
+			)
 		)
 	)
 	topo.linkTemplate = 
