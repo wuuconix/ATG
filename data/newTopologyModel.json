@@ -1,0 +1,114 @@
+{
+	"class": "GraphLinksModel",
+	"linkFromPortIdProperty": "fromPort",
+	"linkToPortIdProperty": "toPort",
+	"nodeDataArray": [
+		{
+			"key": "bar1",
+			"category": "bar",
+			"loc": "0 200"
+		},
+		{
+			"key": "server",
+			"name": "服务器",
+			"category": "leftHost",
+			"loc": "-110 25"
+		},
+		{
+			"key": "pc",
+			"name": "PC",
+			"category": "leftHost",
+			"loc": "-110 350"
+		},
+		{
+			"key": "db",
+			"name": "数据库",
+			"category": "rightHost",
+			"loc": "110 200"
+		},
+		{
+			"key": "firewall",
+			"name": "防火墙",
+			"category": "firewall",
+			"loc": "176 522"
+		},
+		{
+			"key": "bar2",
+			"category": "bar",
+			"loc": "420 200"
+		},
+		{
+			"key": "historyDb",
+			"name": "历史数据库",
+			"category": "leftHost",
+			"loc": "310 25"
+		},
+		{
+			"key": "operator",
+			"name": "操作员站",
+			"category": "leftHost",
+			"loc": "310 200"
+		},
+		{
+			"key": "engineer",
+			"name": "工程师站",
+			"category": "leftHost",
+			"loc": "310 350"
+		},
+		{
+			"key": "hmi",
+			"name": "HMI",
+			"category": "rightHost",
+			"loc": "530 75"
+		}
+	],
+	"linkDataArray": [
+		{
+			"from": "server",
+			"to": "bar1",
+			"toPort": "left15"
+		},
+		{
+			"from": "pc",
+			"to": "bar1",
+			"toPort": "left80"
+		},
+		{
+			"from": "db",
+			"to": "bar1",
+			"toPort": "right50"
+		},
+		{
+			"from": "bar1",
+			"to": "firewall",
+			"fromPort": "bottom",
+			"toPort": "left"
+		},
+		{
+			"from": "firewall",
+			"to": "bar2",
+			"fromPort": "right",
+			"toPort": "bottom"
+		},
+		{
+			"from": "historyDb",
+			"to": "bar2",
+			"toPort": "left15"
+		},
+		{
+			"from": "operator",
+			"to": "bar2",
+			"toPort": "left50"
+		},
+		{
+			"from": "engineer",
+			"to": "bar2",
+			"toPort": "left80"
+		},
+		{
+			"from": "hmi",
+			"to": "bar2",
+			"toPort": "right25"
+		}
+	]
+}

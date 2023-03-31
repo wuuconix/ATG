@@ -1,11 +1,15 @@
 // import go from "gojs"
 import go from "../go-debug.mjs"
+import modelJson from "../data/newTopologyModel.json" assert { type: "json" }
 
 function renderNewTopology() {
 	const $ = go.GraphObject.make
   const topo = new go.Diagram("newTopology")
+	topo.undoManager.isEnabled = true
 	topo.nodeTemplateMap.add("firewall",
 		$(go.Node, "Position",
+			{	locationSpot: go.Spot.Center },
+			new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
 			$(go.Picture, {
 				source: "https://upyun.wuuconix.link/image-firewall.png",
 				width: 100,
@@ -30,6 +34,8 @@ function renderNewTopology() {
 	)
 	topo.nodeTemplateMap.add("leftHost",
 		$(go.Node, "Horizontal", 
+			{	locationSpot: go.Spot.Center },
+			new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
 			$(go.Panel, "Vertical",
 				$(go.Picture, {
 					source: "https://upyun.wuuconix.link/image-attacker.png",
@@ -50,6 +56,8 @@ function renderNewTopology() {
 	)
 	topo.nodeTemplateMap.add("rightHost",
 		$(go.Node, "Horizontal", 
+			{	locationSpot: go.Spot.Center },
+			new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
 			$(go.Shape, "Circle",	{
 				portId: "",
 				fromSpot: go.Spot.Left,
@@ -70,6 +78,8 @@ function renderNewTopology() {
 	)
 	topo.nodeTemplateMap.add("bar",
 		$(go.Node, "Position",
+			{	locationSpot: go.Spot.Center },
+			new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
 			$(go.Shape,	{		// bar
 				width: 20, height: 500, fill: "white" 
 			}),
@@ -136,36 +146,11 @@ function renderNewTopology() {
 		$(go.Link, 
 			{ routing: go.Link.Orthogonal },
 			$(go.Shape)
-		);
-	const nodeDataArray = [
-		{ key: "bar1", category: "bar" },
-		{ key: "server", name: "服务器", category: "leftHost" },
-		{ key: "pc", name: "PC", category: "leftHost" },
-		{ key: "db", name: "数据库", category: "rightHost" },
-		{ key: "firewall", name: "防火墙", category: "firewall" },
-		{ key: "bar2", category: "bar" },
-		{ key: "historyDb", name: "历史数据库", category: "leftHost" },
-		{ key: "operator", name: "操作员站", category: "leftHost" },
-		{ key: "engineer", name: "工程师站", category: "leftHost" },
-		{ key: "hmi", name: "HMI", category: "rightHost" }
-	]
-  const linkDataArray = [
-		{ from: "server", to: "bar1", toPort: "left15" },
-		{ from: "pc", to: "bar1", toPort: "left80" },
-		{ from: "db", to: "bar1", toPort: "right50" },
-		{ from: "bar1", to: "firewall", fromPort: "bottom", toPort: "left", },
-		{ from: "firewall", to: "bar2", fromPort: "right", toPort: "bottom" },
-		{ from: "historyDb", to: "bar2", toPort: "left15" },
-		{ from: "operator", to: "bar2", toPort: "left50" },
-		{ from: "engineer", to: "bar2", toPort: "left80" },
-		{ from: "hmi", to: "bar2", toPort: "right25" }
-	]
-	topo.model = new go.GraphLinksModel({
-		linkFromPortIdProperty: "fromPort",
-		linkToPortIdProperty: "toPort",
-		nodeDataArray,
-		linkDataArray
-	})
+		)
+	topo.model = go.Model.fromJson(modelJson)
+	window.print = () => {
+		console.log(JSON.stringify(JSON.parse(topo.model.toJson()), null, "\t"))
+	}
 }
 
 export default renderNewTopology
