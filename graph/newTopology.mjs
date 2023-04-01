@@ -49,13 +49,18 @@ function renderNewTopology() {
 			{	locationSpot: go.Spot.Center },
 			new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
 			$(go.Panel, "Vertical",
-				$(go.Picture, {
-					source: "https://upyun.wuuconix.link/image-attacker.png",
-					width: 100,
-					height: 100,
-					imageStretch: go.GraphObject.Uniform 
-				}),
-				$(go.TextBlock, new go.Binding("text", "name"))
+				$(go.Picture, 
+					{
+						source: "https://upyun.wuuconix.link/image-attacker.png",
+						width: 100,
+						height: 100,
+						imageStretch: go.GraphObject.Uniform 
+					},
+					new go.Binding("source", "img")
+				),
+				$(go.TextBlock, 
+					{ margin: new go.Margin(10, 0, 0, 0) },
+					new go.Binding("text", "name"))
 			),
 			$(go.Shape, "Circle",	{
 				portId: "",			// change the port from the hole node to this circle
@@ -78,14 +83,19 @@ function renderNewTopology() {
 				fill: "white"
 			}),
 			$(go.Panel, "Vertical",
-				$(go.Picture, {
-					source: "https://upyun.wuuconix.link/image-attacker.png",
-					width: 100,
-					height: 100,
-					imageStretch: go.GraphObject.Uniform,
-					portId: "pic"
-				}),
-				$(go.TextBlock, new go.Binding("text", "name")),
+				$(go.Picture, 
+					{
+						width: 100,
+						height: 100,
+						imageStretch: go.GraphObject.Uniform,
+						portId: "pic"
+					},
+					new go.Binding("source", "img")
+				),
+				$(go.TextBlock, 
+					{ margin: new go.Margin(10, 0, 0, 0) },
+					new go.Binding("text", "name")
+				),
 				$(go.Shape, {
 					width: 0,
 					height: 0,

@@ -12,19 +12,22 @@
 			"key": "server",
 			"name": "服务器",
 			"category": "leftHost",
-			"loc": "-110 25"
+			"loc": "-110 25",
+			"img": "https://upyun.wuuconix.link/image-server.png"
 		},
 		{
 			"key": "pc",
 			"name": "PC",
 			"category": "leftHost",
-			"loc": "-110 350"
+			"loc": "-110 350",
+			"img": "https://upyun.wuuconix.link/image-pc.png"
 		},
 		{
 			"key": "db",
 			"name": "数据库",
 			"category": "rightHost",
-			"loc": "110 200"
+			"loc": "110 200",
+			"img": "https://upyun.wuuconix.link/image-db.png"
 		},
 		{
 			"key": "firewall",
@@ -41,25 +44,29 @@
 			"key": "historyDb",
 			"name": "历史数据库",
 			"category": "leftHost",
-			"loc": "310 25"
+			"loc": "310 25",
+			"img": "https://upyun.wuuconix.link/image-historyDb.png"
 		},
 		{
 			"key": "operator",
 			"name": "操作员站",
 			"category": "leftHost",
-			"loc": "310 200"
+			"loc": "310 200",
+			"img": "https://upyun.wuuconix.link/image-operator.png"
 		},
 		{
 			"key": "engineer",
 			"name": "工程师站",
 			"category": "leftHost",
-			"loc": "310 350"
+			"loc": "310 350",
+			"img": "https://upyun.wuuconix.link/image-pc.png"
 		},
 		{
 			"key": "hmi",
 			"name": "HMI",
 			"category": "rightHost",
-			"loc": "530 75"
+			"loc": "530 75",
+			"img": "https://upyun.wuuconix.link/image-pc.png"
 		},
 		{
 			"key": "controller",
@@ -72,13 +79,15 @@
 			"key": "c1",
 			"category": "rightHost",
 			"group": "controller",
-			"loc": "530 250"
+			"loc": "530 250",
+			"img": "https://upyun.wuuconix.link/image-controller.png"
 		},
 		{
 			"key": "c2",
 			"category": "rightHost",
 			"group": "controller",
-			"loc": "530 400"
+			"loc": "530 400",
+			"img": "https://upyun.wuuconix.link/image-controller.png"
 		},
 		{
 			"key": "sensor",
