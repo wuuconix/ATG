@@ -79,6 +79,62 @@
 			"category": "rightHost",
 			"group": "controller",
 			"loc": "530 400"
+		},
+		{
+			"key": "sensor",
+			"name": "传感器",
+			"category": "sensor",
+			"isGroup": true,
+			"loc": "815 75"
+		},
+		{
+			"key": "excutor",
+			"name": "执行器",
+			"category": "sensor",
+			"isGroup": true,
+			"loc": "815 425"
+		},
+		{
+			"key": "s1",
+			"group": "sensor",
+			"loc": "775 20",
+			"category": "sensor"
+		},
+		{
+			"key": "s2",
+			"group": "sensor",
+			"loc": "860 20",
+			"category": "sensor"
+		},
+		{
+			"key": "s3",
+			"group": "sensor",
+			"loc": "775 105",
+			"category": "sensor"
+		},
+		{
+			"key": "s4",
+			"group": "sensor",
+			"loc": "860 105",
+			"category": "sensor"
+		},
+		{
+			"key": "e1",
+			"group": "excutor",
+			"loc": "775 375",
+			"category": "sensor"
+		},
+		{
+			"key": "e2",
+			"group": "excutor",
+			"loc": "860 375",
+			"category": "sensor"
+		},
+		{
+			"key": "e3",
+			"group": "excutor",
+			"loc": "775 460",
+			"category": "sensor"
 		}
 	],
 	"linkDataArray": [
@@ -101,13 +157,15 @@
 			"from": "bar1",
 			"to": "firewall",
 			"fromPort": "bottom",
-			"toPort": "left"
+			"toPort": "left",
+			"routing": "Orthogonal"
 		},
 		{
 			"from": "firewall",
 			"to": "bar2",
 			"fromPort": "right",
-			"toPort": "bottom"
+			"toPort": "bottom",
+			"routing": "Orthogonal"
 		},
 		{
 			"from": "historyDb",
@@ -143,7 +201,20 @@
 			"from": "controller",
 			"to": "hmi",
 			"fromPort": "top",
-			"toPort": "bottom"
+			"toPort": "bottom",
+			"category": "twoArrow"
+		},
+		{
+			"from": "sensor",
+			"to": "c1",
+			"toPort": "pic",
+			"category": "oneArrow"
+		},
+		{
+			"from": "excutor",
+			"to": "c1",
+			"toPort": "pic",
+			"category": "oneArrow"
 		}
 	]
 }

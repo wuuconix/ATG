@@ -32,6 +32,18 @@ function renderNewTopology() {
 			})
 		)
 	)
+	topo.nodeTemplateMap.add("sensor",
+		$(go.Node, "Auto", 
+			{	locationSpot: go.Spot.Center },
+			new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+			$(go.Picture, {
+				source: "https://upyun.wuuconix.link/image-202304011233686.png",
+				width: 30,
+				height: 30,
+				imageStretch: go.GraphObject.Uniform 
+			})
+		)
+	)	
 	topo.nodeTemplateMap.add("leftHost",
 		$(go.Node, "Horizontal", 
 			{	locationSpot: go.Spot.Center },
@@ -70,7 +82,8 @@ function renderNewTopology() {
 					source: "https://upyun.wuuconix.link/image-attacker.png",
 					width: 100,
 					height: 100,
-					imageStretch: go.GraphObject.Uniform 
+					imageStretch: go.GraphObject.Uniform,
+					portId: "pic"
 				}),
 				$(go.TextBlock, new go.Binding("text", "name")),
 				$(go.Shape, {
@@ -164,11 +177,57 @@ function renderNewTopology() {
 			)
 		)
 	)
+	topo.groupTemplateMap.add("sensor",
+		$(go.Group, "Vertical",
+			{	locationSpot: go.Spot.Center },
+			new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+			$(go.Shape,{
+				figure: "RoundedRectangle",
+				fill: "rgba(128,128,128,0.33)",
+				width: 200,
+				height: 200
+			}),
+			$(go.TextBlock,
+				{ alignment: go.Spot.Bottom, margin: 5 },
+				new go.Binding("text", "name")
+			)
+		)
+	)
+	topo.groupTemplateMap.add("excutor",
+		$(go.Group, "Vertical",
+			{	locationSpot: go.Spot.Center },
+			new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+			$(go.Shape,{
+				figure: "RoundedRectangle",
+				fill: "rgba(128,128,128,0.33)",
+				width: 200,
+				height: 200
+			}),
+			$(go.TextBlock,
+				{ alignment: go.Spot.Bottom, margin: 5 },
+				new go.Binding("text", "name")
+			)
+		)
+	)
 	topo.linkTemplate = 
 		$(go.Link, 
-			{ routing: go.Link.Orthogonal },
+			{ routing: go.Link.Normal },
+			new go.Binding("routing", "routing", r => go.Link[r]),
 			$(go.Shape)
 		)
+	topo.linkTemplateMap.add("twoArrow",
+		$(go.Link, 
+			$(go.Shape),
+			$(go.Shape, { fromArrow: "Backward" }),
+			$(go.Shape, { toArrow: "Standard" })
+		)
+	)
+	topo.linkTemplateMap.add("oneArrow",
+		$(go.Link, 
+			$(go.Shape),
+			$(go.Shape, { toArrow: "Standard" })
+		)
+	)
 	topo.model = go.Model.fromJson(modelJson)
 	window.print = () => {
 		console.log(JSON.stringify(JSON.parse(topo.model.toJson()), null, "\t"))
