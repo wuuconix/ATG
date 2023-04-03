@@ -38,8 +38,8 @@ function render(diagram, chart = "time") {
 
 const diagramSelect = document.querySelector("#menu > fieldset[name=graph] > select")
 const chartSelect = document.querySelector("#menu > fieldset[name=chart] > select")
-// render(diagramSelect.value)
-render("newTopology")
+diagramSelect.value = "newTopology"
+render(diagramSelect.value)
 
 diagramSelect.addEventListener("change", (e) => {
 	if (diagrams.includes(e.target.value)) {

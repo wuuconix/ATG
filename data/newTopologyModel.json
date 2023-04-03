@@ -107,43 +107,50 @@
 			"key": "s1",
 			"group": "sensor",
 			"loc": "775 20",
-			"category": "sensor"
+			"category": "sensor",
+			"img": "https://upyun.wuuconix.link/image-pres-sensor.png"
 		},
 		{
 			"key": "s2",
 			"group": "sensor",
-			"loc": "860 20",
-			"category": "sensor"
+			"loc": "861 18",
+			"category": "sensor",
+			"img": "https://upyun.wuuconix.link/image-gas-sensor.png"
 		},
 		{
 			"key": "s3",
 			"group": "sensor",
-			"loc": "775 105",
-			"category": "sensor"
+			"loc": "775 113",
+			"category": "sensor",
+			"img": "https://upyun.wuuconix.link/image-mag-sensor.png"
 		},
 		{
 			"key": "s4",
 			"group": "sensor",
-			"loc": "860 105",
-			"category": "sensor"
+			"loc": "849 109",
+			"category": "sensor",
+			"img": "https://upyun.wuuconix.link/image-temp-sensor.png"
 		},
 		{
 			"key": "e1",
 			"group": "excutor",
 			"loc": "775 375",
-			"category": "sensor"
+			"category": "sensor",
+			"img": "https://upyun.wuuconix.link/image-exce-1.png"
 		},
 		{
 			"key": "e2",
 			"group": "excutor",
 			"loc": "860 375",
-			"category": "sensor"
+			"category": "sensor",
+			"img": "https://upyun.wuuconix.link/image-exce-3.png"
 		},
 		{
 			"key": "e3",
 			"group": "excutor",
 			"loc": "775 460",
-			"category": "sensor"
+			"category": "sensor",
+			"img": "https://upyun.wuuconix.link/image-exce-2.png"
 		}
 	],
 	"linkDataArray": [

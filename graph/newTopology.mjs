@@ -36,12 +36,14 @@ function renderNewTopology() {
 		$(go.Node, "Auto", 
 			{	locationSpot: go.Spot.Center },
 			new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
-			$(go.Picture, {
-				source: "https://upyun.wuuconix.link/image-202304011233686.png",
-				width: 30,
-				height: 30,
-				imageStretch: go.GraphObject.Uniform 
-			})
+			$(go.Picture, 
+				{
+					width: 80,
+					height: 80,
+					imageStretch: go.GraphObject.Uniform 
+				},
+				new go.Binding("source", "img")
+			)
 		)
 	)	
 	topo.nodeTemplateMap.add("leftHost",
