@@ -1,7 +1,34 @@
 // import * as echarts from "echarts"
 import * as echarts from "../echarts.mjs"
 
-function renderChart(chartData, divID, type = "time") {
+function genSeries(chartData, chartNum, yName) {
+	const result = []
+	for (let key of Object.keys(chartData[chartNum])) {
+		result.push({
+			name: key,
+			data: chartData[chartNum][key][yName],
+			type: "line"
+		})
+	}
+	return result
+}
+
+const i18nMap = new Map(
+	[
+		["hostsNum", "主机数"],
+		["hostvulNum", "主机漏洞数"],
+		["serviceNum", "服务数"],
+		["conNum", "可达性数"],
+		["real_time", "时间（s）"],
+		["max_mem", "内存（MB）"],
+		["plan_counter", "规划器调用数"],
+		["path_num", "攻击路径数"],
+		["ag_nnum", "攻击节点数"],
+		["ag_enum", "攻击边数"]
+	]
+)
+
+function renderChart(chartData, divID, chartNum, xName, yName) {
 	const chart = echarts.init(document.querySelector(`#${divID}`))
 	chart.setOption({
 		tooltip: {
@@ -14,40 +41,25 @@ function renderChart(chartData, divID, type = "time") {
 			right: 30
 		},
 		xAxis: {
-			name: "主机数",
+			name: i18nMap.get(xName),
 			nameLocation: "center",
 			nameTextStyle: {
 				fontSize: "24",
 				padding: [20, 0, 0, 0]
 			},
-			data: chartData.hostsNums
+			data: chartData[xName]
 		},
 		yAxis: {
       type: 'value',
-      name: type == "time" ? "时间" : "内存",
+      name: i18nMap.get(yName),
 			nameLocation: "middle",
 			nameTextStyle: {
 				fontSize: "24",
 				padding: [0, 0, 40, 0]
 			},
-      min: 0,
-      max: type == "time" ? 2500 : 180,
-      axisLabel: {
-        formatter: type == "time" ? "{value}s" : "{value}MB"
-      },
+      min: 0
     },
-		series: [
-			{
-				name: "pyhop",
-				data: type == "time" ? chartData.pyhopTime : chartData.pyhopMem.map(d => d / 1000),
-				type: "line"
-			},
-			{
-				name: "sgplan",
-				data: type == "time" ? chartData.sgplanTime : chartData.sgplanMem.map(d => d / 1000),
-				type: "line"
-			}
-		]
+		series: genSeries(chartData, chartNum, yName)
 	})
 }
 

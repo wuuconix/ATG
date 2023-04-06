@@ -163,7 +163,7 @@ function renderNewTopology() {
 				width: 0,
 				height: 0
 			}),
-			$(go.Shape, {
+			$(go.Shape, {		// port in the bottom
 				position: new go.Point(10, 500),
 				portId: "bottom",
 				toSpot: go.Spot.Bottom,

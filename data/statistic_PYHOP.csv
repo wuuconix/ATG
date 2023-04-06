@@ -1,4 +1,4 @@
-multi	all_ttime	all_ptime	real_time	ag_nnum	ag_enum	path_num	plan_counter	max_mem
+multi,all_ttime,all_ptime,real_time,ag_nnum,ag_enum,path_num,plan_counter,max_mem
 5	0	0.922967225429602	0.97	76	116	42	166	10484
 8	0	2.1050490465713665	2.16	112	173	63	250	10648
 11	0	3.5827960309106857	3.64	148	230	84	334	10916

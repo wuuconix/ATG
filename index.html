@@ -11,21 +11,40 @@
 <body>
   <div id="menu">
     <fieldset name="graph">
-      <legend>Choose a diagram</legend>
+      <legend>选择一个图</legend>
       <select name="graph">
-        <option value="attackGraph">attackGraph</option>
-				<option value="attackPath">attackPath</option>
-        <option value="topology">topology</option>
-				<option value="newTopology">newTopology</option>
-        <option value="newAttackGraph">newAttackGraph</option>
-				<option value="chart">chart</option>
+        <option value="attackGraph">攻击图</option>
+				<option value="attackPath">攻击路径</option>
+        <option value="topology">拓扑图</option>
+				<option value="newTopology">新拓扑图</option>
+        <option value="newAttackGraph">新攻击图</option>
+				<option value="chart">性能对比折线图</option>
       </select>
     </fieldset>
 		<fieldset name="chart">
-      <legend>Choose a chart</legend>
+      <legend>选择一个折线图</legend>
       <select name="chart">
-        <option value="time">time</option>
-				<option value="memory">memory</option>
+        <option value="chart1">fd与pyhop找全性能对比折线图</option>
+				<option value="chart2">sgplan-popf-pyhop-ff-fd五者性能对比折线图</option>
+      </select>
+    </fieldset>
+		<fieldset name="x">
+      <legend>选择横坐标意义</legend>
+      <select name="x">
+        <option value="hostvulNum">主机漏洞数</option>
+				<option value="serviceNum">服务数</option>
+        <option value="conNum">可达性数</option>
+      </select>
+    </fieldset>
+    <fieldset name="y">
+      <legend>选择纵坐标意义</legend>
+      <select name="y">
+        <option value="real_time">时间</option>
+				<option value="max_mem">内存</option>
+        <option value="plan_counter">规划器调用数</option>
+        <option value="path_num">攻击路径数</option>
+        <option value="ag_nnum">攻击节点数</option>
+        <option value="ag_enum">攻击边数</option>
       </select>
     </fieldset>
   </div>
@@ -37,12 +56,12 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+  opacity: 0;
+  animation: .5s menuFadeIn;
+  animation-fill-mode: forwards;
 }
 fieldset {
 	text-align: center;
-}
-fieldset[name=chart] {
-	visibility: hidden;
 }
 #attackGraph, #topology, #newAttackGraph, #attackPath, #newTopology {
   width: 100%;
@@ -52,5 +71,16 @@ fieldset[name=chart] {
 	width: max(500px, 100%);
 	height: max(400px, calc(100% - 56px));
 	margin: auto;
+}
+@keyframes menuFadeIn {
+  10% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 </style>

@@ -1,4 +1,4 @@
-multi	hostsNum	vulNum	hostvulNum	serviceNum	conNum
+multi,hostsNum,vulNum,hostvulNum,serviceNum,conNum
 5	15	8	34	88	39
 8	21	8	49	130	57
 11	27	8	64	172	75

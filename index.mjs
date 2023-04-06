@@ -19,7 +19,7 @@ const renderMap = new Map([
 	[ "newTopology", [ renderNewTopology, null ]]
 ])
 
-function render(diagram, chart = "time") {
+function render(diagram, chartNum = "chart1", xName = "hostsNum", yName = "real_time") {
 	for (let d of diagrams) {
 		document.querySelector(`#${d}`)?.remove()			// remove all diagram
 	}
@@ -28,16 +28,23 @@ function render(diagram, chart = "time") {
   document.body.append(div)
 	const renderFun = renderMap.get(diagram)[0]
 	const data = renderMap.get(diagram)[1]
-	renderFun(data, diagram, chart)									// call render function with data and divID
+	renderFun(data, diagram, chartNum, xName, yName)									// call render function with data and divID
 	if (diagram == "chart") {
-		document.querySelector("fieldset[name=chart]").style.visibility = "visible"
+		document.querySelector("fieldset[name=chart]").style.display = "block"
+		document.querySelector("fieldset[name=x]").style.display = "block"
+		document.querySelector("fieldset[name=y]").style.display = "block"
 	} else {
-		document.querySelector("fieldset[name=chart]").style.visibility = ""
+		document.querySelector("fieldset[name=chart]").style.display = "none"
+		document.querySelector("fieldset[name=x]").style.display = "none"
+		document.querySelector("fieldset[name=y]").style.display = "none"
 	}
 }
 
 const diagramSelect = document.querySelector("#menu > fieldset[name=graph] > select")
 const chartSelect = document.querySelector("#menu > fieldset[name=chart] > select")
+const xSelect = document.querySelector("#menu > fieldset[name=x]> select")
+const ySelect = document.querySelector("#menu > fieldset[name=y]> select")
+
 diagramSelect.value = "newTopology"
 render(diagramSelect.value)
 
@@ -50,4 +57,12 @@ diagramSelect.addEventListener("change", (e) => {
 chartSelect.addEventListener("change", (e) => {
 	document.querySelector(`#chart`)?.remove()
 	render("chart", e.target.value)
+})
+
+xSelect.addEventListener("change", (e) => {
+	render("chart", chartSelect.value, e.target.value, ySelect.value)
+})
+
+ySelect.addEventListener("change", (e) => {
+	render("chart", chartSelect.value, xSelect.value, e.target.value)
 })
