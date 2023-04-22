@@ -3,6 +3,7 @@ import attackGraph1 from "./data/attackGraphWithLoc.json" assert { type: "json" 
 import attackGraph2 from "./data/newAttackGraphWithLocAndDotted.json" assert { type: "json" }
 import renderTopology1 from "./graph/topology.mjs"
 import renderTopology2 from "./graph/newTopology.mjs"
+import renderTopology3 from "./graph/topology3.mjs"
 import renderAttackPath1 from "./graph/attackPath.mjs"
 import renderChart from "./graph/chart.mjs"
 
@@ -28,7 +29,7 @@ const chartSelect = document.querySelector("fieldset[name=chart] > select")
 const xSelect = document.querySelector("fieldset[name=x]> select")
 const ySelect = document.querySelector("fieldset[name=y]> select")
 
-diagramSelect.value = "attackGraph"
+diagramSelect.value = "topology"
 render(diagramSelect.value)
 diagramSelect.addEventListener("change", (e) => {
 	render(e.target.value)
@@ -75,6 +76,8 @@ function topologyHandler() {
 		renderTopology1()
 	} else if (index == 2) {	// 流程工业拓扑图
 		renderTopology2()
+	} else if (index == 3) {	// 流程工业新拓扑图
+		renderTopology3()
 	}
 }
 

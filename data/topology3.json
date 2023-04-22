@@ -1,0 +1,195 @@
+{
+  "attacker": "Attacker",
+  "hosts": [
+    {
+      "host_id": 0,
+      "host_name": "Attacker",
+      "privilege": "3",
+      "service": [],
+      "vuls": [],
+      "img": "https://upyun.wuuconix.link/image-attacker.png"
+    }, {
+      "host_id": 1,
+      "host_name": "WS",
+      "privilege": "1",
+      "weight": 1,
+      "service": ["Windows_Print"],
+      "vuls": ["Print_Improper_Privilege_Management"],
+      "impacts": ["AV:L/E:P/UI:N/C:H/I:H/A:H"],
+      "img": "https://upyun.wuuconix.link/image-pc.png"
+    },  {
+      "host_id": 2,
+      "host_name": "DNS",
+      "privilege": "1",
+      "weight": 1,
+      "service": ["Windows_DNS_Server"],
+      "vuls": ["DNS_Remote_Code_Execution"],
+      "impacts": ["AV:N/E:N/UI:N/C:H/I:H/A:H"],
+      "img": "https://upyun.wuuconix.link/image-dns.png"
+    },
+    {
+      "host_id": 3,
+      "host_name": "OPC",
+      "privilege": "1",
+      "weight": 1,
+      "service": ["OPC_UA_Server_NET", "OPC_UA_Server_MEN"],
+      "vuls": ["OPC_Improper_Authentication", "OPC_Heap_Bufferflow"],
+      "impacts": ["AV:N/E:T/UI:N/C:N/I:H/A:N", "AV:N/E:N/UI:N/C:H/I:H/A:H"],
+      "img": "https://upyun.wuuconix.link/image-opc.png"
+    },
+    {
+      "host_id": 4,
+      "host_name": "Historian",
+      "privilege": "1",
+      "weight": 1,
+      "service": ["Oracle"],
+      "vuls": ["Oracle_Out_of_bounds_Write"],
+      "impacts": ["AV:N/E:P/UI:N/C:H/I:H/A:H"],
+      "img": "https://upyun.wuuconix.link/image-historyDb.png"
+    }, {
+      "host_name": "HMI",
+      "privilege": "1",
+      "weight": 3,
+      "service": ["AsrDrv103_sys"],
+      "vuls": ["HMI_Improper_Access_Control"],
+      "impacts": ["AV:L/E:T/UI:N/C:N/I:H/A:N"],
+      "img": "https://upyun.wuuconix.link/image-pc.png"
+    },
+    {
+      "host_name": "EWS",
+      "privilege": "1",
+      "weight": 3,
+      "service": ["CodeSys", "CodeSys_File"],
+      "vuls": ["Improper_File_Access", "Deserialization_of_Untrusted_Data"],
+      "impacts": ["AV:N/E:N/UI:N/C:H/I:H/A:H", "AV:N/E:P/UI:R/C:H/I:H/A:H"],
+      "img": "https://upyun.wuuconix.link/image-pc.png"
+    },
+    {
+      "host_name": "PLC1",
+      "privilege": "1",
+      "weight": 4,
+      "service": ["Modicon_M340_CPU", "Modbus"],
+      "vuls": ["PLC_Weak_Password_Recovery"],
+      "impacts": ["AV:N/E:N/UI:N/C:H/I:H/A:H"],
+      "img": "https://upyun.wuuconix.link/image-controller.png"
+    },
+    {
+      "host_name": "PLC2",
+      "privilege": "1",
+      "weight": 4,
+      "service": ["Modbus", "Modicon_Quantum_CPU"],
+      "vuls": ["Improper_Check", "Modbus_Lack_of_Authentication"],
+      "impacts": ["AV:N/E:N/UI:R/C:H/I:H/A:H", "AV:N/E:T/UI:N/C:H/I:N/A:N"],
+      "img": "https://upyun.wuuconix.link/image-controller.png"
+    },
+    {
+      "host_name": "Valve",
+      "device_type": "physical",
+      "weight": 5,
+      "service": ["Open_Close"],
+      "depency": ["PLC_Switch_Control", "PLC_Logic_Control"],
+      "vuls": ["Open_Close_Change"],
+      "impacts": ["C:N/I:H/A:H"],
+      "img": "https://upyun.wuuconix.link/image-exce-1.png"
+    },
+    {
+      "host_name": "Reactor",
+      "device_type": "physical",
+      "service": ["Chemical_Reaction"],
+      "weight": 5,
+      "depency": ["PLC_Analog_Control", "PLC_Logic_Control"],
+      "vuls": ["Abnormal_Operation", "Deviation_Setpoint"],
+      "impacts": ["C:N/I:N/A:H", "C:N/I:P/A:P"],
+      "img": "https://upyun.wuuconix.link/image-exce-3.png"
+    },
+    {
+      "host_name": "Sensor",
+      "device_type": "physical",
+      "weight": 2,
+      "service": ["Show"],
+      "depency": ["PLC_Analog_Control"],
+      "vuls": ["Abnormal_Show"],
+      "impacts": ["C:N/I:N/A:P"],
+      "img": "https://upyun.wuuconix.link/image-pres-sensor.png"
+    }
+  ],
+  "edges": [
+    {
+      "source": "Attacker",
+      "target": "WS",
+      "vul": ["Print_Improper_Privilege_Management"],
+      "condition": ["Windows_Print"]
+    }, {
+      "source": "WS",
+      "target": "DNS",
+      "vul":["DNS_Remote_Code_Execution"],
+      "condition": ["Windows_DNS_Server"]
+    },{
+      "source": "WS",
+      "target": "Historian",
+      "vul":["Oracle_Out_of_bounds_Write"],
+      "condition":["Oracle"]
+    },{
+      "source": "Historian",
+      "target": "OPC",
+      "vul":["OPC_Improper_Authentication", "OPC_Heap_Bufferflow"],
+      "condition": ["OPC_UA_Server_NET", "OPC_UA_Server_MEM"]
+    }, {
+      "source": "DNS",
+      "target": "OPC",
+      "vul":["OPC_Improper_Authentication", "OPC_Heap_Bufferflow"],
+      "condition": ["OPC_UA_Server_NET", "OPC_UA_Server_MEM"]
+    },{
+      "source": "OPC",
+      "target": "EWS",
+      "vul": ["Improper_File_Access", "Deserialization_of_Untrusted_Data"],
+      "condition": ["CodeSys_File", "CodeSys"]
+    }, {
+      "source": "OPC",
+      "target": "HMI",
+      "vul": ["HMI_Improper_Access_Control"],
+      "condition": ["AsrDrv103_sys"]
+    }, {
+      "source": "EWS",
+      "target": "HMI",
+      "vul": ["HMI_Improper_Access_Control"],
+      "condition": ["AsrDrv103_sys"]
+    },{
+      "source": "HMI",
+      "target": "EWS",
+      "vul": ["Improper_File_Access", "Deserialization_of_Untrusted_Data"],
+      "condition": ["CodeSys_File", "CodeSys"]
+    }, {
+      "source": "EWS",
+      "target": "PLC1",
+      "vul": ["PLC_Weak_Password_Recovery"],
+      "condition": ["Modicon_M340_CPU", "Modbus"]
+    },{
+      "source": "PLC1",
+      "target": "PLC2",
+      "vul": ["Improper_Check", "Modbus_Lack_of_Authentication"],
+      "condition": ["Modbus", "Modicon_Quantum_CPU"]
+    },
+    {
+      "source": "PLC2",
+      "target": "Valve",
+      "func": ["Open_Close_Change"],
+      "condition": ["PLC_Switch_Control", "PLC_Logic_Control"]
+    },
+    {
+      "source": "PLC2",
+      "target": "Sensor",
+      "func": ["Abnormal_Show"],
+      "condition": ["PLC_Analog_Control"]
+    },
+    {
+      "source": "PLC2",
+      "target": "Reactor",
+      "func": ["Abnormal_Operation", "Deviation_Setpoint"],
+      "condition": ["PLC_Analog_Control", "PLC_Logic_Control"]
+    }
+  ],
+  "goal": [{
+    "host": "Reactor"
+  }]
+}

@@ -1,17 +1,13 @@
 import dagre from "dagre"
 import { writeFile } from "fs/promises"
-import topology from "../data/newTopology.json" assert { type: "json" }
+import topology from "../data/topology3.json" assert { type: "json" }
 
 function addLoc() {
   const g = new dagre.graphlib.Graph()
   g.setGraph({ rankdir: "LR" })
   g.setDefaultEdgeLabel(() => { return {} })
   for (let host of topology.hosts) {                                                  // add host node
-		if (host.host_name == "attacker") {
-			g.setNode(host.host_name, { width: 200, height: 180 })
-		} else {
-			g.setNode(host.host_name, { width: 130, height: 180 })
-		}
+    g.setNode(host.host_name, { width: 100, height: 120 })
   }
   for (let edge of topology.edges) {                                                  // add link (host -> host)
     g.setEdge(edge.source, edge.target)
@@ -27,5 +23,5 @@ function addLoc() {
 }
 
 addLoc()
-await writeFile("../data/newTopologyWithLoc.json", JSON.stringify(topology, null, "\t"))
-console.log("gen newTopologyWithLoc.json successful")
+await writeFile("../data/topology3WithLoc.json", JSON.stringify(topology, null, "\t"))
+console.log("gen topology3WithLoc.json successful")

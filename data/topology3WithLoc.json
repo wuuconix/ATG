@@ -7,7 +7,8 @@
 			"privilege": "3",
 			"service": [],
 			"vuls": [],
-			"loc": "65 205"
+			"img": "https://upyun.wuuconix.link/image-attacker.png",
+			"loc": "50 60"
 		},
 		{
 			"host_id": 1,
@@ -20,7 +21,11 @@
 			"vuls": [
 				"Print_Improper_Privilege_Management"
 			],
-			"loc": "245 205"
+			"impacts": [
+				"AV:L/E:P/UI:N/C:H/I:H/A:H"
+			],
+			"img": "https://upyun.wuuconix.link/image-pc.png",
+			"loc": "200 60"
 		},
 		{
 			"host_id": 2,
@@ -33,7 +38,11 @@
 			"vuls": [
 				"DNS_Remote_Code_Execution"
 			],
-			"loc": "425 320"
+			"impacts": [
+				"AV:N/E:N/UI:N/C:H/I:H/A:H"
+			],
+			"img": "https://upyun.wuuconix.link/image-dns.png",
+			"loc": "350 230"
 		},
 		{
 			"host_id": 3,
@@ -48,7 +57,12 @@
 				"OPC_Improper_Authentication",
 				"OPC_Heap_Bufferflow"
 			],
-			"loc": "605 205"
+			"impacts": [
+				"AV:N/E:T/UI:N/C:N/I:H/A:N",
+				"AV:N/E:N/UI:N/C:H/I:H/A:H"
+			],
+			"img": "https://upyun.wuuconix.link/image-opc.png",
+			"loc": "500 60"
 		},
 		{
 			"host_id": 4,
@@ -61,7 +75,11 @@
 			"vuls": [
 				"Oracle_Out_of_bounds_Write"
 			],
-			"loc": "425 90"
+			"impacts": [
+				"AV:N/E:P/UI:N/C:H/I:H/A:H"
+			],
+			"img": "https://upyun.wuuconix.link/image-historyDb.png",
+			"loc": "350 60"
 		},
 		{
 			"host_name": "HMI",
@@ -73,7 +91,11 @@
 			"vuls": [
 				"HMI_Improper_Access_Control"
 			],
-			"loc": "965 205"
+			"impacts": [
+				"AV:L/E:T/UI:N/C:N/I:H/A:N"
+			],
+			"img": "https://upyun.wuuconix.link/image-pc.png",
+			"loc": "800 107.5"
 		},
 		{
 			"host_name": "EWS",
@@ -87,7 +109,12 @@
 				"Improper_File_Access",
 				"Deserialization_of_Untrusted_Data"
 			],
-			"loc": "785 267.5"
+			"impacts": [
+				"AV:N/E:N/UI:N/C:H/I:H/A:H",
+				"AV:N/E:P/UI:R/C:H/I:H/A:H"
+			],
+			"img": "https://upyun.wuuconix.link/image-pc.png",
+			"loc": "650 182.5"
 		},
 		{
 			"host_name": "PLC1",
@@ -100,7 +127,11 @@
 			"vuls": [
 				"PLC_Weak_Password_Recovery"
 			],
-			"loc": "965 435"
+			"impacts": [
+				"AV:N/E:N/UI:N/C:H/I:H/A:H"
+			],
+			"img": "https://upyun.wuuconix.link/image-controller.png",
+			"loc": "800 277.5"
 		},
 		{
 			"host_name": "PLC2",
@@ -114,7 +145,12 @@
 				"Improper_Check",
 				"Modbus_Lack_of_Authentication"
 			],
-			"loc": "1145 435"
+			"impacts": [
+				"AV:N/E:N/UI:R/C:H/I:H/A:H",
+				"AV:N/E:T/UI:N/C:H/I:N/A:N"
+			],
+			"img": "https://upyun.wuuconix.link/image-controller.png",
+			"loc": "950 277.5"
 		},
 		{
 			"host_name": "Valve",
@@ -127,7 +163,14 @@
 				"PLC_Switch_Control",
 				"PLC_Logic_Control"
 			],
-			"loc": "65 435"
+			"vuls": [
+				"Open_Close_Change"
+			],
+			"impacts": [
+				"C:N/I:H/A:H"
+			],
+			"img": "https://upyun.wuuconix.link/image-exce-1.png",
+			"loc": "1100 60"
 		},
 		{
 			"host_name": "Reactor",
@@ -140,7 +183,16 @@
 				"PLC_Analog_Control",
 				"PLC_Logic_Control"
 			],
-			"loc": "65 665"
+			"vuls": [
+				"Abnormal_Operation",
+				"Deviation_Setpoint"
+			],
+			"impacts": [
+				"C:N/I:N/A:H",
+				"C:N/I:P/A:P"
+			],
+			"img": "https://upyun.wuuconix.link/image-exce-3.png",
+			"loc": "1100 400"
 		},
 		{
 			"host_name": "Sensor",
@@ -152,231 +204,14 @@
 			"depency": [
 				"PLC_Analog_Control"
 			],
-			"loc": "65 895"
-		}
-	],
-	"function": [
-		{
-			"fun_name": "Open_Close_Change",
-			"prefunc": [
-				"PLC_Switch_Control",
-				"PLC_Logic_Control"
+			"vuls": [
+				"Abnormal_Show"
 			],
-			"preconds": [
-				"operation_mode_change",
-				"DoS"
+			"impacts": [
+				"C:N/I:N/A:P"
 			],
-			"impact": {
-				"C": "N",
-				"I": "H",
-				"A": "N",
-				"AV": "N",
-				"UI": "N"
-			}
-		},
-		{
-			"fun_name": "Abnormal_Operation",
-			"prefunc": [
-				"PLC_Analog_Control",
-				"PLC_Logic_Control"
-			],
-			"preconds": [
-				"operation_mode_change",
-				"DoS"
-			],
-			"impact": {
-				"C": "N",
-				"I": "H",
-				"A": "N",
-				"AV": "N",
-				"UI": "N"
-			}
-		},
-		{
-			"fun_name": "Abnormal_Show",
-			"prefunc": [
-				"PLC_Analog_Control"
-			],
-			"preconds": [
-				"operation_mode_change",
-				"DoS"
-			],
-			"impact": {
-				"C": "N",
-				"I": "N",
-				"A": "P",
-				"AV": "N",
-				"UI": "N"
-			}
-		},
-		{
-			"fun_name": "Deviation_Setpoint",
-			"prefunc": [
-				"PLC_Analog_Control",
-				"PLC_Logic_Control"
-			],
-			"preconds": [
-				"setpoint_manipulation"
-			],
-			"impact": {
-				"C": "N",
-				"I": "P",
-				"A": "P",
-				"AV": "N",
-				"UI": "N"
-			}
-		},
-		{
-			"fun_name": "PLC_Switch_Control",
-			"preconds": [
-				"DoS",
-				"operation_mode_change"
-			],
-			"prefunc": [],
-			"impact": {
-				"C": "N",
-				"I": "P",
-				"A": "P",
-				"AV": "N",
-				"UI": "N"
-			}
-		},
-		{
-			"fun_name": "PLC_Analog_Control",
-			"preconds": [
-				"setpoint_manipulation",
-				"DoS"
-			],
-			"prefunc": [],
-			"impact": {
-				"C": "N",
-				"I": "P",
-				"A": "P",
-				"AV": "N",
-				"UI": "N"
-			}
-		},
-		{
-			"fun_name": "PLC_Logic_Control",
-			"prefunc": [],
-			"preconds": [
-				"DoS"
-			],
-			"impact": {
-				"C": "N",
-				"I": "P",
-				"A": "P",
-				"AV": "N",
-				"UI": "N"
-			}
-		}
-	],
-	"vulnerabilities": [
-		{
-			"vul_name": "Print_Improper_Privilege_Management",
-			"service": "Windows_Print",
-			"prepriv": "1",
-			"postpriv": "3"
-		},
-		{
-			"vul_name": "DNS_Remote_Code_Execution",
-			"service": "Windows_DNS_Server",
-			"prepriv": "1",
-			"postpriv": "3",
-			"postcond": [
-				"remote_code_execution"
-			]
-		},
-		{
-			"vul_name": "OPC_Improper_Authentication",
-			"prepriv": "1",
-			"postpriv": "1",
-			"service": "OPC_UA_Server_NET",
-			"postcond": [
-				"bypass_authentication"
-			],
-			"combine": "OPC_UA_Server_MEM"
-		},
-		{
-			"vul_name": "OPC_Heap_Bufferflow",
-			"prepriv": "1",
-			"postpriv": "3",
-			"service": "OPC_UA_Server_MEM",
-			"precond": [
-				"bypass_authentication"
-			],
-			"postcond": [
-				"memory_manipulation",
-				"remote_code_execution"
-			]
-		},
-		{
-			"vul_name": "Oracle_Out_of_bounds_Write",
-			"prepriv": "1",
-			"postpriv": "3",
-			"service": "Oracle"
-		},
-		{
-			"vul_name": "HMI_Improper_Access_Control",
-			"prepriv": "1",
-			"postpriv": "3",
-			"service": "AsrDrv103_sys"
-		},
-		{
-			"vul_name": "Improper_File_Access",
-			"prepriv": "1",
-			"postpriv": "1",
-			"service": "CodeSys_File",
-			"postcond": [
-				"upload_malicious_file"
-			],
-			"combine": "CodeSys"
-		},
-		{
-			"vul_name": "Deserialization_of_Untrusted_Data",
-			"prepriv": "1",
-			"postpriv": "3",
-			"service": "CodeSys",
-			"precond": [
-				"upload_malicious_file"
-			],
-			"postcond": [
-				"remote_command_execution"
-			]
-		},
-		{
-			"vul_name": "PLC_Weak_Password_Recovery",
-			"prepriv": "1",
-			"postpriv": "3",
-			"precond": [
-				"Modbus"
-			],
-			"service": "Modicon_M340_CPU"
-		},
-		{
-			"vul_name": "Modbus_Lack_of_Authentication",
-			"prepriv": "1",
-			"postpriv": "1",
-			"service": "Modbus",
-			"postcond": [
-				"malicious_file_upload",
-				"operation_mode_change",
-				"setpoint_manipulation"
-			],
-			"combine": "Modicon_Quantum_CPU"
-		},
-		{
-			"vul_name": "Improper_Check",
-			"prepriv": "1",
-			"postpriv": "3",
-			"service": "Modicon_Quantum_CPU",
-			"precond": [
-				"malicious_file_upload"
-			],
-			"postcond": [
-				"remote_command_execution",
-				"DoS"
-			]
+			"img": "https://upyun.wuuconix.link/image-pres-sensor.png",
+			"loc": "1100 230"
 		}
 	],
 	"edges": [
@@ -391,16 +226,16 @@
 			],
 			"points": [
 				{
-					"x": 130,
-					"y": 205
+					"x": 100,
+					"y": 60
 				},
 				{
-					"x": 155,
-					"y": 205
+					"x": 125,
+					"y": 60
 				},
 				{
-					"x": 180,
-					"y": 205
+					"x": 150,
+					"y": 60
 				}
 			]
 		},
@@ -415,16 +250,16 @@
 			],
 			"points": [
 				{
-					"x": 310,
-					"y": 288.05555555555554
+					"x": 226.47058823529412,
+					"y": 120
 				},
 				{
-					"x": 335,
-					"y": 320
+					"x": 275,
+					"y": 230
 				},
 				{
-					"x": 360,
-					"y": 320
+					"x": 300,
+					"y": 230
 				}
 			]
 		},
@@ -439,16 +274,16 @@
 			],
 			"points": [
 				{
-					"x": 310,
-					"y": 121.94444444444444
+					"x": 250,
+					"y": 60
 				},
 				{
-					"x": 335,
-					"y": 90
+					"x": 275,
+					"y": 60
 				},
 				{
-					"x": 360,
-					"y": 90
+					"x": 300,
+					"y": 60
 				}
 			]
 		},
@@ -465,16 +300,16 @@
 			],
 			"points": [
 				{
-					"x": 490,
-					"y": 90
+					"x": 400,
+					"y": 60
 				},
 				{
-					"x": 515,
-					"y": 90
+					"x": 425,
+					"y": 60
 				},
 				{
-					"x": 540,
-					"y": 121.94444444444444
+					"x": 450,
+					"y": 60
 				}
 			]
 		},
@@ -491,16 +326,16 @@
 			],
 			"points": [
 				{
-					"x": 490,
-					"y": 320
+					"x": 400,
+					"y": 230
 				},
 				{
-					"x": 515,
-					"y": 320
+					"x": 425,
+					"y": 230
 				},
 				{
-					"x": 540,
-					"y": 288.05555555555554
+					"x": 473.52941176470586,
+					"y": 120
 				}
 			]
 		},
@@ -517,16 +352,16 @@
 			],
 			"points": [
 				{
-					"x": 670,
-					"y": 250.13888888888889
+					"x": 536.7346938775511,
+					"y": 120
 				},
 				{
-					"x": 695,
-					"y": 267.5
+					"x": 575,
+					"y": 182.5
 				},
 				{
-					"x": 720,
-					"y": 267.5
+					"x": 600,
+					"y": 182.5
 				}
 			]
 		},
@@ -541,24 +376,24 @@
 			],
 			"points": [
 				{
-					"x": 670,
-					"y": 159.86111111111111
+					"x": 550,
+					"y": 60
 				},
 				{
-					"x": 695,
-					"y": 142.5
+					"x": 575,
+					"y": 60
 				},
 				{
-					"x": 785,
-					"y": 142.5
+					"x": 650,
+					"y": 60
 				},
 				{
-					"x": 875,
-					"y": 142.5
+					"x": 725,
+					"y": 60
 				},
 				{
-					"x": 900,
-					"y": 159.86111111111111
+					"x": 750,
+					"y": 75.83333333333333
 				}
 			]
 		},
@@ -573,16 +408,16 @@
 			],
 			"points": [
 				{
-					"x": 850,
-					"y": 229.58333333333334
+					"x": 700,
+					"y": 175.83333333333334
 				},
 				{
-					"x": 875,
-					"y": 215
+					"x": 725,
+					"y": 172.5
 				},
 				{
-					"x": 900,
-					"y": 212.22222222222223
+					"x": 750,
+					"y": 150.83333333333334
 				}
 			]
 		},
@@ -599,16 +434,16 @@
 			],
 			"points": [
 				{
-					"x": 900,
-					"y": 280.8333333333333
+					"x": 763.2653061224489,
+					"y": 167.5
 				},
 				{
-					"x": 875,
-					"y": 310
+					"x": 725,
+					"y": 230
 				},
 				{
-					"x": 850,
-					"y": 298.19444444444446
+					"x": 700,
+					"y": 214.16666666666666
 				}
 			]
 		},
@@ -624,16 +459,16 @@
 			],
 			"points": [
 				{
-					"x": 833.3582089552239,
-					"y": 357.5
+					"x": 697.3684210526316,
+					"y": 242.5
 				},
 				{
-					"x": 875,
-					"y": 435
+					"x": 725,
+					"y": 277.5
 				},
 				{
-					"x": 900,
-					"y": 435
+					"x": 750,
+					"y": 277.5
 				}
 			]
 		},
@@ -650,21 +485,19 @@
 			],
 			"points": [
 				{
-					"x": 1030,
-					"y": 435
+					"x": 850,
+					"y": 277.5
 				},
 				{
-					"x": 1055,
-					"y": 435
+					"x": 875,
+					"y": 277.5
 				},
 				{
-					"x": 1080,
-					"y": 435
+					"x": 900,
+					"y": 277.5
 				}
 			]
-		}
-	],
-	"dependency": [
+		},
 		{
 			"source": "PLC2",
 			"target": "Valve",
@@ -674,6 +507,20 @@
 			"condition": [
 				"PLC_Switch_Control",
 				"PLC_Logic_Control"
+			],
+			"points": [
+				{
+					"x": 970.6896551724138,
+					"y": 217.5
+				},
+				{
+					"x": 1025,
+					"y": 60
+				},
+				{
+					"x": 1050,
+					"y": 60
+				}
 			]
 		},
 		{
@@ -684,6 +531,20 @@
 			],
 			"condition": [
 				"PLC_Analog_Control"
+			],
+			"points": [
+				{
+					"x": 1000,
+					"y": 245.83333333333334
+				},
+				{
+					"x": 1025,
+					"y": 230
+				},
+				{
+					"x": 1050,
+					"y": 230
+				}
 			]
 		},
 		{
@@ -696,6 +557,20 @@
 			"condition": [
 				"PLC_Analog_Control",
 				"PLC_Logic_Control"
+			],
+			"points": [
+				{
+					"x": 986.7346938775511,
+					"y": 337.5
+				},
+				{
+					"x": 1025,
+					"y": 400
+				},
+				{
+					"x": 1050,
+					"y": 400
+				}
 			]
 		}
 	],
