@@ -1,5 +1,6 @@
 import go from "../go-debug.mjs"
 // import go from "gojs"
+import topology from "../data/originalTopologyWithLoc.json" assert { type: "json" }
 
 function stringify(node) {
   let res = ""
@@ -13,7 +14,7 @@ function stringify(node) {
   return res
 }
 
-function genTemplate(color) {
+function genTemplate() {
   const $ = go.GraphObject.make
   return $(go.Node, "Auto",
     { locationSpot: go.Spot.Center },
@@ -29,14 +30,14 @@ function genTemplate(color) {
   )
 }
 
-function renderTopology(topology) {
+function renderTopology() {
   const $ = go.GraphObject.make
   const topo = new go.Diagram("topology")
   topo.undoManager.isEnabled = true
   topo.toolManager.hoverDelay = 100
   topo.toolManager.toolTipDuration = 100000
-  topo.nodeTemplateMap.add("host", genTemplate("#e3f0f5"))
-  topo.nodeTemplateMap.add("vul", genTemplate("white"))
+  topo.nodeTemplateMap.add("host", genTemplate())
+  topo.nodeTemplateMap.add("vul", genTemplate())
   topo.linkTemplate = $(go.Link,
     {
       curve: go.Link.Bezier,

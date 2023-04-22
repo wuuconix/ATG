@@ -1,5 +1,6 @@
 // import * as echarts from "echarts"
 import * as echarts from "../echarts.mjs"
+import chartData from "../data/chart.json" assert { type: "json" }
 
 function genSeries(chartData, chartNum, yName) {
 	const result = []
@@ -28,8 +29,8 @@ const i18nMap = new Map(
 	]
 )
 
-function renderChart(chartData, divID, chartNum, xName, yName) {
-	const chart = echarts.init(document.querySelector(`#${divID}`))
+function renderChart(chartNum, xName, yName) {
+	const chart = echarts.init(document.querySelector(`#chart`))
 	chart.setOption({
 		tooltip: {
 			trigger: 'axis',

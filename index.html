@@ -10,43 +10,65 @@
 </head>
 <body>
   <div id="menu">
-    <fieldset name="graph">
-      <legend>选择一个图</legend>
-      <select name="graph">
+    <fieldset name="diagram">
+      <legend>选择一个图表</legend>
+      <select name="diagram">
         <option value="attackGraph">攻击图</option>
 				<option value="attackPath">攻击路径</option>
         <option value="topology">拓扑图</option>
-				<option value="newTopology">新拓扑图</option>
-        <option value="newAttackGraph">新攻击图</option>
 				<option value="chart">性能对比折线图</option>
       </select>
     </fieldset>
-		<fieldset name="chart">
-      <legend>选择一个折线图</legend>
-      <select name="chart">
-        <option value="chart1">fd与pyhop找全性能对比折线图</option>
-				<option value="chart2">sgplan-popf-pyhop-ff-fd五者性能对比折线图</option>
+    <fieldset name="attackGraph">
+      <legend>选择一个攻击图</legend>
+      <select name="topology">
+        <option value="1">TestNet攻击图</option>
+        <option value="2">TestNet新攻击图</option>
       </select>
     </fieldset>
-		<fieldset name="x">
-      <legend>选择横坐标意义</legend>
-      <select name="x">
-        <option value="hostvulNum">主机漏洞数</option>
-				<option value="serviceNum">服务数</option>
-        <option value="conNum">可达性数</option>
+    <fieldset name="attackPath">
+      <legend>选择一个攻击路径</legend>
+      <select name="attackPath">
+        <option value="1">TestNet攻击路径</option>
+        <option value="2">新攻击路径</option>
       </select>
     </fieldset>
-    <fieldset name="y">
-      <legend>选择纵坐标意义</legend>
-      <select name="y">
-        <option value="real_time">时间</option>
-				<option value="max_mem">内存</option>
-        <option value="plan_counter">规划器调用数</option>
-        <option value="path_num">攻击路径数</option>
-        <option value="ag_nnum">攻击节点数</option>
-        <option value="ag_enum">攻击边数</option>
+    <fieldset name="topology">
+      <legend>选择一个拓扑图</legend>
+      <select name="topology">
+        <option value="1">TestNet拓扑图</option>
+				<option value="2">流程工业拓扑图</option>
+        <option value="3">新流程工业拓扑图</option>
       </select>
     </fieldset>
+    <div id="chartDiv">
+      <fieldset name="chart">
+        <legend>选择一个折线图</legend>
+        <select name="chart">
+          <option value="chart1">fd与pyhop找全性能对比折线图</option>
+          <option value="chart2">sgplan-popf-pyhop-ff-fd五者性能对比折线图</option>
+        </select>
+      </fieldset>
+      <fieldset name="x">
+        <legend>选择横坐标意义</legend>
+        <select name="x">
+          <option value="hostvulNum">主机漏洞数</option>
+          <option value="serviceNum">服务数</option>
+          <option value="conNum">可达性数</option>
+        </select>
+      </fieldset>
+      <fieldset name="y">
+        <legend>选择纵坐标意义</legend>
+        <select name="y">
+          <option value="real_time">时间</option>
+          <option value="max_mem">内存</option>
+          <option value="plan_counter">规划器调用数</option>
+          <option value="path_num">攻击路径数</option>
+          <option value="ag_nnum">攻击节点数</option>
+          <option value="ag_enum">攻击边数</option>
+        </select>
+      </fieldset>
+    </div>
   </div>
 </body>
 </html>
@@ -71,6 +93,11 @@ fieldset {
 	width: max(500px, 100%);
 	height: max(400px, calc(100% - 56px));
 	margin: auto;
+}
+#chartDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @keyframes menuFadeIn {
   10% {

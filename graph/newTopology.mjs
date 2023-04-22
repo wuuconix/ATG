@@ -4,7 +4,7 @@ import modelJson from "../data/newTopologyModel.json" assert { type: "json" }
 
 function renderNewTopology() {
 	const $ = go.GraphObject.make
-  const topo = new go.Diagram("newTopology")
+  const topo = new go.Diagram("topology")
 	topo.undoManager.isEnabled = true
 	topo.nodeTemplateMap.add("firewall",
 		$(go.Node, "Position",

@@ -1,9 +1,10 @@
 import go from "../go-debug.mjs"
 // import go from "gojs"
+import attackPath from "../data/attackPathWithLoc.json" assert { type: "json" }
 
-function renderAttackPath(attackPath, divId = "attackPath") {
+function renderAttackPath() {
   const $ = go.GraphObject.make
-  const atp = new go.Diagram(divId)
+  const atp = new go.Diagram("attackPath")
   atp.undoManager.isEnabled = true
   atp.toolManager.hoverDelay = 100
   atp.toolManager.toolTipDuration = 100000

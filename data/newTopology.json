@@ -1,0 +1,297 @@
+{
+  "attacker": "Attacker",
+  "hosts": [
+    {
+      "host_id": 0,
+      "host_name": "Attacker",
+      "privilege": "3",
+      "service": [],
+      "vuls": []
+    }, {
+      "host_id": 1,
+      "host_name": "WS",
+      "privilege": "1",
+      "weight": 1,
+      "service": ["Windows_Print"],
+      "vuls": ["Print_Improper_Privilege_Management"]
+    },  {
+      "host_id": 2,
+      "host_name": "DNS",
+      "privilege": "1",
+      "weight": 1,
+      "service": ["Windows_DNS_Server"],
+      "vuls": ["DNS_Remote_Code_Execution"]
+    },
+    {
+      "host_id": 3,
+      "host_name": "OPC",
+      "privilege": "1",
+      "weight": 1,
+      "service": ["OPC_UA_Server_NET", "OPC_UA_Server_MEN"],
+      "vuls": ["OPC_Improper_Authentication", "OPC_Heap_Bufferflow"]
+    },
+    {
+      "host_id": 4,
+      "host_name": "Historian",
+      "privilege": "1",
+      "weight": 1,
+      "service": ["Oracle"],
+      "vuls": ["Oracle_Out_of_bounds_Write"]
+    }, {
+      "host_name": "HMI",
+      "privilege": "1",
+      "weight": 3,
+      "service": ["AsrDrv103_sys"],
+      "vuls": ["HMI_Improper_Access_Control"]
+    },
+    {
+      "host_name": "EWS",
+      "privilege": "1",
+      "weight": 3,
+      "service": ["CodeSys", "CodeSys_File"],
+      "vuls": ["Improper_File_Access", "Deserialization_of_Untrusted_Data"]
+    },
+
+    {
+      "host_name": "PLC1",
+      "privilege": "1",
+      "weight": 4,
+      "service": ["Modicon_M340_CPU", "Modbus"],
+      "vuls": ["PLC_Weak_Password_Recovery"]
+    },
+    {
+      "host_name": "PLC2",
+      "privilege": "1",
+      "weight": 4,
+      "service": ["Modbus", "Modicon_Quantum_CPU"],
+      "vuls": ["Improper_Check", "Modbus_Lack_of_Authentication"]
+    },
+    {
+      "host_name": "Valve",
+      "device_type": "physical",
+      "weight": 5,
+      "service": ["Open_Close"],
+      "depency": ["PLC_Switch_Control", "PLC_Logic_Control"]
+    },
+    {
+      "host_name": "Reactor",
+      "device_type": "physical",
+      "service": ["Chemical_Reaction"],
+      "weight": 5,
+      "depency": ["PLC_Analog_Control", "PLC_Logic_Control"]
+    },
+    {
+      "host_name": "Sensor",
+      "device_type": "physical",
+      "weight": 2,
+      "service": ["Show"],
+      "depency": ["PLC_Analog_Control"]
+    }
+  ],
+  "function": [
+    {
+      "fun_name": "Open_Close_Change",
+      "prefunc": ["PLC_Switch_Control", "PLC_Logic_Control"],
+      "preconds": ["operation_mode_change", "DoS"],
+      "impact": {"C": "N", "I":  "H", "A": "N", "AV": "N", "UI":  "N"}
+    },
+    {
+      "fun_name": "Abnormal_Operation",
+      "prefunc": ["PLC_Analog_Control", "PLC_Logic_Control"],
+      "preconds": ["operation_mode_change", "DoS"],
+      "impact": {"C": "N", "I":  "H", "A": "N", "AV": "N", "UI":  "N"}
+    },
+    {
+      "fun_name": "Abnormal_Show",
+      "prefunc": ["PLC_Analog_Control"],
+      "preconds": ["operation_mode_change", "DoS"],
+      "impact": {"C": "N", "I":  "N", "A": "P", "AV": "N", "UI":  "N"}
+    },
+    {
+      "fun_name": "Deviation_Setpoint",
+      "prefunc": ["PLC_Analog_Control", "PLC_Logic_Control"],
+      "preconds": ["setpoint_manipulation"],
+      "impact": {"C": "N", "I":  "P", "A": "P", "AV": "N", "UI":  "N"}
+    },
+    {
+      "fun_name": "PLC_Switch_Control",
+      "preconds": ["DoS", "operation_mode_change"],
+      "prefunc": [],
+      "impact": {"C": "N", "I":  "P", "A": "P", "AV": "N", "UI":  "N"}
+    },
+    {
+      "fun_name": "PLC_Analog_Control",
+      "preconds": ["setpoint_manipulation", "DoS"],
+      "prefunc": [],
+      "impact": {"C": "N", "I":  "P", "A": "P", "AV": "N", "UI":  "N"}
+    },
+    {
+      "fun_name": "PLC_Logic_Control",
+      "prefunc": [],
+      "preconds":["DoS"],
+      "impact": {"C": "N", "I":  "P", "A": "P", "AV": "N", "UI":  "N"}
+    }
+  ],
+  "vulnerabilities": [
+    {
+      "vul_name": "Print_Improper_Privilege_Management",
+      "service": "Windows_Print",
+      "prepriv": "1",
+      "postpriv": "3"
+    }, {
+      "vul_name": "DNS_Remote_Code_Execution",
+      "service": "Windows_DNS_Server",
+      "prepriv": "1",
+      "postpriv": "3",
+      "postcond": ["remote_code_execution"]
+    },
+    {
+      "vul_name": "OPC_Improper_Authentication",
+      "prepriv": "1",
+      "postpriv": "1",
+      "service": "OPC_UA_Server_NET",
+      "postcond": ["bypass_authentication"],
+      "combine": "OPC_UA_Server_MEM"
+    },
+    {
+      "vul_name": "OPC_Heap_Bufferflow",
+      "prepriv": "1",
+      "postpriv": "3",
+      "service": "OPC_UA_Server_MEM",
+      "precond": ["bypass_authentication"],
+      "postcond": ["memory_manipulation", "remote_code_execution"]
+    },
+    {
+      "vul_name": "Oracle_Out_of_bounds_Write",
+      "prepriv": "1",
+      "postpriv": "3",
+      "service": "Oracle"
+    },
+    {
+      "vul_name": "HMI_Improper_Access_Control",
+      "prepriv": "1",
+      "postpriv": "3",
+      "service": "AsrDrv103_sys"
+    },
+    {
+      "vul_name": "Improper_File_Access",
+      "prepriv": "1",
+      "postpriv": "1",
+      "service": "CodeSys_File",
+      "postcond": ["upload_malicious_file"],
+      "combine": "CodeSys"
+    }, {
+      "vul_name": "Deserialization_of_Untrusted_Data",
+      "prepriv": "1",
+      "postpriv": "3",
+      "service": "CodeSys",
+      "precond": ["upload_malicious_file"],
+      "postcond": ["remote_command_execution"]
+    },
+    {
+      "vul_name": "PLC_Weak_Password_Recovery",
+      "prepriv": "1",
+      "postpriv": "3",
+      "precond": ["Modbus"],
+      "service": "Modicon_M340_CPU"
+    },
+    {
+      "vul_name": "Modbus_Lack_of_Authentication",
+      "prepriv": "1",
+      "postpriv": "1",
+      "service": "Modbus",
+      "postcond": ["malicious_file_upload", "operation_mode_change", "setpoint_manipulation"],
+      "combine": "Modicon_Quantum_CPU"
+    },
+    {
+      "vul_name": "Improper_Check",
+      "prepriv": "1",
+      "postpriv": "3",
+      "service": "Modicon_Quantum_CPU",
+      "precond": ["malicious_file_upload"],
+      "postcond": ["remote_command_execution","DoS"]
+    }
+  ],
+  "edges": [
+    {
+      "source": "Attacker",
+      "target": "WS",
+      "vul": ["Print_Improper_Privilege_Management"],
+      "condition": ["Windows_Print"]
+    }, {
+      "source": "WS",
+      "target": "DNS",
+      "vul":["DNS_Remote_Code_Execution"],
+      "condition": ["Windows_DNS_Server"]
+    },{
+      "source": "WS",
+      "target": "Historian",
+      "vul":["Oracle_Out_of_bounds_Write"],
+      "condition":["Oracle"]
+    },{
+      "source": "Historian",
+      "target": "OPC",
+      "vul":["OPC_Improper_Authentication", "OPC_Heap_Bufferflow"],
+      "condition": ["OPC_UA_Server_NET", "OPC_UA_Server_MEM"]
+    }, {
+      "source": "DNS",
+      "target": "OPC",
+      "vul":["OPC_Improper_Authentication", "OPC_Heap_Bufferflow"],
+      "condition": ["OPC_UA_Server_NET", "OPC_UA_Server_MEM"]
+    },{
+      "source": "OPC",
+      "target": "EWS",
+      "vul": ["Improper_File_Access", "Deserialization_of_Untrusted_Data"],
+      "condition": ["CodeSys_File", "CodeSys"]
+    }, {
+      "source": "OPC",
+      "target": "HMI",
+      "vul": ["HMI_Improper_Access_Control"],
+      "condition": ["AsrDrv103_sys"]
+    }, {
+      "source": "EWS",
+      "target": "HMI",
+      "vul": ["HMI_Improper_Access_Control"],
+      "condition": ["AsrDrv103_sys"]
+    },{
+      "source": "HMI",
+      "target": "EWS",
+      "vul": ["Improper_File_Access", "Deserialization_of_Untrusted_Data"],
+      "condition": ["CodeSys_File", "CodeSys"]
+    }, {
+      "source": "EWS",
+      "target": "PLC1",
+      "vul": ["PLC_Weak_Password_Recovery"],
+      "condition": ["Modicon_M340_CPU", "Modbus"]
+    },{
+      "source": "PLC1",
+      "target": "PLC2",
+      "vul": ["Improper_Check", "Modbus_Lack_of_Authentication"],
+      "condition": ["Modbus", "Modicon_Quantum_CPU"]
+    }
+  ],
+  "dependency": [
+    {
+      "source": "PLC2",
+      "target": "Valve",
+      "func": ["Open_Close_Change"],
+      "condition": ["PLC_Switch_Control", "PLC_Logic_Control"]
+    },
+    {
+      "source": "PLC2",
+      "target": "Sensor",
+      "func": ["Abnormal_Show"],
+      "condition": ["PLC_Analog_Control"]
+    },
+    {
+      "source": "PLC2",
+      "target": "Reactor",
+      "func": ["Abnormal_Operation", "Deviation_Setpoint"],
+      "condition": ["PLC_Analog_Control", "PLC_Logic_Control"]
+    }
+
+  ],
+  "goal": [{
+    "host": "Reactor"
+  }]
+}
