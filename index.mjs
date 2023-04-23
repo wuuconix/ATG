@@ -5,6 +5,7 @@ import renderTopology1 from "./graph/topology.mjs"
 import renderTopology2 from "./graph/newTopology.mjs"
 import renderTopology3 from "./graph/topology3.mjs"
 import renderAttackPath1 from "./graph/attackPath.mjs"
+import renderAttackPath2 from "./graph/attackPath2.mjs"
 import renderChart from "./graph/chart.mjs"
 
 const diagrams = [ "attackGraph", "topology", "attackPath", "chart" ]
@@ -37,7 +38,7 @@ diagramSelect.addEventListener("change", (e) => {
 
 attackGraphSelect.addEventListener("change", attackGraphHandler)
 topologySelect.addEventListener("change", topologyHandler)
-attackPathSelect.addEventListener("change", attackGraphHandler)
+attackPathSelect.addEventListener("change", attackPathHandler)
 chartSelect.addEventListener("change", chartHandler)
 xSelect.addEventListener("change", chartHandler)
 ySelect.addEventListener("change", chartHandler)
@@ -91,7 +92,7 @@ function attackPathHandler() {
 	if (index == 1) {					// TestNet攻击路径
 		renderAttackPath1()
 	} else if (index == 2) {	//	新攻击路径
-		// renderTopology2()
+		renderAttackPath2()
 	}
 }
 

@@ -1,0 +1,94 @@
+{
+  "nodes": [
+    "Print_Improper_Privilege_Management(Attacker,WS)",
+    "DNS_Remote_Code_Execution(WS,DNS)",
+    "OPC_Improper_Authentication(DNS,OPC)",
+    "OPC_Heap_Bufferflow(DNS,OPC)",
+    "Improper_File_Access(OPC,EWS)",
+    "Deserialization_of_Untrusted_Data(OPC,EWS)",
+    "PLC_Weak_Password_Recovery(EWS,PLC1)",
+    "Modbus_Lack_of_Authentication(PLC1,PLC2)",
+    "Improper_Check(PLC1,PLC2)",
+    "Abnormal_Operation(PLC2,Reactor)",
+    "Oracle_Out_of_bounds_Write(WS,Historian)",
+    "OPC_Improper_Authentication(Historian,OPC)",
+    "OPC_Heap_Bufferflow(Historian,OPC)",
+    "HMI_Improper_Access_Control(OPC,HMI)",
+    "Improper_File_Access(HMI,EWS)",
+    "Deserialization_of_Untrusted_Data(HMI,EWS)"
+  ],
+  "edges": [
+    {
+      "source": "Print_Improper_Privilege_Management(Attacker,WS)",
+      "target": "DNS_Remote_Code_Execution(WS,DNS)"
+    },
+    {
+      "source": "DNS_Remote_Code_Execution(WS,DNS)",
+      "target": "OPC_Improper_Authentication(DNS,OPC)"
+    },
+    {
+      "source": "DNS_Remote_Code_Execution(WS,DNS)",
+      "target": "OPC_Heap_Bufferflow(DNS,OPC)"
+    },
+    {
+      "source": "OPC_Improper_Authentication(DNS,OPC)",
+      "target": "Improper_File_Access(OPC,EWS)"
+    },
+    {
+      "source": "OPC_Improper_Authentication(DNS,OPC)",
+      "target": "Deserialization_of_Untrusted_Data(OPC,EWS)"
+    },
+    {
+      "source": "Improper_File_Access(OPC,EWS)",
+      "target": "PLC_Weak_Password_Recovery(EWS,PLC1)"
+    },
+    {
+      "source": "Deserialization_of_Untrusted_Data(OPC,EWS)",
+      "target": "PLC_Weak_Password_Recovery(EWS,PLC1)"
+    },
+    {
+      "source": "PLC_Weak_Password_Recovery(EWS,PLC1)",
+      "target": "Modbus_Lack_of_Authentication(PLC1,PLC2)"
+    },
+    {
+      "source": "PLC_Weak_Password_Recovery(EWS,PLC1)",
+      "target": "Improper_Check(PLC1,PLC2)"
+    },
+    {
+      "source": "Modbus_Lack_of_Authentication(PLC1,PLC2)",
+      "target": "Abnormal_Operation(PLC2,Reactor)"
+    },
+    {
+      "source": "Improper_Check(PLC1,PLC2)",
+      "target": "Abnormal_Operation(PLC2,Reactor)"
+    },
+    {
+      "source": "Print_Improper_Privilege_Management(Attacker,WS)",
+      "target": "Oracle_Out_of_bounds_Write(WS,Historian)"
+    },
+    {
+      "source": "Oracle_Out_of_bounds_Write(WS,Historian)",
+      "target": "OPC_Improper_Authentication(Historian,OPC)"
+    },
+    {
+      "source": "Oracle_Out_of_bounds_Write(WS,Historian)",
+      "target": "OPC_Heap_Bufferflow(Historian,OPC)"
+    },
+    {
+      "source": "OPC_Improper_Authentication(Historian,OPC)",
+      "target": "HMI_Improper_Access_Control(OPC,HMI)"
+    },
+    {
+      "source": "OPC_Heap_Bufferflow(Historian,OPC)",
+      "target": "HMI_Improper_Access_Control(OPC,HMI)"
+    },
+    {
+      "source": "HMI_Improper_Access_Control(OPC,HMI)",
+      "target": "Improper_File_Access(HMI,EWS)"
+    },
+    {
+      "source": "HMI_Improper_Access_Control(OPC,HMI)",
+      "target": "Deserialization_of_Untrusted_Data(HMI,EWS)"
+    }
+  ]
+}
