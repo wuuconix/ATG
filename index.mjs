@@ -7,6 +7,7 @@ import renderTopology3 from "./graph/topology3.mjs"
 import renderAttackPath1 from "./graph/attackPath.mjs"
 import renderAttackPath2 from "./graph/attackPath2.mjs"
 import renderChart from "./graph/chart.mjs"
+import renderChart2 from "./graph/chart2.mjs"
 
 const diagrams = [ "attackGraph", "topology", "attackPath", "chart" ]
 const handlerMap = new Map([
@@ -29,6 +30,8 @@ const topologySelect = document.querySelector("fieldset[name=topology] > select"
 const chartSelect = document.querySelector("fieldset[name=chart] > select")
 const xSelect = document.querySelector("fieldset[name=x]> select")
 const ySelect = document.querySelector("fieldset[name=y]> select")
+const xField = document.querySelector("fieldset[name=x]")
+const yField = document.querySelector("fieldset[name=y]")
 
 diagramSelect.value = "topology"
 render(diagramSelect.value)
@@ -102,7 +105,15 @@ function attackPathHandler() {
 function chartHandler() {
 	removeDiagrams()
 	addNewDiv("chart")
-	renderChart(chartSelect.value, xSelect.value, ySelect.value)
+	if (["3", "4"].includes(chartSelect.value)) {
+		hide(xField)
+		hide(yField)
+		renderChart2(chartSelect.value)
+	} else {
+		show(xField)
+		show(yField)
+		renderChart(chartSelect.value, xSelect.value, ySelect.value)
+	}
 }
 
 /**
@@ -113,6 +124,10 @@ function showSecondSelect(value) {
 	for (let d of diagrams) {
 		const secondSelect = secondSelectMap.get(d)
 		d == value ? show(secondSelect) : hide(secondSelect)
+	}
+	if (value == "chart" && ["3", "4"].includes(chartSelect.value)) {
+		hide(xField)
+		hide(yField)
 	}
 }
 
