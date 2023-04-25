@@ -4,6 +4,9 @@ import attackPath from "../data/attackPath2WithLoc.json" assert { type: "json" }
 
 function stringify(node) {
   let res = `--------------
+攻击期望
+exp: ${node.expectation}
+--------------
 节点加权中心性指标值
 BC': ${node.centers[0]}
 CC': ${node.centers[1]}
@@ -56,7 +59,7 @@ function renderAttackPath() {
   const nodeDataArray = []
   const linkDataArray = []
 	for (let i = 0; i < attackPath.nodes.length; i++) {
-    nodeDataArray.push({ key: attackPath.nodes[i], loc: attackPath.locs[i], centers: attackPath.centers[i], sorts: attackPath.sorts[i] })
+    nodeDataArray.push({ key: attackPath.nodes[i], loc: attackPath.locs[i], centers: attackPath.centers[i], sorts: attackPath.sorts[i], expectation: attackPath.expectations[i] })
 	}
   for (let edge of attackPath.edges) {
     linkDataArray.push({ from: edge.source, to: edge.target, ...edge })
