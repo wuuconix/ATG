@@ -82,6 +82,9 @@ function renderTopology() {
     linkDataArray.push({ from: edge.source, to: edge.target, points: edge.points, ...edge })
   }
   topo.model = new go.GraphLinksModel(nodeDataArray, linkDataArray)
+  window.print = () => {
+		console.log(JSON.stringify(JSON.parse(topo.model.toJson()), null, "\t"))
+	}
 }
 
 export default renderTopology

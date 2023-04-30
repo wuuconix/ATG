@@ -32,11 +32,12 @@ function renderAttackPath() {
   atp.toolManager.toolTipDuration = 100000
   atp.nodeTemplate = $(go.Node, "Auto",
     { locationSpot: go.Spot.Center },
-    new go.Binding("location", "loc", go.Point.parse),
+    // new go.Binding("location", "loc", go.Point.parse),
+    new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
     $(go.Shape, "Rectangle", new go.Binding("fill", "sorts", s => s[3] == 1 ? "#F9BCE0" : "#e3f0f5" )),
     $(go.TextBlock, 
       { margin: 5, textAlign: "center" },
-      new go.Binding("text", "key")
+      new go.Binding("text", "", n => `${n.index}: ${n.key}`)
     ),
     {
       toolTip: $("ToolTip", 
@@ -54,17 +55,20 @@ function renderAttackPath() {
     },
 		$(go.Shape),
     $(go.Shape, { toArrow: "Standard" }),
-    new go.Binding("points", "points")
+    new go.Binding("points", "points").makeTwoWay()
   )
   const nodeDataArray = []
   const linkDataArray = []
 	for (let i = 0; i < attackPath.nodes.length; i++) {
-    nodeDataArray.push({ key: attackPath.nodes[i], loc: attackPath.locs[i], centers: attackPath.centers[i], sorts: attackPath.sorts[i], expectation: attackPath.expectations[i] })
+    nodeDataArray.push({ key: attackPath.nodes[i], index: i, loc: attackPath.locs[i], centers: attackPath.centers[i], sorts: attackPath.sorts[i], expectation: attackPath.expectations[i] })
 	}
   for (let edge of attackPath.edges) {
     linkDataArray.push({ from: edge.source, to: edge.target, ...edge })
   }
   atp.model = new go.GraphLinksModel(nodeDataArray, linkDataArray)
+  window.print = () => {
+		console.log(JSON.stringify(JSON.parse(atp.model.toJson()), null, "\t"))
+	}
 }
 
 export default renderAttackPath

@@ -89,6 +89,14 @@
     {
       "source": "HMI_Improper_Access_Control(OPC,HMI)",
       "target": "Deserialization_of_Untrusted_Data(HMI,EWS)"
+    },
+    {
+      "source": "Improper_File_Access(HMI,EWS)",
+      "target": "PLC_Weak_Password_Recovery(EWS,PLC1)"
+    },
+    {
+      "source": "Deserialization_of_Untrusted_Data(HMI,EWS)",
+      "target": "PLC_Weak_Password_Recovery(EWS,PLC1)"
     }
   ],
   "expectations": [

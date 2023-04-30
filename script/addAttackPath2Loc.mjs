@@ -6,8 +6,9 @@ function addLoc() {
   const g = new dagre.graphlib.Graph()
   g.setGraph({})
   g.setDefaultEdgeLabel(() => { return {} })
-  for (let node of attackPath.nodes) {
-    g.setNode(node, { width: node.length * 6 + 10, height: 25 })
+  for (let i = 0; i < attackPath.nodes.length; i++) {
+    const node = attackPath.nodes[i]
+    g.setNode(node, { width: (node.length + String(i).length + 2) * 6 + 10, height: 25 })
   }
   for (let edge of attackPath.edges) {
     g.setEdge(edge.source, edge.target)

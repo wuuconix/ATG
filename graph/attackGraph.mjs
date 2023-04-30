@@ -64,6 +64,9 @@ function renderAttackGraph(attackGraph, divId = "attackGraph") {
     linkDataArray.push({ from: edge.source, to: edge.target, ...edge })
   }
   atg.model = new go.GraphLinksModel(nodeDataArray, linkDataArray)
+  window.print = () => {
+		console.log(JSON.stringify(JSON.parse(atg.model.toJson()), null, "\t"))
+	}
 }
 
 export default renderAttackGraph
