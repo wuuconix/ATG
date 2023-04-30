@@ -55,7 +55,13 @@ function renderAttackPath() {
     },
 		$(go.Shape),
     $(go.Shape, { toArrow: "Standard" }),
-    new go.Binding("points", "points").makeTwoWay()
+    new go.Binding("points", "points").makeTwoWay((val) => {
+      const points = []
+      for (const p of val.s) {
+        points.push({ x: Math.round(p.J), y: Math.round(p.K) })
+      }
+      return points
+    })
   )
   const nodeDataArray = []
   const linkDataArray = []
